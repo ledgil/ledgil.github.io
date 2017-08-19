@@ -6,13 +6,13 @@
   <title>hello markdown | ledgil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="入门" />
+  <meta name="keywords" content="教程" />
   
   
   
   
   <meta name="description" content="Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。markdown相比于HTML来言更加轻量，熟练掌握其中基本语法规则就可以轻松写出不错的文章。">
-<meta name="keywords" content="入门">
+<meta name="keywords" content="教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hello Markdown">
 <meta property="og:url" content="http://ledgil.top/2017/08/18/helloMarkdown/index.html">
@@ -23,7 +23,13 @@
 <meta property="og:image" content="http://www.markdownpad.com/img/markdownpad2.png">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/6aee7dbbgw1effeaclhiyj20eh09cwez.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/6aee7dbbgw1efffa67voyj20ix0ctq3n.jpg">
-<meta property="og:updated_time" content="2017-08-18T03:55:19.533Z">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/qiniutianjia.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/quedingchuangjian.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/fuzhiwailian.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/tupianyangshi.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/chulidaima.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/chulidaima.png?imageView2/2/w/200/h/200/q/75|imageslim">
+<meta property="og:updated_time" content="2017-08-19T04:57:56.663Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello Markdown">
 <meta name="twitter:description" content="Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。markdown相比于HTML来言更加轻量，熟练掌握其中基本语法规则就可以轻松写出不错的文章。">
@@ -186,7 +192,7 @@
 	</a>
 
       
-    <a class="article-category-link" href="/categories/hello-world/">hello world</a>
+    <a class="article-category-link" href="/categories/hexo-个人博客/">hexo 个人博客</a>
 
       
 	<a class="article-views">
@@ -303,8 +309,16 @@
 <p>比如我要到<a href="http://www.baidu.com" target="_blank" rel="external">百度</a>去</p>
 <p><code>比如我要到[百度](http://www.baidu.com)去</code></p>
 <p>两个语法较像差别在于图片链接语法前有一个 <code>!</code></p>
-<p>测试css</p>
-<p></p><style>#div1{width:100px;height:100px;background:red;transition:width 2s;-webkit-transition:width 2s;} #div1:hover{width:300px;}</style><div id="div1"></div><p></p>
+<p>而图片链接需要<a href="https://baike.baidu.com/item/%E5%9B%BE%E5%BA%8A/10721348?fr=aladdin" target="_blank" rel="external">图床</a>,这里推荐使用<a href="https://portal.qiniu.com/" target="_blank" rel="external">七牛云</a>，功能强大、速度快、免费且容量大</p>
+<p>只需要注册好账号，点击“立即添加”，填写信息，上传图片，点击“···”，复制外链就可得到图片链接</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/qiniutianjia.png" alt="立即添加"><br><img src="http://ouvr31quw.bkt.clouddn.com/quedingchuangjian.png" alt="确定创建"><br><img src="http://ouvr31quw.bkt.clouddn.com/fuzhiwailian.png" alt="复制外链"></p>
+<p>还可设置图片样式，只需在链接后追加一个 <code>?</code> 然后再加上样式链接即可。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/tupianyangshi.png" alt="图片样式"></p>
+<p>配置好后复制样式链接（这个样式是缩减至指定宽高区域内）</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/chulidaima.png" alt="复制样式链接"></p>
+<p>这张图的代码为：<code>![复制样式链接](http://ouvr31quw.bkt.clouddn.com/chulidaima.png)</code></p>
+<p>在链接后追加 <code>?imageView2/2/w/200/h/200/q/75|imageslim</code> 即 <code>![复制样式链接](http://ouvr31quw.bkt.clouddn.com/chulidaima.png?imageView2/1/w/200/h/200/q/75|imageslim)</code></p>
+<p>效果为：<img src="http://ouvr31quw.bkt.clouddn.com/chulidaima.png?imageView2/2/w/200/h/200/q/75|imageslim" alt="追加后的效果"></p>
 
       
     </div>
@@ -318,8 +332,8 @@ var a = new Donate({
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
   btnText: '打赏支持', // 可选参数，打赏按钮文字
   el: document.getElementById('donation_div'),
-  wechatImage: 'http://i2.bvimg.com/606558/85261e6b3ede6251s.png',
-  alipayImage: 'http://ouur4c5x0.bkt.clouddn.com/1502932151443.jpg'
+  wechatImage: 'http://ouur4c5x0.bkt.clouddn.com/wechatpay.png',
+  alipayImage: 'http://ouur4c5x0.bkt.clouddn.com/alipay.jpg'
 });
 </script>
       
@@ -350,7 +364,7 @@ var a = new Donate({
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
 
     </footer>
   </div>
