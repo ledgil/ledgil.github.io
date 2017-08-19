@@ -19,6 +19,7 @@
 <meta property="og:site_name" content="ledgil">
 <meta property="og:description" content="在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/tianjiaxiugai.png">
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/hiker.png">
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/theme.png">
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/theme%E9%85%8D%E7%BD%AE.png">
@@ -30,11 +31,11 @@
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/tupian.png">
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/sidebar.png">
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/donate.png">
-<meta property="og:updated_time" content="2017-08-19T05:19:47.209Z">
+<meta property="og:updated_time" content="2017-08-19T05:25:50.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo 个人博客使用技巧">
 <meta name="twitter:description" content="在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。">
-<meta name="twitter:image" content="http://ouvr31quw.bkt.clouddn.com/hiker.png">
+<meta name="twitter:image" content="http://ouvr31quw.bkt.clouddn.com/tianjiaxiugai.png">
   
     <link rel="alternate" href="/atom.xml" title="ledgil" type="application/atom+xml">
   
@@ -207,7 +208,9 @@
       
         <p>在前<a href="http://www.ledgil.top/2017/08/18/helloHexo/" target="_blank" rel="external">一篇文章</a>中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。</p>
 <a id="more"></a>
-<p><strong>注意：执行 <code>hexo g</code> 和 <code>hexo d</code>命令后，hexo会匹配已改动的文件进行上传修改，未改动的文件不会上传，即每次是局部修改，而不是将全部删除然后重新上传全部内容。<br>在本地预览效果或者上传到GitHub之后，清理一下浏览器的缓存，否则可能看不到效果</strong></p>
+<p><strong>注意：执行 <code>hexo g</code> 和 <code>hexo d</code>命令后，hexo会匹配已改动的文件进行上传修改，未改动的文件不会上传，即每次是局部修改，而不是将全部删除然后重新上传全部内容。</strong></p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/tianjiaxiugai.png" alt="修改"></p>
+<p><strong>在本地预览效果或者上传到GitHub之后，清理一下浏览器的缓存，否则可能看不到效果</strong></p>
 <h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><h3 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h3><p>我们可以使用<a href="https://hexo.io/themes/" target="_blank" rel="external">官方主题</a>,点击浏览后，找到GitHub图标进入开发者的GitHub，这里以主题<a href="https://github.com/iTimeTraveler/hexo-theme-hiker.git" target="_blank" rel="external">hiker</a>为例，获取下载链接</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/hiker.png" alt=""></p>
 <p>在hexo<strong>根目录</strong>下打开Git Bash Here，输入命令：<code>git clone https://github.com/iTimeTraveler/hexo-theme-hiker.git themes/hiker</code> （clone后的链接为你获取的下载链接，themes/hiker表示下载到themes/hiker文件夹）</p>
@@ -265,7 +268,7 @@
 <ul>
 <li><strong>文章标签、分类</strong></li>
 </ul>
-<p>只需在文字头部追加 <code>tags: &quot;xxx&quot;</code> <code>categories: &quot;xxxx&quot;</code> 即可将文章贴标签或分类。如果标签、分类存在空标签、空分类（比如标签“news”下没有文章），<code>hexo g</code>后会自动消除这些标签、分类，如果仍然存在，请执行 <code>hexo clean</code> （清除本地public文件）后再<code>hexo g</code> 以及其他操作</p>
+<p>只需在文字头部追加 <code>tags: &quot;xxx&quot;</code> <code>categories: &quot;xxxx&quot;</code> （<strong>注意空格</strong>）即可将文章贴标签或分类。如果标签、分类存在空标签、空分类（比如标签“news”下没有文章），<code>hexo g</code>后会自动消除这些标签、分类，如果仍然存在，请执行 <code>hexo clean</code> （清除本地public文件）后再<code>hexo g</code> 以及其他操作</p>
 <h2 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h2><h3 id="网站信息"><a href="#网站信息" class="headerlink" title="网站信息"></a>网站信息</h3><p>各个主题的配置大同小异，这里就不多赘述了，简单说一下hiker的主题配置，<br>如果您的主题配置有不同或者对其有疑惑，请利用好搜索引擎。</p>
 <p>编辑器打开主题的配置文件</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/tupian.png" alt=""></p>
