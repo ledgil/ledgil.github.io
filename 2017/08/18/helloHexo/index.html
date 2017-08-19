@@ -50,7 +50,7 @@
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/ping.png">
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90.png">
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/CNAME.png">
-<meta property="og:updated_time" content="2017-08-19T05:10:49.329Z">
+<meta property="og:updated_time" content="2017-08-19T05:32:31.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo + github 建立个人博客">
 <meta name="twitter:description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。gitHub是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，故名gitHub。  早就有所耳闻使用GitHub可以搭建个人博客，但是网络上各种教程鱼龙混杂，几乎没有一个是完整的适合新人的教程。所以难免要遇到一些困">
@@ -359,7 +359,10 @@
 <p>在hexo根目录新建一个名字为getkey文件夹，输入以下命令</p>
 <p><code>ssh-keygen -t rsa -C &quot;邮件地址&quot; -f getkey文件夹目录/key</code></p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/key4.png" alt=""></p>
-<p>打开getkey文件夹，用编辑器打开id_rsa.pub文件，复制里面的内容。<br> 添加到github</p>
+<p>打开getkey文件夹，用编辑器打开id_rsa.pub文件，复制里面的内容。</p>
+<ul>
+<li><strong>添加到github</strong></li>
+</ul>
 <p>点击右上角头像setting，左侧“ssh and gpg keys”,右上点“new ssh key”，title随便填，key粘贴复制的内容，左下点 Add SSH key。完成。</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/ssh%20key%20git.png" alt=""></p>
 <ul>
@@ -372,7 +375,7 @@
 <h3 id="创建CANME文件"><a href="#创建CANME文件" class="headerlink" title="创建CANME文件"></a>创建CANME文件</h3><p>在hexo/source/里新建一个文本文件CNAME（无后缀名），编辑器打开填入你的域名，加不加www随意。无论当你访问带<code>www</code>还是不带<code>www</code>的域名，都会跳转到你在CNAME文件里填写的域名。</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/CNAME.png" alt="CNAME"></p>
 <p>运行<code>hexo g</code> 和 <code>hexo d</code> 后相关配置就会部署并上传到GitHub。访问你的域名就可以看到blog。而默认的xxxxx.github.io并没有失效，访问该域名后会跳转到你的域名。</p>
-<p>ok，域名已经绑定好啦，接下来就该充实我们的blog内容了。</p>
+<p>ok，域名已经绑定好啦，接下来就该充实我们的blog内容了。继续阅读<a href="http://www.ledgil.top/2017/08/19/Hexo/" target="_blank" rel="external">hexo 个人博客使用技巧</a></p>
 <hr>
 
       
