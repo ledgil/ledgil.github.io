@@ -46,7 +46,7 @@
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/hash.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E6%94%B9%E7%BC%96%E7%A0%81.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/webshell.png">
-<meta property="og:updated_time" content="2017-09-03T07:29:20.762Z">
+<meta property="og:updated_time" content="2017-09-03T07:35:05.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="光速学会sql注入">
 <meta name="twitter:description" content="今天介绍一个相当强大的web漏洞，sql注入。这也是参加课程后第一门掌握比较熟练的技术（因为其他的都不会……），它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危害，反正SQL注入针对着数据库，所以这些数据库你想怎么玩都可以，前提是真的可以利用它们。由于本人理解">
@@ -231,27 +231,35 @@
 </li>
 <li><p>展示数据库有哪些数据表：<code>SHOW tables;</code></p>
 </li>
-<li><p>展示“teacher”数据表所有内容（“<em>”代表所有）：`SELECT </em> FROM teacher;<code>展示“teacher”数据表内“name”这一列的内容：</code>SELECT name FROM teacher;`</p>
+<li><p>展示“teacher”数据表所有内容（<code>*</code>代表所有）：<code>SELECT * FROM teacher;</code><br>展示“teacher”数据表内“name”这一列的内容： <code>SELECT name FROM teacher;</code></p>
 </li>
-<li><p>where 语法<br>展示“teacher”数据表内“name”这一列的内容，其中id = 2：<code>SELECT name FROM teacher WHERE id = 2;</code></p>
-</li>
-<li><p>order by 语法<br>对select选出的几组数据按照某一列或某几列进行排序。比如：<br>展示“teacher”数据表，且以“name”这一栏进行排序：<code>SELECT * FROM teacher ORDER BY name;</code><br>展示“teacher”数据表中的id和name，且以“name”这一栏进行排序：<code>SELECT id,name FROM teacher ORDER BY name;</code><br><strong>划重点</strong>：<code>SELECT * FROM teacher ORDER BY 3</code> 其中的3可以换为任意数字，表示第3栏，比如说name这一栏在teacher表内的第2栏，那么<code>SELECT * FROM teacher ORDER BY name;</code>与<code>SELECT * FROM teacher ORDER BY 2;</code>是等效的，但如果这个表总共只有4栏，则输入命令 <code>select * from teacher order by 5</code> 就会出错，因为没有第5栏（也就是输入的数值小于等于栏目总数）.<br><strong>所以可以用 <code>order by m</code> （m为正整数）来猜测select选出的列的数目,当select * 时，则可猜测出所有列的数目</strong></p>
-</li>
-<li><p>union 语法<br>该语法用于合并输出多条select语句，比如合并展示“teacher”数据表中“name”这一栏和“student”数据表中“name”这一栏：<code>SELECT name FROM teacher UNION SELECT name FROM student;</code><br>其中重复的信息会被只保留一个，想要展示所有且包括重复的信息使用 union all 语法：<code>SELECT name FROM teacher UNION ALL SELECT name FROM student;</code></p>
+<li><p><strong>where 语法</strong></p>
 </li>
 </ul>
+<p>展示“teacher”数据表内“name”这一列的内容，其中id = 2：<code>SELECT name FROM teacher WHERE id = 2;</code></p>
+<ul>
+<li><strong>order by 语法</strong></li>
+</ul>
+<p>对select选出的几组数据按照某一列或某几列进行排序。比如：<br>展示“teacher”数据表，且以“name”这一栏进行排序：<code>SELECT * FROM teacher ORDER BY name;</code><br>展示“teacher”数据表中的id和name，且以“name”这一栏进行排序：<code>SELECT id,name FROM teacher ORDER BY name;</code><br><strong>划重点</strong>：<code>SELECT * FROM teacher ORDER BY 3</code> 其中的3可以换为任意数字，表示第3栏，比如说name这一栏在teacher表内的第2栏，那么<code>SELECT * FROM teacher ORDER BY name;</code>与<code>SELECT * FROM teacher ORDER BY 2;</code>是等效的，但如果这个表总共只有4栏，则输入命令 <code>select * from teacher order by 5</code> 就会出错，因为没有第5栏（也就是输入的数值小于等于栏目总数）.<br><strong>所以可以用 <code>order by m</code> （m为正整数）来猜测select选出的列的数目,当select * 时，则可猜测出所有列的数目</strong></p>
+<ul>
+<li><strong>union 语法</strong></li>
+</ul>
+<p>该语法用于合并输出多条select语句，比如合并展示“teacher”数据表中“name”这一栏和“student”数据表中“name”这一栏：<code>SELECT name FROM teacher UNION SELECT name FROM student;</code><br>其中重复的信息会被只保留一个，想要展示所有且包括重复的信息使用 union all 语法：<code>SELECT name FROM teacher UNION ALL SELECT name FROM student;</code></p>
 <p>注意：UNION 内部的每个 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每个 SELECT语句中的列的顺序必须相同。</p>
 <p>比如union前一个select语句是<code>select id,age,name  from ……</code>，依次为int、int、char类型，总共是3个，则后一个select语句也必须是<code>select  id,age,name</code>，也必须以依次为int、int、char类型，也必须是3个，不能颠倒或不同，否则union语法出错。但是可以<code>select id,age,name from teacher union select null,null,null;</code>null表示不显示内容,null数量与前面的列数对应。</p>
 <ul>
-<li>注释<br><code>#…………</code> 在需注释的内容前加 <code>#</code> 可注释直到该行结束<br><code>-- ……</code> 在需注释的内容前加 <code>--</code>和一个空格 可注释直到该行结束<br><code>/*……*/</code> 多行注释，类似c++.</li>
+<li>注释</li>
 </ul>
+<p><code>#…………</code> 在需注释的内容前加 <code>#</code> 可注释直到该行结束<br><code>-- ……</code> 在需注释的内容前加 <code>--</code>和一个空格 可注释直到该行结束<br><code>/*……*/</code> 多行注释，类似c++.</p>
 <h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h2><h3 id="手动搭建测试环境"><a href="#手动搭建测试环境" class="headerlink" title="手动搭建测试环境"></a>手动搭建测试环境</h3><ul>
-<li><strong>phpstudy</strong><br>下载<a href="http://www.phpstudy.net/download.html" target="_blank" rel="external">phpstudy</a>,搭建php调试环境，用以解析处理php文件。</li>
+<li><strong>phpstudy</strong></li>
 </ul>
+<p>下载<a href="http://www.phpstudy.net/download.html" target="_blank" rel="external">phpstudy</a>,搭建php调试环境，用以解析处理php文件。</p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/phpstudy.png" alt="phpstudy"></p>
 <ul>
-<li><strong>DVWA测试环境</strong><br>网上有大神可以自己写代码搭建，这里就不带着一起写代码了，直接使用一个靶机来测试。<br>进入<a href="http://www.dvwa.co.uk/" target="_blank" rel="external">DVWA官网</a>点击download下载，解压，将解压后的文件夹全部复制到网站根目录下（打开phpstudy，点击其他选项菜单，点选网站根目录），打开文件夹后打开config文件夹，用编辑器打开其中的配置文件，将如图所示的user和password改成mysql数据库的，默认两个都是root。保存后，将该文件的后缀改为<code>.php</code>，不然会找不到配置文件。<br><img src="http://ovjsmeumq.bkt.clouddn.com/config.png" alt="config"></li>
+<li><strong>DVWA测试环境</strong></li>
 </ul>
+<p>网上有大神可以自己写代码搭建，这里就不带着一起写代码了，直接使用一个靶机来测试。<br>进入<a href="http://www.dvwa.co.uk/" target="_blank" rel="external">DVWA官网</a>点击download下载，解压，将解压后的文件夹全部复制到网站根目录下（打开phpstudy，点击其他选项菜单，点选网站根目录），打开文件夹后打开config文件夹，用编辑器打开其中的配置文件，将如图所示的user和password改成mysql数据库的，默认两个都是root。保存后，将该文件的后缀改为<code>.php</code>，不然会找不到配置文件。<br><img src="http://ovjsmeumq.bkt.clouddn.com/config.png" alt="config"></p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/dvwa1.png" alt="配置"></p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/configphp.png" alt="修改文件为.php"></p>
 <p>确认phpstudy已经打开并启动，且apache和mysql后为绿色。(可以在php版本中选择其他数据库，这里用默认即可)<br><img src="http://ovjsmeumq.bkt.clouddn.com/phpstudy.png" alt="phpstudy"></p>
