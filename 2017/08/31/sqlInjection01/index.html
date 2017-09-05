@@ -9,12 +9,12 @@
   
   
   
-  <meta name="description" content="title: 光速入门sql注入 tags: “sql注入” categories: “教程”  今天介绍一个相当强大的web漏洞，sql注入。这也是参加课程后第一门掌握比较熟练的技术（因为其他的都不会……），它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危">
+  <meta name="description" content="title: “面向新手sql注入（上篇）” tags: “sql注入” categories: “教程”  今天介绍一个相当强大的web漏洞，sql注入。这也是参加课程后第一门掌握比较熟练的技术（因为其他的都不会……），它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ledgil">
 <meta property="og:url" content="http://ledgil.top/2017/08/31/sqlInjection01/index.html">
 <meta property="og:site_name" content="ledgil">
-<meta property="og:description" content="title: 光速入门sql注入 tags: “sql注入” categories: “教程”  今天介绍一个相当强大的web漏洞，sql注入。这也是参加课程后第一门掌握比较熟练的技术（因为其他的都不会……），它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危">
+<meta property="og:description" content="title: “面向新手sql注入（上篇）” tags: “sql注入” categories: “教程”  今天介绍一个相当强大的web漏洞，sql注入。这也是参加课程后第一门掌握比较熟练的技术（因为其他的都不会……），它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/phpstudy.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/config.png">
@@ -43,10 +43,10 @@
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/hash.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E6%94%B9%E7%BC%96%E7%A0%81.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/webshell.png">
-<meta property="og:updated_time" content="2017-09-04T13:38:28.106Z">
+<meta property="og:updated_time" content="2017-09-05T13:38:57.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ledgil">
-<meta name="twitter:description" content="title: 光速入门sql注入 tags: “sql注入” categories: “教程”  今天介绍一个相当强大的web漏洞，sql注入。这也是参加课程后第一门掌握比较熟练的技术（因为其他的都不会……），它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危">
+<meta name="twitter:description" content="title: “面向新手sql注入（上篇）” tags: “sql注入” categories: “教程”  今天介绍一个相当强大的web漏洞，sql注入。这也是参加课程后第一门掌握比较熟练的技术（因为其他的都不会……），它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万">
 <meta name="twitter:image" content="http://ovjsmeumq.bkt.clouddn.com/phpstudy.png">
   
     <link rel="alternate" href="/atom.xml" title="ledgil" type="application/atom+xml">
@@ -207,7 +207,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>title: 光速入门sql注入</p>
+<p>title: “面向新手sql注入（上篇）”</p>
 <p>tags: “sql注入”</p>
 <p>categories: “教程”</p>
 <hr>
