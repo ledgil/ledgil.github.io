@@ -9,19 +9,19 @@
   
   
   
-  <meta name="description" content="— title: “面向新手sql注入（下篇）” tags: “sql注入” categories: “教程”  上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
+  <meta name="description" content="—title: “面向新手sql注入（下篇）”tags: “sql注入” categories: “教程”上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ledgil">
 <meta property="og:url" content="http://ledgil.top/2017/09/03/sqlInjection02/index.html">
 <meta property="og:site_name" content="ledgil">
-<meta property="og:description" content="— title: “面向新手sql注入（下篇）” tags: “sql注入” categories: “教程”  上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
+<meta property="og:description" content="—title: “面向新手sql注入（下篇）”tags: “sql注入” categories: “教程”上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/exist.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/missing.png">
-<meta property="og:updated_time" content="2017-09-05T13:45:15.138Z">
+<meta property="og:updated_time" content="2017-09-05T13:47:10.300Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ledgil">
-<meta name="twitter:description" content="— title: “面向新手sql注入（下篇）” tags: “sql注入” categories: “教程”  上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
+<meta name="twitter:description" content="—title: “面向新手sql注入（下篇）”tags: “sql注入” categories: “教程”上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
 <meta name="twitter:image" content="http://ovjsmeumq.bkt.clouddn.com/exist.png">
   
     <link rel="alternate" href="/atom.xml" title="ledgil" type="application/atom+xml">
@@ -181,12 +181,8 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>﻿﻿﻿﻿﻿﻿—</p>
-<p>title: “面向新手sql注入（下篇）”</p>
-<p>tags: “sql注入”</p>
-<p>categories: “教程”</p>
-<hr>
-<p>上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。</p>
+        <p>﻿﻿﻿﻿﻿﻿—<br>title: “面向新手sql注入（下篇）”<br>tags: “sql注入”</p>
+<h2 id="categories-“教程”"><a href="#categories-“教程”" class="headerlink" title="categories: “教程”"></a>categories: “教程”</h2><p>上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。</p>
 <a id="more"></a>
 <h2 id="SQL注入深入探测"><a href="#SQL注入深入探测" class="headerlink" title="SQL注入深入探测"></a>SQL注入深入探测</h2><h3 id="SQL盲注（通过布尔判断）"><a href="#SQL盲注（通过布尔判断）" class="headerlink" title="SQL盲注（通过布尔判断）"></a>SQL盲注（通过布尔判断）</h3><p>在上篇文章中，我们对靶子进行了轰炸，顺利的获取了数据。还记得判断是否存在SQL注入的第二步是什么？加上单引号后看是否报错，从报错信息中能得到很多有用的信息，比如使用了什么样的数据库、网站根目录等。这是因为web服务器打开了错误回显，能够使错误信息显示到页面上，那么当关闭了错误回显，即使我们加上单引号也看不出什么信息了怎么办？</p>
 <ul>
@@ -285,7 +281,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL注入深入探测"><span class="nav-number">1.</span> <span class="nav-text">SQL注入深入探测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL盲注（通过布尔判断）"><span class="nav-number">1.1.</span> <span class="nav-text">SQL盲注（通过布尔判断）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL盲注（通过时间判断）"><span class="nav-number">1.2.</span> <span class="nav-text">SQL盲注（通过时间判断）</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#categories-“教程”"><span class="nav-number">1.</span> <span class="nav-text">categories: “教程”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL注入深入探测"><span class="nav-number">2.</span> <span class="nav-text">SQL注入深入探测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL盲注（通过布尔判断）"><span class="nav-number">2.1.</span> <span class="nav-text">SQL盲注（通过布尔判断）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL盲注（通过时间判断）"><span class="nav-number">2.2.</span> <span class="nav-text">SQL盲注（通过时间判断）</span></a></li></ol></li></ol>
     
     </div>
   </aside>
