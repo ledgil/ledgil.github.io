@@ -3,36 +3,38 @@
 <head>
   <meta charset="utf-8">
   
-  <title>面向新手sql注入（中） | ledgil</title>
+  <title>hexo 个人博客使用技巧 | ledgil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="SQL注入" />
+  <meta name="keywords" content="入门" />
   
   
   
   
-  <meta name="description" content="上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
-<meta name="keywords" content="SQL注入">
+  <meta name="description" content="在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。">
+<meta name="keywords" content="入门">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向新手SQL注入（中）">
+<meta property="og:title" content="hexo 个人博客使用技巧">
 <meta property="og:url" content="http://ledgil.top/2017/08/19/helloHexo02/index.html">
 <meta property="og:site_name" content="ledgil">
-<meta property="og:description" content="上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
+<meta property="og:description" content="在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/exist.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/missing.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/5s.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%2527.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/uniON.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E6%B3%A8%E9%87%8A%E7%AC%A6.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/python%20download.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/python%20version.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/sqlmap.png">
-<meta property="og:updated_time" content="2017-09-08T08:16:14.476Z">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/hiker.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/theme.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/theme%E9%85%8D%E7%BD%AE.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/about.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/theme2.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/categories.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/tags.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/new%20name.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/tupian.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/sidebar.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/donate.png">
+<meta property="og:updated_time" content="2017-09-08T08:28:13.329Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向新手SQL注入（中）">
-<meta name="twitter:description" content="上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
-<meta name="twitter:image" content="http://ovjsmeumq.bkt.clouddn.com/exist.png">
+<meta name="twitter:title" content="hexo 个人博客使用技巧">
+<meta name="twitter:description" content="在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。">
+<meta name="twitter:image" content="http://ouvr31quw.bkt.clouddn.com/hiker.png">
   
     <link rel="alternate" href="/atom.xml" title="ledgil" type="application/atom+xml">
   
@@ -178,7 +180,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      面向新手SQL注入（中）
+      hexo 个人博客使用技巧
     </h1>
   
 
@@ -191,7 +193,7 @@
 	</a>
 
       
-    <a class="article-category-link" href="/categories/web安全/">web安全</a>
+    <a class="article-category-link" href="/categories/hexo-个人博客/">hexo 个人博客</a>
 
       
 	<a class="article-views">
@@ -203,89 +205,72 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://www.ledgil.top/2017/08/31/sqlInjection01/" target="_blank" rel="external">上一篇问文章</a>中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。</p>
+        <p>在<a href="http://www.ledgil.top/2017/08/18/helloHexo/" target="_blank" rel="external">前一篇文章</a>中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。</p>
 <a id="more"></a>
-<h2 id="SQL注入深入探测"><a href="#SQL注入深入探测" class="headerlink" title="SQL注入深入探测"></a>SQL注入深入探测</h2><h3 id="SQL盲注（通过布尔判断）"><a href="#SQL盲注（通过布尔判断）" class="headerlink" title="SQL盲注（通过布尔判断）"></a>SQL盲注（通过布尔判断）</h3><p>在上篇文章中，我们对靶子进行了轰炸，顺利的获取了数据。还记得判断是否存在SQL注入的第二步是什么？加上单引号后看是否报错，从报错信息中能得到很多有用的信息，比如使用了什么样的数据库、网站根目录等。这是因为web服务器打开了错误回显，能够使错误信息显示到页面上，那么当关闭了错误回显，即使我们加上单引号也看不出什么信息了怎么办？</p>
+<p><strong>注意：在本地预览效果或者上传到GitHub之后，清理一下浏览器的缓存，否则可能看不到效果</strong></p>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><h3 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h3><p>我们可以使用<a href="https://hexo.io/themes/" target="_blank" rel="external">官方主题</a>,点击浏览后，找到GitHub图标进入开发者的GitHub，这里以主题<a href="https://github.com/iTimeTraveler/hexo-theme-hiker.git" target="_blank" rel="external">hiker</a>为例，获取下载链接</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/hiker.png" alt=""></p>
+<p>在hexo<strong>根目录</strong>下打开Git Bash Here，输入命令：<code>git clone https://github.com/iTimeTraveler/hexo-theme-hiker.git themes/hiker</code> （clone后的链接为你获取的下载链接，themes/hiker表示下载到themes/hiker文件夹）</p>
+<p>下载时显示进度和下载速度，下载完成后将出现hexo目录下的themes文件夹内</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/theme.png" alt=""></p>
+<h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><p>用编辑器打开hexo根目录下的_config.yml，找到theme，更改为主题名称即可</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/theme%E9%85%8D%E7%BD%AE.png" alt=""></p>
+<p><code>hexo g</code> <code>hex d</code> 后访问域名查看效果</p>
+<h2 id="主题内容新建"><a href="#主题内容新建" class="headerlink" title="主题内容新建"></a>主题内容新建</h2><h3 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h3><ul>
+<li><strong>新建关于页面</strong></li>
+</ul>
+<p>之前打开blog的一些页面比如about（关于我）页面会404 not find file。是因为本地没有配置并生成这些页面。</p>
+<p>在根目录下Git Bash Here 打开命令窗口，输入命令： <code>hexo new page &quot;about&quot;</code> ，在根目录的source文件夹内就会显示一个about文件夹，打开编辑其中的 index.md 即可完成。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/about.png" alt=""></p>
+<p>然后打开<strong>主题</strong>的配置文件，将About前的 <code>#</code> 去掉（没有 <code>#</code> 则不用动，没有About则给它追加上）,以下的 分类 标签 页面亦是如此，就不配图了。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/theme2.png" alt=""></p>
+<p><code>hexo g</code> 生成本地静态文件，hexo会根据配置将.md文件渲染成html文件，出现在public文件夹里。<br><code>hexo server</code> 开启本地查看服务，访问<a href="http://localhost:4000/" target="_blank" rel="external">localhost:4000</a>可在本地查看部署好的blog</p>
 <ul>
-<li><strong>打开测试环境</strong></li>
+<li><strong>新建分类页面</strong></li>
 </ul>
-<p>打开phpstudy并启动，打开浏览器进入dvwa测试环境，将安全等级设为low，点击SQL Injection (Blind)。输入 <code>1</code> ，提交显示信息与之前不同，之前是显示了id=1的信息（有first_name和last_name），而这里显示的是存在id=1这个用户，再输入 <code>1&#39;</code> 提交后，发现没有我们上一篇文章报错信息了，而是显示了一个没啥意思的信息，大概为数据库里找不到 <code>1&#39;</code> 这个用户。<br><img src="http://ovjsmeumq.bkt.clouddn.com/exist.png" alt="存在id=1的用户"><br><img src="http://ovjsmeumq.bkt.clouddn.com/missing.png" alt="不存在id=1&#39;的用户"></p>
-<p>这看起来像是 <code>1&#39;</code> 没有拼接进代码里而是当作变量进行了处理而没有执行，也可能执行了但是经过一些处理没有显示错误信息而只是告诉输入内容有误。所以我们需用盲注来判断到底有没有拼接了输入的内容，到底存不存在注入漏洞。</p>
+<p>同理，在根目录下Git Bash Here 打开命令窗口，输入命令： <code>hexo new page &quot;categories&quot;</code> ，在根目录的source文件夹内就会显示一个categories文件夹，打开编辑其中的 index.md ，添加 <code>type: &quot;categories&quot;</code> 这使得hexo辩认出是分类页面，添加 <code>comments: false</code> 这使得该页面的评论功能关闭，改为true或者删掉这一行评论功能打开。保存。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/categories.png" alt=""></p>
+<p>类似于 关于 页面配置好<code>主题</code>的设置</p>
+<p>然后 <code>hexo g</code> <code>hexo server</code> 在本地查看效果，没有反应则清一下缓存再查看，还没效果则在 index.md 添加 <code>layout: &quot;categories&quot;</code> 使hexo强制渲染本文件为分类。</p>
 <ul>
-<li><strong>盲注（通过布尔判断）原理</strong></li>
+<li><strong>新建标签页面</strong></li>
 </ul>
-<p>盲注的思想是，构造简单的条件语句，根据返回的页面是否发生变化，来判断sql语句是否执行。</p>
-<p>我们输入 <code>1&#39; and 1=2 ;#</code> 提示找不到用户，再输入 <code>1&#39; and 1=1 ;#</code> ，发现找到了，这说明的确执行了命令。因为，加上 <code>and 1=2</code> and后的假命题使sql语句执行会出错，and前后都为真才可正常执行，所以加上 <code>and 1=1</code> 正常执行，因为1=1是真命题。但是经过处理，执行错误的sql语句并没有像之前一样现实错误信息，而是显示空页或出错页面或制作好的一些信息。</p>
-<p>由此，证明漏洞存在。但是我没看到，即使正确输入也不显示数据库内的信息，所以不能显示我们需要的内容。</p>
-<p>这里能利用的就是我们拼接进命令后，能通过提交后的正常和错误页面判断我们输入的东西存不存在。换句话说，如果页面正常说明我们输入的命令正常执行了，如果页面与正常页面不同说明我们输入的命令不能正常执行。</p>
-<p>因为页面要么正常，要么错误，只有两种情况，所以称通过布尔来判断。</p>
+<p>同理，在根目录下Git Bash Here 打开命令窗口，输入命令： <code>hexo new page &quot;tags&quot;</code> ，在根目录的source文件夹内就会显示一个tags文件夹，打开编辑其中的 index.md ，添加 <code>type: &quot;tags&quot;</code> 这使得hexo辩认出是标签页面，添加 <code>comments: false</code> 这使得该页面的评论功能关闭，改为true或者删掉这一行评论功能打开。保存。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/tags.png" alt=""></p>
+<p>类似于 关于 页面配置好<code>主题</code>的设置</p>
+<p>然后 <code>hexo g</code> <code>hexo server</code> 在本地查看效果，没有反应则清一下缓存再查看，还没效果则在 index.md 添加 <code>layout: &quot;tags&quot;</code> 使hexo强制渲染本文件为标签。</p>
 <ul>
-<li><strong>盲注（通过布尔判断）的利用</strong></li>
+<li><strong>新建自定义页面</strong></li>
 </ul>
-<p>输入 <code>1&#39; and substring(user(),1,1) = &#39;a&#39; ;#</code> 提交，“MISING”。<br>输入 <code>1&#39; and substring(user(),1,1) = &#39;b&#39; ;#</code> 提交，“MISING”。<br>输入 <code>1&#39; and substring(user(),1,1) = &#39;c&#39; ;#</code> 提交，“MISING”。<br>……<br>好吧，直接输入 <code>1&#39; and substring(user(),1,1) = &#39;r&#39; ;#</code> 提交，显示存在的“正常”页面。</p>
-<p><code>substring(string,position,length)</code>如果有一个length值和一个position值，则返回string这个字符串的特定子串，从position位置开始，长度为length。string可以是sql中的可执行函数。举个例子：<code>substring(&quot;hello&quot;,2,3) = &#39;ell&#39;</code> 。</p>
-<p>所以 <code>substring(user(),1,1)</code> 执行的是返回将user()返回的用户名的第一个字符（user()函数是sql自带函数，用来返回用户名），然后我们通过提交页面的不同来判断第一个字符是不是a、b、c……，结果试到r就确定了，得到第一个字符后更改为<code>substring(user(),2,1)</code> 从abcd……开始判断第二个，得到第二个为o，然后继续直到所有的字符都被猜出。（我们的mysql数据库用户名默认均为root）<br>当然你也可以 <code>1&#39; and substring(user(),1,4) = &#39;root&#39; ;#</code></p>
-<h3 id="SQL盲注（通过时间判断）"><a href="#SQL盲注（通过时间判断）" class="headerlink" title="SQL盲注（通过时间判断）"></a>SQL盲注（通过时间判断）</h3><p>通过时间判断与通过布尔判断相似，布尔判断是根据返回页面的两种状态进行判断，而时间判断是根据返回页面的时间长短进行判断。</p>
-<p>输入 <code>1&#39; union select if(substring(user(),1,4)=&#39;root&#39;,sleep(5),0),null;#</code> ，发现网页一直再加载，约5秒后正常。<code>if(string,ture,false)</code> 语句表示执行string，若成功就返回ture对应的内容，如果失败则返回false对于的内容。所以我们输入的就是执行<code>substring(user(),1,4)=&#39;root&#39;</code>，验证user是否为root，如果是，则执行sleep(5)，让网页延迟5秒后再进行其他操作，如果不是，则返回0 。</p>
-<p>可以按f12打开开发者工具，在网络里查看等待时间。（CHROME浏览器是network）</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/5s.png" alt="-5s"></p>
-<h3 id="绕过过滤"><a href="#绕过过滤" class="headerlink" title="绕过过滤"></a>绕过过滤</h3><p>我们可以输入很多内容来实现让代码拼接并执行，所以在防御sql注入这一方面，就会采取检查用户输入的内容，并过滤掉危险的字符。比如服务器过滤掉 <code>&#39;</code> ，我们进行简单测试时就会遇到困难。</p>
+<blockquote>
+<p>Hexo 博客中所见文章都是经由渲染的静态网页，而静态网页的样式都直接由 Hexo 的主题控制，所以 Hexo 博客大部分都呈现出一种高度的统一化与规范化。不过 Hexo 提供了跳过渲染功能，使得我们可以直接在博客中放入自定义网页。</p>
+</blockquote>
+<p>以上引用及其他请见<a href="http://www.jianshu.com/p/f89428fce8d5" target="_blank" rel="external">这个blog</a></p>
 <ul>
-<li><strong>url编码</strong></li>
+<li><strong>新建404页面</strong></li>
 </ul>
-<p>有的服务器会对用户提交的url或输入内容进行检查，这时可以将这些敏感符号替换为url编码，例如当服务器对 <code>&#39;</code> 过滤时，我们可用%27替换url的单引号，而后%27就会被转换为单引号。如图所示，替换url的单引号，依旧可以。还可以使用二次编码，将%27再编码。<br><img src="http://ovjsmeumq.bkt.clouddn.com/%2527.png" alt="%27"></p>
-<p>更多<a href="https://baike.baidu.com/item/URL%E7%BC%96%E7%A0%81/3703727?fr=aladdin#2" target="_blank" rel="external">url编码</a>。</p>
+<p>详情请参考<a href="http://www.foreverpx.cn/2014/09/23/hexo404/" target="_blank" rel="external">这个blog</a></p>
+<p>注意将html文件要放在<strong>source</strong>文件夹下</p>
+<h3 id="新建博客文章"><a href="#新建博客文章" class="headerlink" title="新建博客文章"></a>新建博客文章</h3><ul>
+<li><strong>使用语法</strong></li>
+</ul>
+<p>上篇文章我们发布了第一篇blog，而使用的语法正是 Markdown ，关于Markdown的基本使用请参考本人的<a href="http://www.ledgil.top/2017/08/18/helloMarkdown/" target="_blank" rel="external">这篇文章</a>，讲解了基本的语法，已经够用。</p>
+<p>如果想了解更多语法，请参考<a href="http://blog.csdn.net/witnessai1/article/details/52551362" target="_blank" rel="external">这篇文章</a></p>
 <ul>
-<li><strong>大小写组合</strong></li>
+<li><strong>新建文章</strong></li>
 </ul>
-<p>我们知道，sql语法对大小写不敏感，也就是select和SELECT是一个东西。但是当服务器过滤一些敏感单词时，可以使用大小写组合的形式绕过。</p>
-<p>比如，服务器过滤了输入内容里的”union”和”UNION”，电脑不是人脑，只要内容里跟这两个单词一摸一样，就会被过滤掉，那我们可以用unioN，unIon，UNIOn等等代替它。</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/uniON.png" alt="替换后依旧可以执行"></p>
-<ul>
-<li><strong>sql注释符</strong></li>
-</ul>
-<p>当服务器过滤了空格时，我们使用注释符<code>/* */</code>绕过。<br><img src="http://ovjsmeumq.bkt.clouddn.com/%E6%B3%A8%E9%87%8A%E7%AC%A6.png" alt="将空格替换为注释"></p>
-<h2 id="SQl注入防御"><a href="#SQl注入防御" class="headerlink" title="SQl注入防御"></a>SQl注入防御</h2><p>sql注入的危害是不可小觑的，如何进行防御是安全人员时刻重视的问题。</p>
-<ul>
-<li><strong>用户输入过滤</strong></li>
-</ul>
-<p>由我们这些实验可知，造成sql注入的原因是输入的内容变成了代码执行。所以过滤掉用户输入的一些敏感字符是首要的。</p>
-<p>通常使用白名单的方法进行过滤，将合法的字符比如数字、字母等加入白名单，那么白名单之外的所有字符都会被过滤。不使用黑名单的方法将敏感字符过滤的原因是，我们并不知道哪些字符可能会造成注入漏洞（黑客的脑洞是很大的），所以即使我们添加了一些敏感字符进入黑名单，仍会造成遗漏。</p>
-<ul>
-<li><strong>字符类型检测</strong></li>
-</ul>
-<p>比如我们做过的实验都是id=n,id的值为整数类型，如果检测到id的值不是整数类型，那么可能在进行敏感操作。</p>
-<ul>
-<li><strong>参数化sql语句</strong></li>
-</ul>
-<p>防御sql注入的最佳方式就是使用预编译语句，绑定变量。在使用预编译的sql语句，sql语句的语义不发生变化。预编译就像c语言中，<code>#define PI 3.14</code>那么在整个文件里PI就可以代替数值3.14出现在代码中。 </p>
-<p>使用安全的存储过程对抗sql注入，它的效果跟使用预编译是相似的，区别就在于存储过程需要先将sql语句定义在数据库中。</p>
-<ul>
-<li><strong>使用安全的函数</strong></li>
-</ul>
-<p>我们查看后台代码可以看出，我们正是利用了一些值传递和获取的函数，将我们输入的内容传入了后台代码进行处理并拼接进sql语句中。所以我们应使用更安全的函数。</p>
-<h2 id="自动化SQL注入"><a href="#自动化SQL注入" class="headerlink" title="自动化SQL注入"></a>自动化SQL注入</h2><p>经过这些测试，我们都是手动进行输入探测的，当内容一多后，我们再挨个字符进行输入就有些力不从心了。而sqlmap就是简化了注入步骤，以自动方式检测、探测、注入、获取数据。</p>
-<h3 id="sqlmap安装"><a href="#sqlmap安装" class="headerlink" title="sqlmap安装"></a>sqlmap安装</h3><ul>
-<li><strong>下载sqlmap</strong></li>
-</ul>
-<p>进入<a href="http://sqlmap.org/" target="_blank" rel="external">sqlmap官网</a>，点击右侧的“.zip file”下载压缩包，解压到常用的盘下。</p>
-<ul>
-<li><strong>配置python环境</strong></li>
-</ul>
-<p>由于sqlmap是使用python语言进行编写的，所以要运行它需要python环境。进入<a href="https://www.python.org/downloads/" target="_blank" rel="external">python官网</a>下载2.7版本的python（python3和python2在语法上有较大差别，使用python3本人亲测可能不能运行sqlmap），选择installer安装器的进行下载。</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/python%20download.png" alt="python download"></p>
-<p>下载完成后正常安装，安装目录可更改为自己方便的路径，其余一路next即可。安装完成后，会自动配置环境变量，此时打开cmd命令行，输入<code>python --version</code>，如果出现版本信息就说明安装成功。</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/python%20version.png" alt="python version"></p>
-<ul>
-<li><strong>运行sqlmap</strong></li>
-</ul>
-<p>输入<code>python</code> 后将sqlmap.py 拖入命令行窗口中（<code>python sqlmap.py的路径</code>），或者切换到sqlmap目录下，用<code>python</code> 打开sqlmap.py。看到如图信息说明sqlmap安装成功。</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/sqlmap.png" alt="sqlmap"></p>
-<ul>
-<li><strong>sqlmap更新</strong></li>
-</ul>
-<p>在命令行输入 <code>git clone https://github.com/sqlmapproject/sqlmap.git e:\download</code> 从github获取最新文件（e:\download可随便填写路径，但必须是不存在的文件夹，否则会报错文件夹已存在），然后将下载的文件复制并覆盖之前的文件即可。或者直接从官网下载最新压缩包解压。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本篇文章中介绍了一些更深入的探测方法和防御sql注入的一些措施以及安装并配置好sqlmap。下一篇文章我们将使用sqlmap进行自动化注入。</p>
+<p>我们使用命令：<code>hexo new &quot;Name&quot;</code> （Name 为文章名字），就会在hexo/source/_posts里出现 Name.md 的文件，使用编辑器和Markdown语法编辑即可。</p>
+<p>或者直接在hexo/source/_posts文件夹里新建 Name.md 亦可。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/new%20name.png" alt=""></p>
+<h2 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h2><h3 id="网站信息"><a href="#网站信息" class="headerlink" title="网站信息"></a>网站信息</h3><p>各个主题的配置大同小异，这里就不多赘述了，简单说一下hiker的主题配置，<br>如果您的主题配置有不同或者对其有疑惑，请利用好搜索引擎。</p>
+<p>编辑器打开主题的配置文件</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/tupian.png" alt=""></p>
+<p>修改相应内容，包括背景图、logo</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/sidebar.png" alt=""></p>
+<p>这是侧边栏，可以选择侧边栏的位置，有right、left、bottom可选。<br>下面是“联系我”的一些链接，根据需要填写链接，或者使用 <code>#</code> 注释掉一些栏目则不会显示这些链接。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/donate.png" alt=""></p>
+<p>捐赠可以配置微信和支付宝的支付图片，就像本文最下面“打赏”。</p>
+<h2 id="OK"><a href="#OK" class="headerlink" title="OK"></a>OK</h2><p>OK，基本上已经可以了，使用这三篇文章，大概就可以开始自己的blog之旅。<br><a href="https://zhuanlan.zhihu.com/p/19743861" target="_blank" rel="external">为什么你要写博客</a></p>
 
       
     </div>
@@ -331,7 +316,7 @@ var a = new Donate({
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入/">SQL注入</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li></ul>
 
     </footer>
   </div>
@@ -365,7 +350,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL注入深入探测"><span class="nav-number">1.</span> <span class="nav-text">SQL注入深入探测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL盲注（通过布尔判断）"><span class="nav-number">1.1.</span> <span class="nav-text">SQL盲注（通过布尔判断）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL盲注（通过时间判断）"><span class="nav-number">1.2.</span> <span class="nav-text">SQL盲注（通过时间判断）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绕过过滤"><span class="nav-number">1.3.</span> <span class="nav-text">绕过过滤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQl注入防御"><span class="nav-number">2.</span> <span class="nav-text">SQl注入防御</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动化SQL注入"><span class="nav-number">3.</span> <span class="nav-text">自动化SQL注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sqlmap安装"><span class="nav-number">3.1.</span> <span class="nav-text">sqlmap安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题"><span class="nav-number">1.</span> <span class="nav-text">主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载主题"><span class="nav-number">1.1.</span> <span class="nav-text">下载主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置主题"><span class="nav-number">1.2.</span> <span class="nav-text">配置主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题内容新建"><span class="nav-number">2.</span> <span class="nav-text">主题内容新建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建页面"><span class="nav-number">2.1.</span> <span class="nav-text">新建页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建博客文章"><span class="nav-number">2.2.</span> <span class="nav-text">新建博客文章</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他配置"><span class="nav-number">3.</span> <span class="nav-text">其他配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网站信息"><span class="nav-number">3.1.</span> <span class="nav-text">网站信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OK"><span class="nav-number">4.</span> <span class="nav-text">OK</span></a></li></ol>
     
     </div>
   </aside>
