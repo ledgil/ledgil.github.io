@@ -11,13 +11,13 @@
   
   
   
-  <meta name="description" content="上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
+  <meta name="description" content="上一篇文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
 <meta name="keywords" content="SQL注入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向新手SQL注入（中）">
 <meta property="og:url" content="http://ledgil.top/2017/09/09/sqlinjection0010/index.html">
 <meta property="og:site_name" content="ledgil">
-<meta property="og:description" content="上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
+<meta property="og:description" content="上一篇文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/exist.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/missing.png">
@@ -28,10 +28,10 @@
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/python%20download.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/python%20version.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/sqlmap.png">
-<meta property="og:updated_time" content="2017-09-09T15:03:52.745Z">
+<meta property="og:updated_time" content="2017-09-09T15:05:38.409Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向新手SQL注入（中）">
-<meta name="twitter:description" content="上一篇问文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
+<meta name="twitter:description" content="上一篇文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
 <meta name="twitter:image" content="http://ovjsmeumq.bkt.clouddn.com/exist.png">
   
     <link rel="alternate" href="/atom.xml" title="ledgil" type="application/atom+xml">
@@ -203,7 +203,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://www.ledgil.top/2017/09/09/sqlinjection0001/" target="_blank" rel="external">上一篇问文章</a>中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。</p>
+        <p><a href="http://www.ledgil.top/2017/09/09/sqlinjection0001/" target="_blank" rel="external">上一篇文章</a>中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。</p>
 <a id="more"></a>
 <h2 id="SQL注入深入探测"><a href="#SQL注入深入探测" class="headerlink" title="SQL注入深入探测"></a>SQL注入深入探测</h2><h3 id="SQL盲注（通过布尔判断）"><a href="#SQL盲注（通过布尔判断）" class="headerlink" title="SQL盲注（通过布尔判断）"></a>SQL盲注（通过布尔判断）</h3><p>在上篇文章中，我们对靶子进行了轰炸，顺利的获取了数据。还记得判断是否存在SQL注入的第二步是什么？加上单引号后看是否报错，从报错信息中能得到很多有用的信息，比如使用了什么样的数据库、网站根目录等。这是因为web服务器打开了错误回显，能够使错误信息显示到页面上，那么当关闭了错误回显，即使我们加上单引号也看不出什么信息了怎么办？</p>
 <ul>
