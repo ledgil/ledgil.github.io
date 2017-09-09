@@ -3,43 +3,38 @@
 <head>
   <meta charset="utf-8">
   
-  <title>面向新手sql注入（下） | ledgil</title>
+  <title>hexo 个人博客使用技巧 | ledgil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="SQL注入" />
+  <meta name="keywords" content="hexo个人博客" />
   
   
   
   
-  <meta name="description" content="上一篇文章我们安装好了SQL map，这篇文章将主要进行SQL map的简单使用和语法介绍。在现实探测中，要手工和工具结合进行漏洞挖掘，虽然工具能够大大提高便捷性，但是工具就是工具，始终没有人脑的思维转换能力，更多巧妙的方法还是要自己去发现。工具只要多多练习，即使不理解原理也能流畅的掌握。">
-<meta name="keywords" content="SQL注入">
+  <meta name="description" content="在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。">
+<meta name="keywords" content="hexo个人博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向新手SQL注入（下）">
-<meta property="og:url" content="http://ledgil.top/2017/09/09/sqlinjection0011/index.html">
+<meta property="og:title" content="hexo 个人博客使用技巧">
+<meta property="og:url" content="http://ledgil.top/2017/08/19/helloHexo0010/index.html">
 <meta property="og:site_name" content="ledgil">
-<meta property="og:description" content="上一篇文章我们安装好了SQL map，这篇文章将主要进行SQL map的简单使用和语法介绍。在现实探测中，要手工和工具结合进行漏洞挖掘，虽然工具能够大大提高便捷性，但是工具就是工具，始终没有人脑的思维转换能力，更多巧妙的方法还是要自己去发现。工具只要多多练习，即使不理解原理也能流畅的掌握。">
+<meta property="og:description" content="在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/artist=1.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E5%8D%95%E5%BC%95%E5%8F%B7%E6%8A%A5%E9%94%99.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/and%E8%82%AF%E5%AE%9A%E6%B5%8B%E8%AF%95.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/and%E5%90%A6%E5%AE%9A%E6%B5%8B%E8%AF%95.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/cmdsqlmap.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/sqlmaprunning.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/sqlmapfinish2.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/dbs.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/tables%E6%9F%A5%E7%9C%8B.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/acuarttables.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E6%9F%A5%E7%9C%8B%E6%A0%8F%E7%9B%AE%E5%90%8D.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E5%B1%95%E7%A4%BA%E6%A0%8F%E7%9B%AE.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E8%AE%A1%E6%95%B0%E8%A1%8C%E6%95%B0.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E5%B1%95%E7%A4%BA%E6%9D%A1%E6%95%B0.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E5%B1%95%E7%A4%BA%E4%BF%A1%E6%81%AF.png">
-<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/dunmp%E7%9A%84%E4%BF%A1%E6%81%AF.png">
-<meta property="og:updated_time" content="2017-09-09T15:02:23.891Z">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/hiker.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/theme.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/theme%E9%85%8D%E7%BD%AE.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/about.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/theme2.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/categories.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/tags.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/new%20name.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/tupian.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/sidebar.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/donate.png">
+<meta property="og:updated_time" content="2017-09-08T08:30:04.283Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向新手SQL注入（下）">
-<meta name="twitter:description" content="上一篇文章我们安装好了SQL map，这篇文章将主要进行SQL map的简单使用和语法介绍。在现实探测中，要手工和工具结合进行漏洞挖掘，虽然工具能够大大提高便捷性，但是工具就是工具，始终没有人脑的思维转换能力，更多巧妙的方法还是要自己去发现。工具只要多多练习，即使不理解原理也能流畅的掌握。">
-<meta name="twitter:image" content="http://ovjsmeumq.bkt.clouddn.com/artist=1.png">
+<meta name="twitter:title" content="hexo 个人博客使用技巧">
+<meta name="twitter:description" content="在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。">
+<meta name="twitter:image" content="http://ouvr31quw.bkt.clouddn.com/hiker.png">
   
     <link rel="alternate" href="/atom.xml" title="ledgil" type="application/atom+xml">
   
@@ -177,7 +172,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-sqlinjection0011" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-helloHexo0010" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -185,7 +180,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      面向新手SQL注入（下）
+      hexo 个人博客使用技巧
     </h1>
   
 
@@ -193,12 +188,12 @@
     
     <div class="article-meta">
       
-	<a href="/2017/09/09/sqlinjection0011/" class="article-date">
-	  <time datetime="2017-09-09T14:59:36.256Z" itemprop="datePublished">2017-09-09</time>
+	<a href="/2017/08/19/helloHexo0010/" class="article-date">
+	  <time datetime="2017-08-19T01:42:13.725Z" itemprop="datePublished">2017-08-19</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/web安全/">web安全</a>
+    <a class="article-category-link" href="/categories/教程/">教程</a>
 
       
 	<a class="article-views">
@@ -210,43 +205,72 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://www.ledgil.top/2017/09/09/sqlinjection0010/" target="_blank" rel="external">上一篇文章</a>我们安装好了SQL map，这篇文章将主要进行SQL map的简单使用和语法介绍。在现实探测中，要手工和工具结合进行漏洞挖掘，虽然工具能够大大提高便捷性，但是工具就是工具，始终没有人脑的思维转换能力，更多巧妙的方法还是要自己去发现。工具只要多多练习，即使不理解原理也能流畅的掌握。</p>
+        <p>在<a href="http://www.ledgil.top/2017/08/18/helloHexo/" target="_blank" rel="external">前一篇文章</a>中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。</p>
 <a id="more"></a>
-<h2 id="SQLmap简介"><a href="#SQLmap简介" class="headerlink" title="SQLmap简介"></a>SQLmap简介</h2><p>sqlmap是一个自动化的SQL注入工具，其主要功能是扫描，发现并利用给定的URL的SQL注入漏洞，目前支持的数据库是MySQL, Oracle, PostgreSQL, Microsoft SQL Server, Microsoft Access, IBM DB2, SQLite, Firebird, Sybase，SAP MaxDB，HSQLDB和Informix。</p>
-<p>采用五种独特的SQL注入技术，分别是：</p>
-<p>1）基于布尔的盲注，即可以根据返回页面判断条件真假的注入。</p>
-<p>2）基于时间的盲注，即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语句是否执行（即页面返回时间是否增加）来判断。</p>
-<p>3）基于报错注入，即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中。</p>
-<p>4）联合查询注入，可以使用union的情况下的注入。</p>
-<p>5）堆查询注入，可以同时执行多条语句的执行时的注入。</p>
-<h3 id="发现注入点"><a href="#发现注入点" class="headerlink" title="发现注入点"></a>发现注入点</h3><p>在我们之前的手动测试时，我们使用三步检验就可以发现一个sql注入漏洞。<br>首先是发现在url中有没有可以控制的数据，常见的比如<code>id=1</code>，然后加一单引号或者双引号查看有没有报错信息，若有从报错信息中可以获取目标数据库的类型，接着使用and 和or语法进一步确认sql注入漏洞存在。详情请见前第一篇sql注入文章。而这个url就是一个注入点。</p>
-<p>现在给了一个网站（死靶子(￣▽￣)~<a href="http://testphpnet.vulnweb.com/" target="_blank" rel="external">http://testphpnet.vulnweb.com/</a></p>
-<p>怎么来找注入点呢，一顿乱翻之后，我们发现依次点击页面上的artist、r4w8173后，在url里出现了我们熟悉的东西（这里仅以这个注入点为例，其实还有好多）<br>。加单引号、报错、and和or大法好、确认存在sql注入点，一气呵成！</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/artist=1.png" alt="疑似存在注入点"><br><img src="http://ovjsmeumq.bkt.clouddn.com/%E5%8D%95%E5%BC%95%E5%8F%B7%E6%8A%A5%E9%94%99.png" alt="单引号报错"><br><img src="http://ovjsmeumq.bkt.clouddn.com/and%E8%82%AF%E5%AE%9A%E6%B5%8B%E8%AF%95.png" alt="使用and加一个真命题测试"><br><img src="http://ovjsmeumq.bkt.clouddn.com/and%E5%90%A6%E5%AE%9A%E6%B5%8B%E8%AF%95.png" alt="使用and加一个假命题测试"></p>
-<p>这就表明，此处存在sql注入漏洞的。</p>
-<h3 id="sqlmap初步探测数据库"><a href="#sqlmap初步探测数据库" class="headerlink" title="sqlmap初步探测数据库"></a>sqlmap初步探测数据库</h3><p>使用命令窗口打开sqlmap，确保已经可以使用。<br><img src="http://ovjsmeumq.bkt.clouddn.com/cmdsqlmap.png" alt="sqlmap"></p>
-<p>从上图可以看到，我是用的命令是<code>python E:\sqlmap\sqlmap\sqlmap.py</code>，接下来我将以这个为例继续，大家的路径可能不同，在以后的命令中稍作替换即可。</p>
-<p>（注意使用上下键可以切换历史输入的命令哦~）输入 <code>python E:\sqlmap\sqlmap\sqlmap.py -u &quot;http://testphpnet.vulnweb.com/artists.php?artist=1&quot;</code> 其中的 <code>-u &quot;url&quot;</code>参数是添加url，也就是将我们发现的注入点添加给sqlmap。回车后即可看到实时的操作信息[info]。</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/sqlmaprunning.png" alt=""></p>
-<p>会有很多请求，输入y/n表yes/no，翻译一下看着来就行。</p>
-<p>最后结束，sqlmap展示了它入侵的方法和关键代码，还有目标服务器的PHP、mysql等版本信息。</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/sqlmapfinish2.png" alt="image"></p>
-<h3 id="sqlmap探测数据库内的信息"><a href="#sqlmap探测数据库内的信息" class="headerlink" title="sqlmap探测数据库内的信息"></a>sqlmap探测数据库内的信息</h3><p>使用上下键翻出历史命令，再上一个命令后加上 空格和<code>--dbs</code> 表示展示所有的数据库（databases简写为dbs）</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/dbs.png" alt="展示数据库"></p>
-<p>使用 <code>-D &quot;数据库名&quot; --tables</code> 组合，查看某个数据库下的所有数据表。</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/tables%E6%9F%A5%E7%9C%8B.png" alt="查看acuart数据库下的表名"><br><img src="http://ovjsmeumq.bkt.clouddn.com/acuarttables.png" alt="展示所有表"></p>
-<p>使用 <code>-D &quot;数据库名&quot; -T &quot;数据表名&quot; --columns</code> 查看这个表的所有栏目名（列名）</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/%E6%9F%A5%E7%9C%8B%E6%A0%8F%E7%9B%AE%E5%90%8D.png" alt="查看users表内的栏目名"><br><img src="http://ovjsmeumq.bkt.clouddn.com/%E5%B1%95%E7%A4%BA%E6%A0%8F%E7%9B%AE.png" alt="展示栏目"></p>
-<p>可以看到，users这个表内有8列，每一个栏目的类型都展示出。接下来我们计数这个表有多少行。</p>
-<p>使用 <code>-D &quot;数据库名&quot; -T &quot;数据表名&quot; --count</code> 计数这个表里面 行 的数目，也就是有多少条信息。</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/%E8%AE%A1%E6%95%B0%E8%A1%8C%E6%95%B0.png" alt="计数行数"><br><img src="http://ovjsmeumq.bkt.clouddn.com/%E5%B1%95%E7%A4%BA%E6%9D%A1%E6%95%B0.png" alt="展示行数"></p>
-<p>这表名users表里只有一条信息，接下来使用<code>-D &quot;数据库名&quot; -T &quot;数据表名&quot; --dump</code> 展示并下载该表的所有信息。当有非常多信息时，我们不必展示所有信息，则可用<code>-D &quot;数据库名&quot; -T &quot;数据表名&quot; --dump --start 1 --stop 5</code>表示只展示第一到第五行数据，当然数值可以随意修改。</p>
-<p>我们在展示所有的栏目名字时，发现有 “pass”这一栏，说明可能存在密码，有密码就会被加密，所以sqlmap询问我们是否进行破解密码哈希值，我们进行选择后，它会用适当的工具破解哈希值，所以最后我们破解掉pass的值为“test”，即密码是test。（不过这数据怎么怪怪的，像是被入侵过一样<em>(:з)∠)</em>）</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/%E5%B1%95%E7%A4%BA%E4%BF%A1%E6%81%AF.png" alt="finish"></p>
-<p>展示的同时也会生成一个表格，存放在系统盘下用户里。具体路径参考下图寻找。</p>
-<p><img src="http://ovjsmeumq.bkt.clouddn.com/dunmp%E7%9A%84%E4%BF%A1%E6%81%AF.png" alt="output"></p>
-<p>当然你也可以dump其他的表，甚至整个数据库（脱库）。这将花费较多时间。</p>
-<p>我们进行入侵的顺序也很重要，要先查看有多少列，确认这个表里有什么样的内容比如name、password、email等，然后有多少行，如果我们不需要展示所有信息比如只证明可以获取这个表的数据，就可以用start和stop展示几条即可。</p>
+<p><strong>注意：在本地预览效果或者上传到GitHub之后，清理一下浏览器的缓存，否则可能看不到效果</strong></p>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><h3 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h3><p>我们可以使用<a href="https://hexo.io/themes/" target="_blank" rel="external">官方主题</a>,点击浏览后，找到GitHub图标进入开发者的GitHub，这里以主题<a href="https://github.com/iTimeTraveler/hexo-theme-hiker.git" target="_blank" rel="external">hiker</a>为例，获取下载链接</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/hiker.png" alt=""></p>
+<p>在hexo<strong>根目录</strong>下打开Git Bash Here，输入命令：<code>git clone https://github.com/iTimeTraveler/hexo-theme-hiker.git themes/hiker</code> （clone后的链接为你获取的下载链接，themes/hiker表示下载到themes/hiker文件夹）</p>
+<p>下载时显示进度和下载速度，下载完成后将出现hexo目录下的themes文件夹内</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/theme.png" alt=""></p>
+<h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><p>用编辑器打开hexo根目录下的_config.yml，找到theme，更改为主题名称即可</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/theme%E9%85%8D%E7%BD%AE.png" alt=""></p>
+<p><code>hexo g</code> <code>hex d</code> 后访问域名查看效果</p>
+<h2 id="主题内容新建"><a href="#主题内容新建" class="headerlink" title="主题内容新建"></a>主题内容新建</h2><h3 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h3><ul>
+<li><strong>新建关于页面</strong></li>
+</ul>
+<p>之前打开blog的一些页面比如about（关于我）页面会404 not find file。是因为本地没有配置并生成这些页面。</p>
+<p>在根目录下Git Bash Here 打开命令窗口，输入命令： <code>hexo new page &quot;about&quot;</code> ，在根目录的source文件夹内就会显示一个about文件夹，打开编辑其中的 index.md 即可完成。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/about.png" alt=""></p>
+<p>然后打开<strong>主题</strong>的配置文件，将About前的 <code>#</code> 去掉（没有 <code>#</code> 则不用动，没有About则给它追加上）,以下的 分类 标签 页面亦是如此，就不配图了。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/theme2.png" alt=""></p>
+<p><code>hexo g</code> 生成本地静态文件，hexo会根据配置将.md文件渲染成html文件，出现在public文件夹里。<br><code>hexo server</code> 开启本地查看服务，访问<a href="http://localhost:4000/" target="_blank" rel="external">localhost:4000</a>可在本地查看部署好的blog</p>
+<ul>
+<li><strong>新建分类页面</strong></li>
+</ul>
+<p>同理，在根目录下Git Bash Here 打开命令窗口，输入命令： <code>hexo new page &quot;categories&quot;</code> ，在根目录的source文件夹内就会显示一个categories文件夹，打开编辑其中的 index.md ，添加 <code>type: &quot;categories&quot;</code> 这使得hexo辩认出是分类页面，添加 <code>comments: false</code> 这使得该页面的评论功能关闭，改为true或者删掉这一行评论功能打开。保存。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/categories.png" alt=""></p>
+<p>类似于 关于 页面配置好<code>主题</code>的设置</p>
+<p>然后 <code>hexo g</code> <code>hexo server</code> 在本地查看效果，没有反应则清一下缓存再查看，还没效果则在 index.md 添加 <code>layout: &quot;categories&quot;</code> 使hexo强制渲染本文件为分类。</p>
+<ul>
+<li><strong>新建标签页面</strong></li>
+</ul>
+<p>同理，在根目录下Git Bash Here 打开命令窗口，输入命令： <code>hexo new page &quot;tags&quot;</code> ，在根目录的source文件夹内就会显示一个tags文件夹，打开编辑其中的 index.md ，添加 <code>type: &quot;tags&quot;</code> 这使得hexo辩认出是标签页面，添加 <code>comments: false</code> 这使得该页面的评论功能关闭，改为true或者删掉这一行评论功能打开。保存。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/tags.png" alt=""></p>
+<p>类似于 关于 页面配置好<code>主题</code>的设置</p>
+<p>然后 <code>hexo g</code> <code>hexo server</code> 在本地查看效果，没有反应则清一下缓存再查看，还没效果则在 index.md 添加 <code>layout: &quot;tags&quot;</code> 使hexo强制渲染本文件为标签。</p>
+<ul>
+<li><strong>新建自定义页面</strong></li>
+</ul>
+<blockquote>
+<p>Hexo 博客中所见文章都是经由渲染的静态网页，而静态网页的样式都直接由 Hexo 的主题控制，所以 Hexo 博客大部分都呈现出一种高度的统一化与规范化。不过 Hexo 提供了跳过渲染功能，使得我们可以直接在博客中放入自定义网页。</p>
+</blockquote>
+<p>以上引用及其他请见<a href="http://www.jianshu.com/p/f89428fce8d5" target="_blank" rel="external">这个blog</a></p>
+<ul>
+<li><strong>新建404页面</strong></li>
+</ul>
+<p>详情请参考<a href="http://www.foreverpx.cn/2014/09/23/hexo404/" target="_blank" rel="external">这个blog</a></p>
+<p>注意将html文件要放在<strong>source</strong>文件夹下</p>
+<h3 id="新建博客文章"><a href="#新建博客文章" class="headerlink" title="新建博客文章"></a>新建博客文章</h3><ul>
+<li><strong>使用语法</strong></li>
+</ul>
+<p>上篇文章我们发布了第一篇blog，而使用的语法正是 Markdown ，关于Markdown的基本使用请参考本人的<a href="http://www.ledgil.top/2017/08/18/helloMarkdown/" target="_blank" rel="external">这篇文章</a>，讲解了基本的语法，已经够用。</p>
+<p>如果想了解更多语法，请参考<a href="http://blog.csdn.net/witnessai1/article/details/52551362" target="_blank" rel="external">这篇文章</a></p>
+<ul>
+<li><strong>新建文章</strong></li>
+</ul>
+<p>我们使用命令：<code>hexo new &quot;Name&quot;</code> （Name 为文章名字），就会在hexo/source/_posts里出现 Name.md 的文件，使用编辑器和Markdown语法编辑即可。</p>
+<p>或者直接在hexo/source/_posts文件夹里新建 Name.md 亦可。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/new%20name.png" alt=""></p>
+<h2 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h2><h3 id="网站信息"><a href="#网站信息" class="headerlink" title="网站信息"></a>网站信息</h3><p>各个主题的配置大同小异，这里就不多赘述了，简单说一下hiker的主题配置，<br>如果您的主题配置有不同或者对其有疑惑，请利用好搜索引擎。</p>
+<p>编辑器打开主题的配置文件</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/tupian.png" alt=""></p>
+<p>修改相应内容，包括背景图、logo</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/sidebar.png" alt=""></p>
+<p>这是侧边栏，可以选择侧边栏的位置，有right、left、bottom可选。<br>下面是“联系我”的一些链接，根据需要填写链接，或者使用 <code>#</code> 注释掉一些栏目则不会显示这些链接。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/donate.png" alt=""></p>
+<p>捐赠可以配置微信和支付宝的支付图片，就像本文最下面“打赏”。</p>
+<h2 id="OK"><a href="#OK" class="headerlink" title="OK"></a>OK</h2><p>OK，基本上已经可以了，使用这三篇文章，大概就可以开始自己的blog之旅。<br><a href="https://zhuanlan.zhihu.com/p/19743861" target="_blank" rel="external">为什么你要写博客</a></p>
 
       
     </div>
@@ -292,7 +316,7 @@ var a = new Donate({
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入/">SQL注入</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo个人博客/">hexo个人博客</a></li></ul>
 
     </footer>
   </div>
@@ -300,10 +324,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
+    <a href="/2017/09/09/sqlinjection0001/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          面向新手SQL注入（上）
+        
+      </div>
+    </a>
   
-    <a href="/2017/09/09/sqlinjection0010/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2017/08/18/helloHexo0001/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">面向新手SQL注入（中）</div>
+      <div class="article-nav-title">hexo + github 建立个人博客</div>
     </a>
   
 </nav>
@@ -317,7 +350,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQLmap简介"><span class="nav-number">1.</span> <span class="nav-text">SQLmap简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发现注入点"><span class="nav-number">1.1.</span> <span class="nav-text">发现注入点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sqlmap初步探测数据库"><span class="nav-number">1.2.</span> <span class="nav-text">sqlmap初步探测数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sqlmap探测数据库内的信息"><span class="nav-number">1.3.</span> <span class="nav-text">sqlmap探测数据库内的信息</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题"><span class="nav-number">1.</span> <span class="nav-text">主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载主题"><span class="nav-number">1.1.</span> <span class="nav-text">下载主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置主题"><span class="nav-number">1.2.</span> <span class="nav-text">配置主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题内容新建"><span class="nav-number">2.</span> <span class="nav-text">主题内容新建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建页面"><span class="nav-number">2.1.</span> <span class="nav-text">新建页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建博客文章"><span class="nav-number">2.2.</span> <span class="nav-text">新建博客文章</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他配置"><span class="nav-number">3.</span> <span class="nav-text">其他配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网站信息"><span class="nav-number">3.1.</span> <span class="nav-text">网站信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OK"><span class="nav-number">4.</span> <span class="nav-text">OK</span></a></li></ol>
     
     </div>
   </aside>
