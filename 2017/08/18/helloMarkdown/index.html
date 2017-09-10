@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>hello markdown | ledgil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="hexo个人博客" />
+  
+  
+  
+  
+  <meta name="description" content="Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。markdown相比于HTML来言更加轻量，熟练掌握其中基本语法规则就可以轻松写出不错的文章。">
+<meta name="keywords" content="hexo个人博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello Markdown">
+<meta property="og:url" content="http://ledgil.top/2017/08/18/helloMarkdown/index.html">
+<meta property="og:site_name" content="ledgil">
+<meta property="og:description" content="Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。markdown相比于HTML来言更加轻量，熟练掌握其中基本语法规则就可以轻松写出不错的文章。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://25.io/mou/img/1.png">
+<meta property="og:image" content="http://www.markdownpad.com/img/markdownpad2.png">
+<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E6%9C%89%E9%81%93%E4%BA%91%E7%AC%94%E8%AE%B0.png">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/6aee7dbbgw1effeaclhiyj20eh09cwez.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/6aee7dbbgw1efffa67voyj20ix0ctq3n.jpg">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/qiniutianjia.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/quedingchuangjian.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/fuzhiwailian.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/tupianyangshi.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/chulidaima.png">
+<meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/chulidaima.png?imageView2/2/w/200/h/200/q/75|imageslim">
+<meta property="og:updated_time" content="2017-09-05T14:12:06.977Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hello Markdown">
+<meta name="twitter:description" content="Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。markdown相比于HTML来言更加轻量，熟练掌握其中基本语法规则就可以轻松写出不错的文章。">
+<meta name="twitter:image" content="http://25.io/mou/img/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ledgil" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="http://ouur4c5x0.bkt.clouddn.com/me.jpg">
+  <link rel="apple-touch-icon" href="/http://ouur4c5x0.bkt.clouddn.com/me.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="http://ouur4c5x0.bkt.clouddn.com/me.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-helloMarkdown" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Hello Markdown
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/08/18/helloMarkdown/" class="article-date">
+	  <time datetime="2017-08-18T03:55:19.530Z" itemprop="datePublished">2017-08-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/教程/">教程</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><a href="https://baike.baidu.com/item/markdown/3245829?fr=aladdin" target="_blank" rel="external">Markdown</a>是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。markdown相比于HTML来言更加轻量，熟练掌握其中基本语法规则就可以轻松写出不错的文章。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="认识-Markdown"><a href="#认识-Markdown" class="headerlink" title="认识 Markdown"></a>认识 Markdown</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>markdown是一种简洁的标记语言，没有html一样复杂的标记。它用简洁的语法代替了排版，不像<em>word</em>等文字处理工具一样有很多操作，这使得它在文字编排方面实用性大大增加，使我们能够专注于写作，而不是文字排版。</p>
+<h3 id="官方说明"><a href="#官方说明" class="headerlink" title="官方说明"></a>官方说明</h3><blockquote>
+<p><a href="http://wowubuntu.com/markdown/#list" target="_blank" rel="external"><em>Markdown 中文版语法说明</em></a><br><a href="https://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external"><em>创始人 John Gruber 的 Markdown 语法说明</em></a></p>
+</blockquote>
+<h3 id="使用工具"><a href="#使用工具" class="headerlink" title="使用工具"></a>使用工具</h3><h4 id="Mac-OS-X"><a href="#Mac-OS-X" class="headerlink" title="Mac OS X"></a>Mac OS X</h4><p>在Mac上，推荐使用<a href="http://25.io/mou" target="_blank" rel="external">Mou</a>这款编辑器。他可以实时预览，以及一些偏好设置。</p>
+<p><img src="http://25.io/mou/img/1.png" alt=""></p>
+<h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><p><a href="http://www.markdownpad.com/" target="_blank" rel="external">MarkdownPad</a>一款全功能的编辑器，被很多人称赞为windows 平台最好用的markdown编辑器</p>
+<p><img src="http://www.markdownpad.com/img/markdownpad2.png" alt=""></p>
+<h4 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h4><p>以上列举比较推荐的工具，更多工具介绍请<a href="http://www.williamlong.info/archives/4319.html" target="_blank" rel="external">点击此处</a></p>
+<p>本人喜欢使用有道云笔记里自带的markdown编辑器进行编辑，可以实时预览，有多种便捷键，之后再复制到文件里即可。<br><img src="http://ovjsmeumq.bkt.clouddn.com/%E6%9C%89%E9%81%93%E4%BA%91%E7%AC%94%E8%AE%B0.png" alt="有道云笔记"></p>
+<h2 id="Markdown-基本语法"><a href="#Markdown-基本语法" class="headerlink" title="Markdown 基本语法"></a>Markdown 基本语法</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p><img src="http://ww1.sinaimg.cn/large/6aee7dbbgw1effeaclhiyj20eh09cwez.jpg" alt="标题"></p>
+<p>标题是每篇文章常用的格式。只需在文字前面加<code>#</code>即可。</p>
+<p><code># 一级标题</code></p>
+<p><code>## 二级标题</code></p>
+<p><code>### 三级标题</code></p>
+<p>以此类推，Markdown内有六个级别标题。</p>
+<p><strong>注意：在 <code>#</code> 标记与文字之间需加一个空格，否则设置标题失效。Markdown大多数标记与正文间都需加一个空格才可以生效。</strong></p>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>在文本前加 <code>&gt;</code> 和一个空格</p>
+<blockquote>
+<p>例如这样</p>
+</blockquote>
+<p><code>&gt; 例如这样</code></p>
+<blockquote>
+<p>更<br>多<br>引<br>用</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; 更</div><div class="line">&gt; 多</div><div class="line">&gt; 引</div><div class="line">&gt; 用</div></pre></td></tr></table></figure>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>在文字前加上 <code>-</code> 或 <code>*</code> 即可变为无序列表，有序列表则直接在文字前加 <code>1. 2. 3.</code> 注意符号要和文字之间加上一个字符的空格。</p>
+<ol>
+<li>这是</li>
+<li>有序</li>
+<li>标题</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 这是</div><div class="line">2. 有序</div><div class="line">3. 标题</div></pre></td></tr></table></figure>
+<ul>
+<li>这是</li>
+<li>无序</li>
+<li>标题</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* 这是</div><div class="line">* 无序</div><div class="line">* 标题</div></pre></td></tr></table></figure>
+<h3 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h3><p>粗体在需要加粗的文本前后加上 <code>**</code> ,斜体在需要斜体的文本前后加上 <code>*</code> 在标记与文字间可以不加空格。</p>
+<p><strong>这是粗体</strong> </p>
+<p><code>**这是粗体**</code></p>
+<p><em>这是斜体</em></p>
+<p><code>*这是斜体*</code></p>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>表格用管道符 <code>|</code> 组成边框，第二行使用多个 <code>-</code> 与 <code>:</code> 控制内容排版<br>将 <code>:</code> 放在 <code>----</code> 的左右分别表示内容左对齐与右对齐，两段都放则使内容居中对齐</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">这</th>
+<th>是</th>
+<th style="text-align:left">一个</th>
+<th style="text-align:right">表格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">居中对齐</td>
+<td>默认是左对齐</td>
+<td style="text-align:left">左对齐</td>
+<td style="text-align:right">右对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">test</td>
+<td>test2</td>
+<td style="text-align:left">test3</td>
+<td style="text-align:right">test4</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td>2</td>
+<td style="text-align:left">3</td>
+<td style="text-align:right">4</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 这      | 是 |    一个   | 表格  |</div><div class="line">| :-------: |------|:------| ------:|</div><div class="line">| 居中对齐      | 默认是左对齐 | 左对齐      | 右对齐 |</div><div class="line">| test      | test2 |test3     | test4 |</div><div class="line">| 1 | 2 | 3 | 4 |</div></pre></td></tr></table></figure>
+<h3 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h3><p>代码框有多种表达方式。</p>
+<h4 id="内行代码。"><a href="#内行代码。" class="headerlink" title="内行代码。"></a>内行代码。</h4><pre><code>在所需代码显示的文本前后加一个在所需代码显示的文本前后加一个 ` (切换至英文键盘后按 tab 键上方的波浪号键 ~)
+</code></pre><p><code>这是行内代码 
+    cout&lt;&lt;&quot;hello markdown&quot;;</code></p>
+<h4 id="没有行数的代码块。"><a href="#没有行数的代码块。" class="headerlink" title="没有行数的代码块。"></a>没有行数的代码块。</h4><pre><code>在代码块的每一行前加四个空格或者一个 `tab`
+
+这是代码块
+这是代码块
+这是代码块
+这是代码块
+这是没有行数的代码块
+</code></pre><h4 id="带有行数的fenced-code-block代码块。"><a href="#带有行数的fenced-code-block代码块。" class="headerlink" title="带有行数的fenced code block代码块。"></a>带有行数的fenced code block代码块。</h4><pre><code>在代码块的最前面和最后面加上三个 ` 即 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">``` </div><div class="line">#include&lt;iostream&gt;</div><div class="line">using namespace std;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	cout&lt;&lt;&quot;hello world!&quot;&lt;&lt;endl;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>分割线使用三个 <code>*</code> 组成 <code>***</code>。</p>
+<p>下面是分割线</p>
+<hr>
+<p>上面是分割线</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">下面是分割线</div><div class="line">***</div><div class="line">上面是分割线</div></pre></td></tr></table></figure>
+<h3 id="显示“阅读全文”按钮"><a href="#显示“阅读全文”按钮" class="headerlink" title="显示“阅读全文”按钮"></a>显示“阅读全文”按钮</h3><p>比如回到本站主页后看到本文章下有一个”阅读全文“按钮</p>
+<p>在适当的地方加上 <code>&lt;!--more--&gt;</code> 即可。</p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>插入图片链接的语法：<code>![图片的名称](图片链接)</code></p>
+<p>示例图片：<img src="http://ww2.sinaimg.cn/large/6aee7dbbgw1efffa67voyj20ix0ctq3n.jpg" alt="示例图片"></p>
+<p><code>示例图片：![](http://ww2.sinaimg.cn/large/6aee7dbbgw1efffa67voyj20ix0ctq3n.jpg)</code></p>
+<p>插入链接的语法：<code>[链接文字](url)</code></p>
+<p>比如我要到<a href="http://www.baidu.com" target="_blank" rel="external">百度</a>去</p>
+<p><code>比如我要到[百度](http://www.baidu.com)去</code></p>
+<p>两个语法较像差别在于图片链接语法前有一个 <code>!</code></p>
+<p>而图片链接需要<a href="https://baike.baidu.com/item/%E5%9B%BE%E5%BA%8A/10721348?fr=aladdin" target="_blank" rel="external">图床</a>,这里推荐使用<a href="https://portal.qiniu.com/" target="_blank" rel="external">七牛云</a>，功能强大、速度快、免费且容量大</p>
+<p>只需要注册好账号，点击“立即添加”，填写信息，上传图片，点击“···”，复制外链就可得到图片链接</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/qiniutianjia.png" alt="立即添加"><br><img src="http://ouvr31quw.bkt.clouddn.com/quedingchuangjian.png" alt="确定创建"><br><img src="http://ouvr31quw.bkt.clouddn.com/fuzhiwailian.png" alt="复制外链"></p>
+<p>还可设置图片样式，只需在链接后追加一个 <code>?</code> 然后再加上样式链接即可。</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/tupianyangshi.png" alt="图片样式"></p>
+<p>配置好后复制样式链接（这个样式是缩减至指定宽高区域内）</p>
+<p><img src="http://ouvr31quw.bkt.clouddn.com/chulidaima.png" alt="复制样式链接"></p>
+<p>这张图的代码为：<code>![复制样式链接](http://ouvr31quw.bkt.clouddn.com/chulidaima.png)</code></p>
+<p>在链接后追加 <code>?imageView2/2/w/200/h/200/q/75|imageslim</code> 即 <code>![复制样式链接](http://ouvr31quw.bkt.clouddn.com/chulidaima.png?imageView2/1/w/200/h/200/q/75|imageslim)</code></p>
+<p>效果为：<img src="http://ouvr31quw.bkt.clouddn.com/chulidaima.png?imageView2/2/w/200/h/200/q/75|imageslim" alt="追加后的效果"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://ouur4c5x0.bkt.clouddn.com/wechatpay.png',
+  alipayImage: 'http://ouur4c5x0.bkt.clouddn.com/alipay.jpg'
+});
+</script>
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo个人博客/">hexo个人博客</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/18/helloHexo0001/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          hexo + github 建立个人博客
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#认识-Markdown"><span class="nav-number">1.</span> <span class="nav-text">认识 Markdown</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#官方说明"><span class="nav-number">1.2.</span> <span class="nav-text">官方说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用工具"><span class="nav-number">1.3.</span> <span class="nav-text">使用工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac-OS-X"><span class="nav-number">1.3.1.</span> <span class="nav-text">Mac OS X</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#windows"><span class="nav-number">1.3.2.</span> <span class="nav-text">windows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更多"><span class="nav-number">1.3.3.</span> <span class="nav-text">更多</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-基本语法"><span class="nav-number">2.</span> <span class="nav-text">Markdown 基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标题"><span class="nav-number">2.1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">2.2.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">2.3.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#粗体和斜体"><span class="nav-number">2.4.</span> <span class="nav-text">粗体和斜体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格"><span class="nav-number">2.5.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码框"><span class="nav-number">2.6.</span> <span class="nav-text">代码框</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内行代码。"><span class="nav-number">2.6.1.</span> <span class="nav-text">内行代码。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没有行数的代码块。"><span class="nav-number">2.6.2.</span> <span class="nav-text">没有行数的代码块。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带有行数的fenced-code-block代码块。"><span class="nav-number">2.6.3.</span> <span class="nav-text">带有行数的fenced code block代码块。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分割线"><span class="nav-number">2.7.</span> <span class="nav-text">分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示“阅读全文”按钮"><span class="nav-number">2.8.</span> <span class="nav-text">显示“阅读全文”按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接"><span class="nav-number">2.9.</span> <span class="nav-text">链接</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">关注我</h3>
+    <div class="widget widget_athemes_social_icons">
+
+    	<ul class="clearfix widget-social-icons">   
+    	
+          
+     			  <li><a href="https://github.com/ledgil" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
+          
+   		
+          
+     			  <li><a href="http://www.yoursite.com" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li> 
+          
+   		
+          
+            <li><a href="mailto:ledgil@163.com?subject=请联系我&body=我能帮你什么" title="email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> 
+          
+   		
+   		</ul>
+
+
+   		<!--
+   		<ul class="clearfix widget-social-icons">   		
+   		<li class="widget-si-twitter"><a href="http://twitter.com" title="Twitter"><i class="ico-twitter"></i></a></li> 
+		<li class="widget-si-facebook"><a href="http://facebook.com" title="Facebook"><i class="ico-facebook"></i></a></li>
+			<li class="widget-si-gplus"><a href="http://plus.google.com" title="Google+"><i class="ico-gplus"></i></a></li>
+			<li class="widget-si-pinterest"><a href="http://pinterest.com" title="Pinterest"><i class="ico-pinterest"></i></a></li>
+			<li class="widget-si-flickr"><a href="http://flickr.com" title="Flickr"><i class="ico-flickr"></i></a></li>
+			<li class="widget-si-instagram"><a href="http://instagram.com" title="Instagram"><i class="ico-instagram"></i></a></li>
+		</ul> -->
+
+    </div>
+  </div>
+
+
+  
+</aside>
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 ledgil All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            ledgil
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 ledgil All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

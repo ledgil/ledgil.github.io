@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>面向新手sql注入（中） | ledgil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="SQL注入" />
+  
+  
+  
+  
+  <meta name="description" content="上一篇文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
+<meta name="keywords" content="SQL注入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向新手SQL注入（中）">
+<meta property="og:url" content="http://ledgil.top/2017/09/09/sqlinjection0010/index.html">
+<meta property="og:site_name" content="ledgil">
+<meta property="og:description" content="上一篇文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/exist.png">
+<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/missing.png">
+<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/5s.png">
+<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%2527.png">
+<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/uniON.png">
+<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E6%B3%A8%E9%87%8A%E7%AC%A6.png">
+<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/python%20download.png">
+<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/python%20version.png">
+<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/sqlmap.png">
+<meta property="og:updated_time" content="2017-09-09T15:13:27.962Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向新手SQL注入（中）">
+<meta name="twitter:description" content="上一篇文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
+<meta name="twitter:image" content="http://ovjsmeumq.bkt.clouddn.com/exist.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ledgil" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="http://ouur4c5x0.bkt.clouddn.com/me.jpg">
+  <link rel="apple-touch-icon" href="/http://ouur4c5x0.bkt.clouddn.com/me.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="http://ouur4c5x0.bkt.clouddn.com/me.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-sqlinjection0010" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      面向新手SQL注入（中）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/09/09/sqlinjection0010/" class="article-date">
+	  <time datetime="2017-09-09T14:58:57.303Z" itemprop="datePublished">2017-09-09</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/web安全/">web安全</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.ledgil.top/2017/09/09/sqlinjection0001/" target="_blank" rel="external">上一篇文章</a>中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。</p>
+<a id="more"></a>
+<h2 id="SQL注入深入探测"><a href="#SQL注入深入探测" class="headerlink" title="SQL注入深入探测"></a>SQL注入深入探测</h2><h3 id="SQL盲注（通过布尔判断）"><a href="#SQL盲注（通过布尔判断）" class="headerlink" title="SQL盲注（通过布尔判断）"></a>SQL盲注（通过布尔判断）</h3><p>在上篇文章中，我们对靶子进行了轰炸，顺利的获取了数据。还记得判断是否存在SQL注入的第二步是什么？加上单引号后看是否报错，从报错信息中能得到很多有用的信息，比如使用了什么样的数据库、网站根目录等。这是因为web服务器打开了错误回显，能够使错误信息显示到页面上，那么当关闭了错误回显，即使我们加上单引号也看不出什么信息了怎么办？</p>
+<ul>
+<li><strong>打开测试环境</strong></li>
+</ul>
+<p>打开phpstudy并启动，打开浏览器进入dvwa测试环境，将安全等级设为low，点击SQL Injection (Blind)。输入 <code>1</code> ，提交显示信息与之前不同，之前是显示了id=1的信息（有first_name和last_name），而这里显示的是存在id=1这个用户，再输入 <code>1&#39;</code> 提交后，发现没有我们上一篇文章报错信息了，而是显示了一个没啥意思的信息，大概为数据库里找不到 <code>1&#39;</code> 这个用户。<br><img src="http://ovjsmeumq.bkt.clouddn.com/exist.png" alt="存在id=1的用户"><br><img src="http://ovjsmeumq.bkt.clouddn.com/missing.png" alt="不存在id=1&#39;的用户"></p>
+<p>这看起来像是 <code>1&#39;</code> 没有拼接进代码里而是当作变量进行了处理而没有执行，也可能执行了但是经过一些处理没有显示错误信息而只是告诉输入内容有误。所以我们需用盲注来判断到底有没有拼接了输入的内容，到底存不存在注入漏洞。</p>
+<ul>
+<li><strong>盲注（通过布尔判断）原理</strong></li>
+</ul>
+<p>盲注的思想是，构造简单的条件语句，根据返回的页面是否发生变化，来判断sql语句是否执行。</p>
+<p>我们输入 <code>1&#39; and 1=2 ;#</code> 提示找不到用户，再输入 <code>1&#39; and 1=1 ;#</code> ，发现找到了，这说明的确执行了命令。因为，加上 <code>and 1=2</code> and后的假命题使sql语句执行会出错，and前后都为真才可正常执行，所以加上 <code>and 1=1</code> 正常执行，因为1=1是真命题。但是经过处理，执行错误的sql语句并没有像之前一样现实错误信息，而是显示空页或出错页面或制作好的一些信息。</p>
+<p>由此，证明漏洞存在。但是我没看到，即使正确输入也不显示数据库内的信息，所以不能显示我们需要的内容。</p>
+<p>这里能利用的就是我们拼接进命令后，能通过提交后的正常和错误页面判断我们输入的东西存不存在。换句话说，如果页面正常说明我们输入的命令正常执行了，如果页面与正常页面不同说明我们输入的命令不能正常执行。</p>
+<p>因为页面要么正常，要么错误，只有两种情况，所以称通过布尔来判断。</p>
+<ul>
+<li><strong>盲注（通过布尔判断）的利用</strong></li>
+</ul>
+<p>输入 <code>1&#39; and substring(user(),1,1) = &#39;a&#39; ;#</code> 提交，“MISING”。<br>输入 <code>1&#39; and substring(user(),1,1) = &#39;b&#39; ;#</code> 提交，“MISING”。<br>输入 <code>1&#39; and substring(user(),1,1) = &#39;c&#39; ;#</code> 提交，“MISING”。<br>……<br>好吧，直接输入 <code>1&#39; and substring(user(),1,1) = &#39;r&#39; ;#</code> 提交，显示存在的“正常”页面。</p>
+<p><code>substring(string,position,length)</code>如果有一个length值和一个position值，则返回string这个字符串的特定子串，从position位置开始，长度为length。string可以是sql中的可执行函数。举个例子：<code>substring(&quot;hello&quot;,2,3) = &#39;ell&#39;</code> 。</p>
+<p>所以 <code>substring(user(),1,1)</code> 执行的是返回将user()返回的用户名的第一个字符（user()函数是sql自带函数，用来返回用户名），然后我们通过提交页面的不同来判断第一个字符是不是a、b、c……，结果试到r就确定了，得到第一个字符后更改为<code>substring(user(),2,1)</code> 从abcd……开始判断第二个，得到第二个为o，然后继续直到所有的字符都被猜出。（我们的mysql数据库用户名默认均为root）<br>当然你也可以 <code>1&#39; and substring(user(),1,4) = &#39;root&#39; ;#</code></p>
+<h3 id="SQL盲注（通过时间判断）"><a href="#SQL盲注（通过时间判断）" class="headerlink" title="SQL盲注（通过时间判断）"></a>SQL盲注（通过时间判断）</h3><p>通过时间判断与通过布尔判断相似，布尔判断是根据返回页面的两种状态进行判断，而时间判断是根据返回页面的时间长短进行判断。</p>
+<p>输入 <code>1&#39; union select if(substring(user(),1,4)=&#39;root&#39;,sleep(5),0),null;#</code> ，发现网页一直再加载，约5秒后正常。<code>if(string,ture,false)</code> 语句表示执行string，若成功就返回ture对应的内容，如果失败则返回false对于的内容。所以我们输入的就是执行<code>substring(user(),1,4)=&#39;root&#39;</code>，验证user是否为root，如果是，则执行sleep(5)，让网页延迟5秒后再进行其他操作，如果不是，则返回0 。</p>
+<p>可以按f12打开开发者工具，在网络里查看等待时间。（CHROME浏览器是network）</p>
+<p><img src="http://ovjsmeumq.bkt.clouddn.com/5s.png" alt="-5s"></p>
+<h3 id="绕过过滤"><a href="#绕过过滤" class="headerlink" title="绕过过滤"></a>绕过过滤</h3><p>我们可以输入很多内容来实现让代码拼接并执行，所以在防御sql注入这一方面，就会采取检查用户输入的内容，并过滤掉危险的字符。比如服务器过滤掉 <code>&#39;</code> ，我们进行简单测试时就会遇到困难。</p>
+<ul>
+<li><strong>url编码</strong></li>
+</ul>
+<p>有的服务器会对用户提交的url或输入内容进行检查，这时可以将这些敏感符号替换为url编码，例如当服务器对 <code>&#39;</code> 过滤时，我们可用%27替换url的单引号，而后%27就会被转换为单引号。如图所示，替换url的单引号，依旧可以。还可以使用二次编码，将%27再编码。<br><img src="http://ovjsmeumq.bkt.clouddn.com/%2527.png" alt="%27"></p>
+<p>更多<a href="https://baike.baidu.com/item/URL%E7%BC%96%E7%A0%81/3703727?fr=aladdin#2" target="_blank" rel="external">url编码</a>。</p>
+<ul>
+<li><strong>大小写组合</strong></li>
+</ul>
+<p>我们知道，sql语法对大小写不敏感，也就是select和SELECT是一个东西。但是当服务器过滤一些敏感单词时，可以使用大小写组合的形式绕过。</p>
+<p>比如，服务器过滤了输入内容里的”union”和”UNION”，电脑不是人脑，只要内容里跟这两个单词一摸一样，就会被过滤掉，那我们可以用unioN，unIon，UNIOn等等代替它。</p>
+<p><img src="http://ovjsmeumq.bkt.clouddn.com/uniON.png" alt="替换后依旧可以执行"></p>
+<ul>
+<li><strong>sql注释符</strong></li>
+</ul>
+<p>当服务器过滤了空格时，我们使用注释符<code>/* */</code>绕过。<br><img src="http://ovjsmeumq.bkt.clouddn.com/%E6%B3%A8%E9%87%8A%E7%AC%A6.png" alt="将空格替换为注释"></p>
+<h2 id="SQl注入防御"><a href="#SQl注入防御" class="headerlink" title="SQl注入防御"></a>SQl注入防御</h2><p>sql注入的危害是不可小觑的，如何进行防御是安全人员时刻重视的问题。</p>
+<ul>
+<li><strong>用户输入过滤</strong></li>
+</ul>
+<p>由我们这些实验可知，造成sql注入的原因是输入的内容变成了代码执行。所以过滤掉用户输入的一些敏感字符是首要的。</p>
+<p>通常使用白名单的方法进行过滤，将合法的字符比如数字、字母等加入白名单，那么白名单之外的所有字符都会被过滤。不使用黑名单的方法将敏感字符过滤的原因是，我们并不知道哪些字符可能会造成注入漏洞（黑客的脑洞是很大的），所以即使我们添加了一些敏感字符进入黑名单，仍会造成遗漏。</p>
+<ul>
+<li><strong>字符类型检测</strong></li>
+</ul>
+<p>比如我们做过的实验都是id=n,id的值为整数类型，如果检测到id的值不是整数类型，那么可能在进行敏感操作。</p>
+<ul>
+<li><strong>参数化sql语句</strong></li>
+</ul>
+<p>防御sql注入的最佳方式就是使用预编译语句，绑定变量。在使用预编译的sql语句，sql语句的语义不发生变化。预编译就像c语言中，<code>#define PI 3.14</code>那么在整个文件里PI就可以代替数值3.14出现在代码中。 </p>
+<p>使用安全的存储过程对抗sql注入，它的效果跟使用预编译是相似的，区别就在于存储过程需要先将sql语句定义在数据库中。</p>
+<ul>
+<li><strong>使用安全的函数</strong></li>
+</ul>
+<p>我们查看后台代码可以看出，我们正是利用了一些值传递和获取的函数，将我们输入的内容传入了后台代码进行处理并拼接进sql语句中。所以我们应使用更安全的函数。</p>
+<h2 id="自动化SQL注入"><a href="#自动化SQL注入" class="headerlink" title="自动化SQL注入"></a>自动化SQL注入</h2><p>经过这些测试，我们都是手动进行输入探测的，当内容一多后，我们再挨个字符进行输入就有些力不从心了。而sqlmap就是简化了注入步骤，以自动方式检测、探测、注入、获取数据。</p>
+<h3 id="sqlmap安装"><a href="#sqlmap安装" class="headerlink" title="sqlmap安装"></a>sqlmap安装</h3><ul>
+<li><strong>下载sqlmap</strong></li>
+</ul>
+<p>进入<a href="http://sqlmap.org/" target="_blank" rel="external">sqlmap官网</a>，点击右侧的“.zip file”下载压缩包，解压到常用的盘下。</p>
+<ul>
+<li><strong>配置python环境</strong></li>
+</ul>
+<p>由于sqlmap是使用python语言进行编写的，所以要运行它需要python环境。进入<a href="https://www.python.org/downloads/" target="_blank" rel="external">python官网</a>下载2.7版本的python（python3和python2在语法上有较大差别，使用python3本人亲测可能不能运行sqlmap），选择installer安装器的进行下载。</p>
+<p><img src="http://ovjsmeumq.bkt.clouddn.com/python%20download.png" alt="python download"></p>
+<p>下载完成后正常安装，安装目录可更改为自己方便的路径，其余一路next即可。安装完成后，会自动配置环境变量，此时打开cmd命令行，输入<code>python --version</code>，如果出现版本信息就说明安装成功。</p>
+<p><img src="http://ovjsmeumq.bkt.clouddn.com/python%20version.png" alt="python version"></p>
+<ul>
+<li><strong>运行sqlmap</strong></li>
+</ul>
+<p>输入<code>python</code> 后将sqlmap.py 拖入命令行窗口中（<code>python sqlmap.py的路径</code>），或者切换到sqlmap目录下，用<code>python</code> 打开sqlmap.py。看到如图信息说明sqlmap安装成功。</p>
+<p><img src="http://ovjsmeumq.bkt.clouddn.com/sqlmap.png" alt="sqlmap"></p>
+<ul>
+<li><strong>sqlmap更新</strong></li>
+</ul>
+<p>在命令行输入 <code>git clone https://github.com/sqlmapproject/sqlmap.git e:\download</code> 从github获取最新文件（e:\download可随便填写路径，但必须是不存在的文件夹，否则会报错文件夹已存在），然后将下载的文件复制并覆盖之前的文件即可。或者直接从官网下载最新压缩包解压。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本篇文章中介绍了一些更深入的探测方法和防御sql注入的一些措施以及安装并配置好sqlmap。<a href="http://www.ledgil.top/2017/09/09/sqlinjection0011/" target="_blank" rel="external">下一篇文章</a>我们将使用sqlmap进行自动化注入。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://ouur4c5x0.bkt.clouddn.com/wechatpay.png',
+  alipayImage: 'http://ouur4c5x0.bkt.clouddn.com/alipay.jpg'
+});
+</script>
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入/">SQL注入</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/09/sqlinjection0011/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          面向新手SQL注入（下）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/09/sqlinjection0001/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">面向新手SQL注入（上）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL注入深入探测"><span class="nav-number">1.</span> <span class="nav-text">SQL注入深入探测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL盲注（通过布尔判断）"><span class="nav-number">1.1.</span> <span class="nav-text">SQL盲注（通过布尔判断）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL盲注（通过时间判断）"><span class="nav-number">1.2.</span> <span class="nav-text">SQL盲注（通过时间判断）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绕过过滤"><span class="nav-number">1.3.</span> <span class="nav-text">绕过过滤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQl注入防御"><span class="nav-number">2.</span> <span class="nav-text">SQl注入防御</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动化SQL注入"><span class="nav-number">3.</span> <span class="nav-text">自动化SQL注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sqlmap安装"><span class="nav-number">3.1.</span> <span class="nav-text">sqlmap安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">关注我</h3>
+    <div class="widget widget_athemes_social_icons">
+
+    	<ul class="clearfix widget-social-icons">   
+    	
+          
+     			  <li><a href="https://github.com/ledgil" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
+          
+   		
+          
+     			  <li><a href="http://www.yoursite.com" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li> 
+          
+   		
+          
+            <li><a href="mailto:ledgil@163.com?subject=请联系我&body=我能帮你什么" title="email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> 
+          
+   		
+   		</ul>
+
+
+   		<!--
+   		<ul class="clearfix widget-social-icons">   		
+   		<li class="widget-si-twitter"><a href="http://twitter.com" title="Twitter"><i class="ico-twitter"></i></a></li> 
+		<li class="widget-si-facebook"><a href="http://facebook.com" title="Facebook"><i class="ico-facebook"></i></a></li>
+			<li class="widget-si-gplus"><a href="http://plus.google.com" title="Google+"><i class="ico-gplus"></i></a></li>
+			<li class="widget-si-pinterest"><a href="http://pinterest.com" title="Pinterest"><i class="ico-pinterest"></i></a></li>
+			<li class="widget-si-flickr"><a href="http://flickr.com" title="Flickr"><i class="ico-flickr"></i></a></li>
+			<li class="widget-si-instagram"><a href="http://instagram.com" title="Instagram"><i class="ico-instagram"></i></a></li>
+		</ul> -->
+
+    </div>
+  </div>
+
+
+  
+</aside>
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 ledgil All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            ledgil
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 ledgil All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
