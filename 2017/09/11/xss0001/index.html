@@ -95,18 +95,20 @@
 
 
 
-<meta name="description" content="挖坑。">
+<meta name="description" content="跨站脚本攻击(Cross Site Scripting)，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。xss的力量不可小觑！ 本系列文章是本人阅读《xss跨站脚本攻击剖析与防御》并参考">
 <meta name="keywords" content="xss">
 <meta property="og:type" content="article">
 <meta property="og:title" content="入门xss（上）">
 <meta property="og:url" content="http://ledgil.top/2017/09/11/xss0001/index.html">
 <meta property="og:site_name" content="ledgil">
-<meta property="og:description" content="挖坑。">
+<meta property="og:description" content="跨站脚本攻击(Cross Site Scripting)，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。xss的力量不可小觑！ 本系列文章是本人阅读《xss跨站脚本攻击剖析与防御》并参考">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-11T13:09:15.343Z">
+<meta property="og:image" content="http://ow82kp5gf.bkt.clouddn.com/%E6%BA%90%E7%A0%81.png">
+<meta property="og:updated_time" content="2017-09-13T15:11:13.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="入门xss（上）">
-<meta name="twitter:description" content="挖坑。">
+<meta name="twitter:description" content="跨站脚本攻击(Cross Site Scripting)，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。xss的力量不可小觑！ 本系列文章是本人阅读《xss跨站脚本攻击剖析与防御》并参考">
+<meta name="twitter:image" content="http://ow82kp5gf.bkt.clouddn.com/%E6%BA%90%E7%A0%81.png">
 
 
 
@@ -378,7 +380,37 @@
       
 
       
-        <p>挖坑。</p>
+        <p><a href="https://baike.baidu.com/item/xss/917356?fr=aladdin" target="_blank" rel="external">跨站脚本攻击(Cross Site Scripting)</a>，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。xss的力量不可小觑！</p>
+<p>本系列文章是本人阅读《xss跨站脚本攻击剖析与防御》并参考网易网课总结出的，对于一些难理解的东西仍然迷惑。本人拙笔，还请见谅，如有见解，欢迎评论。文章会持续优化更新，希望越来越完善。</p>
+<a id="more"></a>
+<h2 id="xss简介"><a href="#xss简介" class="headerlink" title="xss简介"></a>xss简介</h2><h3 id="什么是xss"><a href="#什么是xss" class="headerlink" title="什么是xss"></a>什么是xss</h3><p><a href="https://baike.baidu.com/item/xss/917356?fr=aladdin" target="_blank" rel="external">跨站脚本攻击(Cross Site Scripting)</a>，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。常常由于web应用程序对用户的输入过滤不足而产生。</p>
+<h3 id="xss危害"><a href="#xss危害" class="headerlink" title="xss危害"></a>xss危害</h3><ul>
+<li>xss可以盗取用户cookie信息，从而获取用户隐私信息，并利用用户身份进一步操作。</li>
+<li>会话劫持，导致强制发表日志、发送邮件等。</li>
+<li>钓鱼欺骗，盗取各类账号。</li>
+<li>制造蠕虫</li>
+<li>弹出广告、页面，恶意刷流量</li>
+<li>网页挂马</li>
+<li>结合其他漏洞，如csrf漏洞</li>
+<li>控制受害者机器向其他网站发起攻击</li>
+<li>等等</li>
+</ul>
+<p>之前各种部门对xss并不重视，认为xss就是弹个窗而已，没有什么危害，但是xss被一些精明的黑客利用，其危害已经与sql注入旗鼓相当，甚至更厉害。</p>
+<h3 id="需要了解"><a href="#需要了解" class="headerlink" title="需要了解"></a>需要了解</h3><ul>
+<li>火狐浏览器<br>火狐浏览器可谓是测试神器，原因就在于他又很多功能强大的插件可以用来测试。熟悉如何安装插件和插件的快捷键可以事半功倍。详情后文会涉及。</li>
+<li>JavaScript<br>JavaScript 是 Web 的编程语言，所有现代的 HTML 页面都使用 JavaScript。</li>
+<li>HTML<br>超文本标记语言（英语：HyperText Markup Language，简称：HTML）是一种用于创建网页的标准标记语言。网页大部分都是使用HTML制作的。任意网站任意地方右击鼠标查看源代码，就会发现大量html。</li>
+<li>php</li>
+<li></li>
+</ul>
+<h3 id="测试环境准备"><a href="#测试环境准备" class="headerlink" title="测试环境准备"></a>测试环境准备</h3><p>我们依旧使用dvwa这个测试系统，配置过程在sql注入的文章中有，详情课参考<a href="http://www.ledgil.top/2017/09/09/sqlinjection0001/" target="_blank" rel="external">入门SQL注入（上）</a></p>
+<p>我们将安全等级调为low，方便我们入门测试。</p>
+<h2 id="xss分类"><a href="#xss分类" class="headerlink" title="xss分类"></a>xss分类</h2><h3 id="反射型xss"><a href="#反射型xss" class="headerlink" title="反射型xss"></a>反射型xss</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>反射型xss也叫非持久性xss，主要用于将恶意脚本附加到url地址的参数中，例如：<code>http://www.test.com/search.php?key=&quot;&gt;&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</code></p>
+<p>反射型xss一般是攻击者使用特定的手法（比如电子邮件），诱导用户点击一个恶意的链接，用户点击之后，恶意的JavaScript代码就会在浏览者的主机上运行。这类xss通常出现在网站的搜索栏、用户登入口等地方。</p>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>在xss（reflected）模块的输入框中输入任意内容提交，其将显示我们刚刚输入的内容。查看源代码发现，它将我们输入的内容直接输出。那么我们就可以利用。<br><img src="http://ow82kp5gf.bkt.clouddn.com/%E6%BA%90%E7%A0%81.png" alt=""></p>
+<p>输入<code>&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</code>发现弹窗，这说明恶意代码植入成功。</p>
+<p>后台php文件将<code>&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</code>直接输出，经过渲染成html网页，而这个html标签执行了alert命令。</p>
+<h3 id="持久型xss"><a href="#持久型xss" class="headerlink" title="持久型xss"></a>持久型xss</h3><h4 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h4><p>持久型xss也叫做存储型xss，这类xss不需要用户点击链接就能够执行脚本。攻击者事先将恶意的JavaScript代码上传或存储到服务器中，只要受害者浏览包含此恶意代码的页面就会执行恶意代码。</p>
 
       
     </div>
@@ -500,8 +532,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -580,6 +621,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#xss简介"><span class="nav-number">1.</span> <span class="nav-text">xss简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是xss"><span class="nav-number">1.1.</span> <span class="nav-text">什么是xss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xss危害"><span class="nav-number">1.2.</span> <span class="nav-text">xss危害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需要了解"><span class="nav-number">1.3.</span> <span class="nav-text">需要了解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试环境准备"><span class="nav-number">1.4.</span> <span class="nav-text">测试环境准备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xss分类"><span class="nav-number">2.</span> <span class="nav-text">xss分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反射型xss"><span class="nav-number">2.1.</span> <span class="nav-text">反射型xss</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">2.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试"><span class="nav-number">2.1.2.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久型xss"><span class="nav-number">2.2.</span> <span class="nav-text">持久型xss</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">简介</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
