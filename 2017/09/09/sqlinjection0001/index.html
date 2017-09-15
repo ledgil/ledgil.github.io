@@ -108,6 +108,7 @@
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/dvwa1.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/configphp.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/phpstudy.png">
+<meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/dbset.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/liw.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/id=1.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E5%90%8E%E5%8F%B0.png">
@@ -130,7 +131,7 @@
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/hash.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E6%94%B9%E7%BC%96%E7%A0%81.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/webshell.png">
-<meta property="og:updated_time" content="2017-09-13T13:27:45.939Z">
+<meta property="og:updated_time" content="2017-09-15T08:36:34.089Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="入门SQL注入（上）">
 <meta name="twitter:description" content="这是我自学web安全后掌握地比较熟练的技术（因为其他的都不会……）。它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危害，反正SQL注入针对着数据库，所以这些数据库你想怎么玩都可以，前提是真的可以利用它们。 自学参考的是《白帽子讲web安全》和网易课堂的微课程，">
@@ -445,7 +446,10 @@
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/dvwa1.png" alt="配置"></p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/configphp.png" alt="修改文件为.php"></p>
 <p>确认phpstudy已经打开并启动，且apache和mysql后为绿色。(可以在php版本中选择其他数据库，这里用默认即可)<br><img src="http://ovjsmeumq.bkt.clouddn.com/phpstudy.png" alt="phpstudy"></p>
-<p>浏览器输入 127.0.0.1/dvwa-master （<code>/</code> 后为dvwa系统文件夹名称）进入登陆界面，默认用户名和密码均为admin。<br>登陆后将DVWA security模块中安全等级改为low，提交，选进SQL injection模块，开始测试sql注入。<br><img src="http://ovjsmeumq.bkt.clouddn.com/liw.png" alt="low"></p>
+<p>浏览器输入 127.0.0.1/dvwa-master （<code>/</code> 后为dvwa系统文件夹名称）进入登陆界面，默认用户名和密码均为admin。</p>
+<p>首先创建一个本地数据库用于测试。<br><img src="http://ovjsmeumq.bkt.clouddn.com/dbset.png" alt=""></p>
+<p>左边的栏目依次是主页、说明、创建或重置数据库，暴力破解、命令注入、CSRF、文件包含、文件上传、验证码、sql注入、sql盲注、弱口令、xss（DOM型）、xss（反射型）、xss（存储型），dvwa安全等级、php配置信息、关于，注销（登出）。</p>
+<p>将DVWA security模块中安全等级改为low，提交，选进SQL injection模块，开始测试sql注入。<br><img src="http://ovjsmeumq.bkt.clouddn.com/liw.png" alt="low"></p>
 <h3 id="验证sql注入漏洞"><a href="#验证sql注入漏洞" class="headerlink" title="验证sql注入漏洞"></a>验证sql注入漏洞</h3><p>SQL注入的本质是数据和代码没有分离，即用户输入的数据请求被当做代码来处理执行，SQL注入的必备条件是，要有可以控制输入的数据和服务器要执行的代码拼接了这些输入的数据。</p>
 <p>所以重要的就是让代码拼接进我们输入的请求数据。</p>
 <p>在SQL injection，模块中输入1，点击提交，则会显示信息，这就是一个简单的与数据库的交互过程，从浏览器的url的<code>?id=1</code>可以看到我们向数据库请求并查询了id=1的数据信息。<br><img src="http://ovjsmeumq.bkt.clouddn.com/id=1.png" alt="id=1"></p>
