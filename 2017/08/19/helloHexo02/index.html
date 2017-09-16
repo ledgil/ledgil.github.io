@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/tupian.png">
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/sidebar.png">
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/donate.png">
-<meta property="og:updated_time" content="2017-09-16T01:25:52.047Z">
+<meta property="og:updated_time" content="2017-09-16T05:31:25.926Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo 个人博客使用技巧">
 <meta name="twitter:description" content="在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。">
@@ -392,62 +392,41 @@
       
         <p>在<a href="http://www.ledgil.top/2017/08/18/helloHexo/" target="_blank" rel="external">前一篇文章</a>中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。</p>
 <a id="more"></a>
-<p><strong>注意：在本地预览效果或者上传到GitHub之后，清理一下浏览器的缓存，否则可能看不到效果</strong></p>
-<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><h3 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h3><p>我们可以使用<a href="https://hexo.io/themes/" target="_blank" rel="external">官方主题</a>,点击浏览后，找到GitHub图标进入开发者的GitHub，这里以主题<a href="https://github.com/iTimeTraveler/hexo-theme-hiker.git" target="_blank" rel="external">hiker</a>为例，获取下载链接</p>
+<h1 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h1><h2 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h2><p>我们可以使用<a href="https://hexo.io/themes/" target="_blank" rel="external">官方主题</a>,点击浏览后，找到GitHub图标进入开发者的GitHub，这里以主题<a href="https://github.com/iTimeTraveler/hexo-theme-hiker.git" target="_blank" rel="external">hiker</a>为例，获取下载链接</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/hiker.png" alt=""></p>
 <p>在hexo<strong>根目录</strong>下打开Git Bash Here，输入命令：<code>git clone https://github.com/iTimeTraveler/hexo-theme-hiker.git themes/hiker</code> （clone后的链接为你获取的下载链接，themes/hiker表示下载到themes/hiker文件夹）</p>
 <p>下载时显示进度和下载速度，下载完成后将出现hexo目录下的themes文件夹内</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/theme.png" alt=""></p>
-<h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><p>用编辑器打开hexo根目录下的_config.yml，找到theme，更改为主题名称即可</p>
+<h2 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h2><p>用编辑器打开hexo根目录下的_config.yml，找到theme，更改为主题名称即可</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/theme%E9%85%8D%E7%BD%AE.png" alt=""></p>
 <p><code>hexo g</code> <code>hex d</code> 后访问域名查看效果</p>
-<h2 id="主题内容新建"><a href="#主题内容新建" class="headerlink" title="主题内容新建"></a>主题内容新建</h2><h3 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h3><ul>
-<li><strong>新建关于页面</strong></li>
-</ul>
-<p>之前打开blog的一些页面比如about（关于我）页面会404 not find file。是因为本地没有配置并生成这些页面。</p>
+<p><strong>注意：在本地预览效果或者上传到GitHub之后，清理一下浏览器的缓存，否则可能看不到效果</strong>。</p>
+<h1 id="主题内容新建"><a href="#主题内容新建" class="headerlink" title="主题内容新建"></a>主题内容新建</h1><h2 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h2><h3 id="新建关于页面"><a href="#新建关于页面" class="headerlink" title="新建关于页面"></a>新建关于页面</h3><p>之前打开blog的一些页面比如about（关于我）页面会404 not find file。是因为本地没有配置并生成这些页面。</p>
 <p>在根目录下Git Bash Here 打开命令窗口，输入命令： <code>hexo new page &quot;about&quot;</code> ，在根目录的source文件夹内就会显示一个about文件夹，打开编辑其中的 index.md 即可完成。</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/about.png" alt=""></p>
 <p>然后打开<strong>主题</strong>的配置文件，将About前的 <code>#</code> 去掉（没有 <code>#</code> 则不用动，没有About则给它追加上）,以下的 分类 标签 页面亦是如此，就不配图了。</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/theme2.png" alt=""></p>
 <p><code>hexo g</code> 生成本地静态文件，hexo会根据配置将.md文件渲染成html文件，出现在public文件夹里。<br><code>hexo server</code> 开启本地查看服务，访问<a href="http://localhost:4000/" target="_blank" rel="external">localhost:4000</a>可在本地查看部署好的blog</p>
-<ul>
-<li><strong>新建分类页面</strong></li>
-</ul>
-<p>同理，在根目录下Git Bash Here 打开命令窗口，输入命令： <code>hexo new page &quot;categories&quot;</code> ，在根目录的source文件夹内就会显示一个categories文件夹，打开编辑其中的 index.md ，添加 <code>type: &quot;categories&quot;</code> 这使得hexo辩认出是分类页面，添加 <code>comments: false</code> 这使得该页面的评论功能关闭，改为true或者删掉这一行评论功能打开。保存。</p>
+<h3 id="新建分类页面"><a href="#新建分类页面" class="headerlink" title="新建分类页面"></a>新建分类页面</h3><p>同理，在根目录下Git Bash Here 打开命令窗口，输入命令： <code>hexo new page &quot;categories&quot;</code> ，在根目录的source文件夹内就会显示一个categories文件夹，打开编辑其中的 index.md ，添加 <code>type: &quot;categories&quot;</code> 这使得hexo辩认出是分类页面，添加 <code>comments: false</code> 这使得该页面的评论功能关闭，改为true或者删掉这一行评论功能打开。保存。</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/categories.png" alt=""></p>
 <p>类似于 关于 页面配置好<code>主题</code>的设置</p>
 <p>然后 <code>hexo g</code> <code>hexo server</code> 在本地查看效果，没有反应则清一下缓存再查看，还没效果则在 index.md 添加 <code>layout: &quot;categories&quot;</code> 使hexo强制渲染本文件为分类。</p>
-<ul>
-<li><strong>新建标签页面</strong></li>
-</ul>
-<p>同理，在根目录下Git Bash Here 打开命令窗口，输入命令： <code>hexo new page &quot;tags&quot;</code> ，在根目录的source文件夹内就会显示一个tags文件夹，打开编辑其中的 index.md ，添加 <code>type: &quot;tags&quot;</code> 这使得hexo辩认出是标签页面，添加 <code>comments: false</code> 这使得该页面的评论功能关闭，改为true或者删掉这一行评论功能打开。保存。</p>
+<h3 id="新建标签页面"><a href="#新建标签页面" class="headerlink" title="新建标签页面"></a>新建标签页面</h3><p>同理，在根目录下Git Bash Here 打开命令窗口，输入命令： <code>hexo new page &quot;tags&quot;</code> ，在根目录的source文件夹内就会显示一个tags文件夹，打开编辑其中的 index.md ，添加 <code>type: &quot;tags&quot;</code> 这使得hexo辩认出是标签页面，添加 <code>comments: false</code> 这使得该页面的评论功能关闭，改为true或者删掉这一行评论功能打开。保存。</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/tags.png" alt=""></p>
 <p>类似于 关于 页面配置好<code>主题</code>的设置</p>
 <p>然后 <code>hexo g</code> <code>hexo server</code> 在本地查看效果，没有反应则清一下缓存再查看，还没效果则在 index.md 添加 <code>layout: &quot;tags&quot;</code> 使hexo强制渲染本文件为标签。</p>
-<ul>
-<li><strong>新建自定义页面</strong></li>
-</ul>
-<blockquote>
+<h3 id="新建自定义页面"><a href="#新建自定义页面" class="headerlink" title="新建自定义页面"></a>新建自定义页面</h3><blockquote>
 <p>Hexo 博客中所见文章都是经由渲染的静态网页，而静态网页的样式都直接由 Hexo 的主题控制，所以 Hexo 博客大部分都呈现出一种高度的统一化与规范化。不过 Hexo 提供了跳过渲染功能，使得我们可以直接在博客中放入自定义网页。</p>
 </blockquote>
 <p>以上引用及其他请见<a href="http://www.jianshu.com/p/f89428fce8d5" target="_blank" rel="external">这个blog</a></p>
-<ul>
-<li><strong>新建404页面</strong></li>
-</ul>
-<p>详情请参考<a href="http://www.foreverpx.cn/2014/09/23/hexo404/" target="_blank" rel="external">这个blog</a></p>
+<h3 id="新建404页面"><a href="#新建404页面" class="headerlink" title="新建404页面"></a>新建404页面</h3><p>详情请参考<a href="http://www.foreverpx.cn/2014/09/23/hexo404/" target="_blank" rel="external">这个blog</a></p>
 <p>注意将html文件要放在<strong>source</strong>文件夹下</p>
-<h3 id="新建博客文章"><a href="#新建博客文章" class="headerlink" title="新建博客文章"></a>新建博客文章</h3><ul>
-<li><strong>使用语法</strong></li>
-</ul>
-<p>上篇文章我们发布了第一篇blog，而使用的语法正是 Markdown ，关于Markdown的基本使用请参考本人的<a href="http://www.ledgil.top/2017/08/18/helloMarkdown/" target="_blank" rel="external">这篇文章</a>，讲解了基本的语法，已经够用。</p>
+<h2 id="新建博客文章"><a href="#新建博客文章" class="headerlink" title="新建博客文章"></a>新建博客文章</h2><h3 id="使用语法"><a href="#使用语法" class="headerlink" title="使用语法"></a>使用语法</h3><p>上篇文章我们发布了第一篇blog，而使用的语法正是 Markdown ，关于Markdown的基本使用请参考本人的<a href="http://www.ledgil.top/2017/08/18/helloMarkdown/" target="_blank" rel="external">这篇文章</a>，讲解了基本的语法，已经够用。</p>
 <p>如果想了解更多语法，请参考<a href="http://blog.csdn.net/witnessai1/article/details/52551362" target="_blank" rel="external">这篇文章</a></p>
-<ul>
-<li><strong>新建文章</strong></li>
-</ul>
-<p>我们使用命令：<code>hexo new &quot;Name&quot;</code> （Name 为文章名字），就会在hexo/source/_posts里出现 Name.md 的文件，使用编辑器和Markdown语法编辑即可。</p>
+<h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p>我们使用命令：<code>hexo new &quot;Name&quot;</code> （Name 为文章名字），就会在hexo/source/_posts里出现 Name.md 的文件，使用编辑器和Markdown语法编辑即可。</p>
 <p>或者直接在hexo/source/_posts文件夹里新建 Name.md 亦可。</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/new%20name.png" alt=""></p>
-<h2 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h2><h3 id="网站信息"><a href="#网站信息" class="headerlink" title="网站信息"></a>网站信息</h3><p>各个主题的配置大同小异，这里就不多赘述了，简单说一下hiker的主题配置，<br>如果您的主题配置有不同或者对其有疑惑，请利用好搜索引擎。</p>
+<h1 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h1><h2 id="网站信息"><a href="#网站信息" class="headerlink" title="网站信息"></a>网站信息</h2><p>各个主题的配置大同小异，这里就不多赘述了，简单说一下hiker的主题配置，<br>如果您的主题配置有不同或者对其有疑惑，请利用好搜索引擎。</p>
 <p>编辑器打开主题的配置文件</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/tupian.png" alt=""></p>
 <p>修改相应内容，包括背景图、logo</p>
@@ -455,7 +434,7 @@
 <p>这是侧边栏，可以选择侧边栏的位置，有right、left、bottom可选。<br>下面是“联系我”的一些链接，根据需要填写链接，或者使用 <code>#</code> 注释掉一些栏目则不会显示这些链接。</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/donate.png" alt=""></p>
 <p>捐赠可以配置微信和支付宝的支付图片，就像本文最下面“打赏”。</p>
-<h2 id="OK"><a href="#OK" class="headerlink" title="OK"></a>OK</h2><p>OK，基本上已经可以了，使用这三篇文章，大概就可以开始自己的blog之旅。<br><a href="https://zhuanlan.zhihu.com/p/19743861" target="_blank" rel="external">为什么你要写博客</a></p>
+<h1 id="OK"><a href="#OK" class="headerlink" title="OK"></a>OK</h1><p>OK，基本上已经可以了，使用这三篇文章，大概就可以开始自己的blog之旅。<br>关于为什么要写博客，可以阅读以下文章：<br><a href="https://zhuanlan.zhihu.com/p/19743861" target="_blank" rel="external">为什么你要写博客</a></p>
 
       
     </div>
@@ -680,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题"><span class="nav-number">1.</span> <span class="nav-text">主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载主题"><span class="nav-number">1.1.</span> <span class="nav-text">下载主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置主题"><span class="nav-number">1.2.</span> <span class="nav-text">配置主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题内容新建"><span class="nav-number">2.</span> <span class="nav-text">主题内容新建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建页面"><span class="nav-number">2.1.</span> <span class="nav-text">新建页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建博客文章"><span class="nav-number">2.2.</span> <span class="nav-text">新建博客文章</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他配置"><span class="nav-number">3.</span> <span class="nav-text">其他配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网站信息"><span class="nav-number">3.1.</span> <span class="nav-text">网站信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OK"><span class="nav-number">4.</span> <span class="nav-text">OK</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主题选择"><span class="nav-number">1.</span> <span class="nav-text">主题选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载主题"><span class="nav-number">1.1.</span> <span class="nav-text">下载主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置主题"><span class="nav-number">1.2.</span> <span class="nav-text">配置主题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题内容新建"><span class="nav-number">2.</span> <span class="nav-text">主题内容新建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建页面"><span class="nav-number">2.1.</span> <span class="nav-text">新建页面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建关于页面"><span class="nav-number">2.1.1.</span> <span class="nav-text">新建关于页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建分类页面"><span class="nav-number">2.1.2.</span> <span class="nav-text">新建分类页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建标签页面"><span class="nav-number">2.1.3.</span> <span class="nav-text">新建标签页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建自定义页面"><span class="nav-number">2.1.4.</span> <span class="nav-text">新建自定义页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建404页面"><span class="nav-number">2.1.5.</span> <span class="nav-text">新建404页面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建博客文章"><span class="nav-number">2.2.</span> <span class="nav-text">新建博客文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用语法"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建文章"><span class="nav-number">2.2.2.</span> <span class="nav-text">新建文章</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他配置"><span class="nav-number">3.</span> <span class="nav-text">其他配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网站信息"><span class="nav-number">3.1.</span> <span class="nav-text">网站信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OK"><span class="nav-number">4.</span> <span class="nav-text">OK</span></a></li></ol></div>
             
 
           </div>
