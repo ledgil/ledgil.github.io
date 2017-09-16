@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://ow82kp5gf.bkt.clouddn.com/%E5%AD%98%E5%82%A8%E5%9E%8Bxss.png">
 <meta property="og:image" content="http://ow82kp5gf.bkt.clouddn.com/%E5%AD%98%E5%82%A8%E5%9E%8Bxss2.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/dbset.png">
-<meta property="og:updated_time" content="2017-09-15T09:12:42.717Z">
+<meta property="og:updated_time" content="2017-09-16T01:22:49.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="入门xss（上）">
 <meta name="twitter:description" content="跨站脚本攻击(Cross Site Scripting)，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。xss的力量不可小觑！ 本系列文章是本人阅读《xss跨站脚本攻击剖析与防御》并参考">
@@ -386,8 +386,8 @@
         <p><a href="https://baike.baidu.com/item/xss/917356?fr=aladdin" target="_blank" rel="external">跨站脚本攻击(Cross Site Scripting)</a>，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。xss的力量不可小觑！</p>
 <p>本系列文章是本人阅读《xss跨站脚本攻击剖析与防御》并参考网易网课总结出的，对于一些难理解的东西仍然迷惑。本人拙笔，还请见谅，如有见解，欢迎评论。文章会持续优化更新，希望越来越完善。</p>
 <a id="more"></a>
-<h2 id="xss简介"><a href="#xss简介" class="headerlink" title="xss简介"></a>xss简介</h2><h3 id="什么是xss"><a href="#什么是xss" class="headerlink" title="什么是xss"></a>什么是xss</h3><p><a href="https://baike.baidu.com/item/xss/917356?fr=aladdin" target="_blank" rel="external">跨站脚本攻击(Cross Site Scripting)</a>，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。常常由于web应用程序对用户的输入过滤不足而产生。</p>
-<h3 id="xss危害"><a href="#xss危害" class="headerlink" title="xss危害"></a>xss危害</h3><ul>
+<h1 id="xss简介"><a href="#xss简介" class="headerlink" title="xss简介"></a>xss简介</h1><h2 id="什么是xss"><a href="#什么是xss" class="headerlink" title="什么是xss"></a>什么是xss</h2><p><a href="https://baike.baidu.com/item/xss/917356?fr=aladdin" target="_blank" rel="external">跨站脚本攻击(Cross Site Scripting)</a>，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。常常由于web应用程序对用户的输入过滤不足而产生。</p>
+<h2 id="xss危害"><a href="#xss危害" class="headerlink" title="xss危害"></a>xss危害</h2><ul>
 <li>xss可以盗取用户cookie信息，从而获取用户隐私信息，并利用用户身份进一步操作。</li>
 <li>会话劫持，导致强制发表日志、发送邮件等。</li>
 <li>钓鱼欺骗，盗取各类账号。</li>
@@ -399,22 +399,26 @@
 <li>等等</li>
 </ul>
 <p>之前各种部门对xss并不重视，认为xss就是弹个窗而已，没有什么危害，但是xss被一些精明的黑客利用，其危害已经与sql注入旗鼓相当，甚至更厉害。</p>
-<h3 id="需要了解"><a href="#需要了解" class="headerlink" title="需要了解"></a>需要了解</h3><ul>
-<li>火狐浏览器<br><a href="http://www.firefox.com.cn/#desktop" target="_blank" rel="external">火狐浏览器</a>可谓是测试神器，原因就在于他又很多功能强大的插件可以用来测试。熟悉如何安装插件和插件的快捷键可以事半功倍。详情后文会涉及。<br>基本了解火狐浏览器的<strong>界面、设置、插件查找安装。</strong></li>
-<li>JavaScript<br><a href="http://www.runoob.com/js/js-tutorial.html" target="_blank" rel="external">JavaScript</a> 是 Web 的编程语言，所有现代的 HTML 页面都使用 JavaScript。<br>基本了解JavaScript的<strong>用法、输出、语法、语句、注释、变量、函数、事件</strong>。</li>
-<li>HTML<br><a href="http://www.runoob.com/html/html-tutorial.html" target="_blank" rel="external">超文本标记语言</a>（英语：HyperText Markup Language，简称：HTML）是一种用于创建网页的标准标记语言。网页大部分都是使用HTML制作的。任意网站任意地方右击鼠标查看源代码，就会发现大量html。<br>基本了解HTML的<strong>基础、标签、素元、属性、链接、头部。</strong></li>
-<li>php<br><a href="http://www.runoob.com/php/php-tutorial.html" target="_blank" rel="external">PHP</a>（外文名:PHP: Hypertext Preprocessor，中文名：“超文本预处理器”）是一种通用开源脚本语言。广泛用于web开发。<br>基本了解php的<strong>语法、变量、echo、数据类型、表单、$_GET和$_POST变量。</strong></li>
+<h2 id="需要了解"><a href="#需要了解" class="headerlink" title="需要了解"></a>需要了解</h2><ul>
+<li><p>火狐浏览器<br><a href="http://www.firefox.com.cn/#desktop" target="_blank" rel="external">火狐浏览器</a>可谓是测试神器，原因就在于他又很多功能强大的插件可以用来测试。熟悉如何安装插件和插件的快捷键可以事半功倍。详情后文会涉及。<br>基本了解火狐浏览器的<strong>界面、设置、插件查找安装。</strong></p>
+</li>
+<li><p>JavaScript<br><a href="http://www.runoob.com/js/js-tutorial.html" target="_blank" rel="external">JavaScript</a> 是 Web 的编程语言，所有现代的 HTML 页面都使用 JavaScript。<br>基本了解JavaScript的<strong>用法、输出、语法、语句、注释、变量、函数、事件</strong>。</p>
+</li>
+<li><p>HTML<br><a href="http://www.runoob.com/html/html-tutorial.html" target="_blank" rel="external">超文本标记语言</a>（英语：HyperText Markup Language，简称：HTML）是一种用于创建网页的标准标记语言。网页大部分都是使用HTML制作的。任意网站任意地方右击鼠标查看源代码，就会发现大量html。<br>基本了解HTML的<strong>基础、标签、素元、属性、链接、头部。</strong></p>
+</li>
+<li><p>php<br><a href="http://www.runoob.com/php/php-tutorial.html" target="_blank" rel="external">PHP</a>（外文名:PHP: Hypertext Preprocessor，中文名：“超文本预处理器”）是一种通用开源脚本语言。广泛用于web开发。<br>基本了解php的<strong>语法、变量、echo、数据类型、表单、$_GET和$_POST变量。</strong></p>
+</li>
 </ul>
-<h3 id="测试环境准备"><a href="#测试环境准备" class="headerlink" title="测试环境准备"></a>测试环境准备</h3><p>我们依旧使用dvwa这个测试系统，配置过程在sql注入的文章中有，详情课参考<a href="http://www.ledgil.top/2017/09/09/sqlinjection0001/" target="_blank" rel="external">入门SQL注入（上）</a></p>
+<h2 id="测试环境准备"><a href="#测试环境准备" class="headerlink" title="测试环境准备"></a>测试环境准备</h2><p>我们依旧使用dvwa这个测试系统，配置过程在sql注入的文章中有，详情课参考<a href="http://www.ledgil.top/2017/09/09/sqlinjection0001/" target="_blank" rel="external">入门SQL注入（上）</a></p>
 <p>我们将安全等级调为low，方便我们入门测试。</p>
-<h2 id="xss分类"><a href="#xss分类" class="headerlink" title="xss分类"></a>xss分类</h2><h3 id="反射型xss"><a href="#反射型xss" class="headerlink" title="反射型xss"></a>反射型xss</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>反射型xss也叫非持久性xss，主要用于将恶意脚本附加到url地址的参数中，例如：<code>http://www.test.com/search.php?key=&quot;&gt;&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</code></p>
+<h1 id="xss分类"><a href="#xss分类" class="headerlink" title="xss分类"></a>xss分类</h1><h2 id="反射型xss"><a href="#反射型xss" class="headerlink" title="反射型xss"></a>反射型xss</h2><h3 id="反射型xss简介"><a href="#反射型xss简介" class="headerlink" title="反射型xss简介"></a>反射型xss简介</h3><p>反射型xss也叫非持久性xss，主要用于将恶意脚本附加到url地址的参数中，例如：<code>http://www.test.com/search.php?key=&quot;&gt;&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</code></p>
 <p>反射型xss一般是攻击者使用特定的手法（比如电子邮件），诱导用户点击一个恶意的链接，用户点击之后，恶意的JavaScript代码就会在浏览者的主机上运行。这类xss通常出现在网站的搜索栏、用户登入口等地方。</p>
-<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>在xss（reflected）模块的输入框中输入任意内容提交，其将显示我们刚刚输入的内容。查看源代码发现，它将我们输入的内容直接输出。那么我们就可以利用。<br><img src="http://ow82kp5gf.bkt.clouddn.com/%E6%BA%90%E7%A0%81.png" alt=""></p>
+<h3 id="反射型xss测试"><a href="#反射型xss测试" class="headerlink" title="反射型xss测试"></a>反射型xss测试</h3><p>在xss（reflected）模块的输入框中输入任意内容提交，其将显示我们刚刚输入的内容。查看源代码发现，它将我们输入的内容直接输出。那么我们就可以利用。<br><img src="http://ow82kp5gf.bkt.clouddn.com/%E6%BA%90%E7%A0%81.png" alt=""></p>
 <p>输入<code>&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</code>发现弹窗，这说明恶意代码植入成功。</p>
 <p>后台php文件将<code>&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</code>直接输出，经过渲染成html网页，而这个html标签执行了alert命令。</p>
-<h3 id="持久型xss"><a href="#持久型xss" class="headerlink" title="持久型xss"></a>持久型xss</h3><h4 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h4><p>持久型xss也叫做存储型xss，这类xss不需要用户点击链接就能够执行脚本。攻击者事先将恶意的JavaScript代码上传或存储到服务器中，只要受害者浏览包含此恶意代码的页面就会执行恶意代码。</p>
+<h2 id="持久型xss"><a href="#持久型xss" class="headerlink" title="持久型xss"></a>持久型xss</h2><h3 id="持久型xss简介"><a href="#持久型xss简介" class="headerlink" title="持久型xss简介"></a>持久型xss简介</h3><p>持久型xss也叫做存储型xss，这类xss不需要用户点击链接就能够执行脚本。攻击者事先将恶意的JavaScript代码上传或存储到服务器中，只要受害者浏览包含此恶意代码的页面就会执行恶意代码。</p>
 <p>此xss多出现在网站的评论区、留言板、博客日志等与数据库有交互的地方。当恶意脚本存储到数据库中，有其他用户或者管理员访问这个网站，站点就会读取恶意脚本执行。</p>
-<h4 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h4><p>这是一个类似留言或者评论的板块，我们试着正常留言任意内容，提交后将会存储到数据库中。<br><img src="http://ow82kp5gf.bkt.clouddn.com/%E5%AD%98%E5%82%A8%E5%9E%8Bxss.png" alt="留言任意内容，存储到数据库"></p>
+<h3 id="持久型xss测试"><a href="#持久型xss测试" class="headerlink" title="持久型xss测试"></a>持久型xss测试</h3><p>这是一个类似留言或者评论的板块，我们试着正常留言任意内容，提交后将会存储到数据库中。<br><img src="http://ow82kp5gf.bkt.clouddn.com/%E5%AD%98%E5%82%A8%E5%9E%8Bxss.png" alt="留言任意内容，存储到数据库"></p>
 <p>当我们以后再访问这个网页时，就会从服务器读取我们的这条内容，然后展示到页面上，即会一直存在。</p>
 <p>我们输入测试代码<code>&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</code>,这里可以在Name和Message框中都可以输入，因为并没有字数和类型限制，这里仅以Message框作为测试。</p>
 <p><img src="http://ow82kp5gf.bkt.clouddn.com/%E5%AD%98%E5%82%A8%E5%9E%8Bxss2.png" alt=""></p>
@@ -641,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#xss简介"><span class="nav-number">1.</span> <span class="nav-text">xss简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是xss"><span class="nav-number">1.1.</span> <span class="nav-text">什么是xss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xss危害"><span class="nav-number">1.2.</span> <span class="nav-text">xss危害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需要了解"><span class="nav-number">1.3.</span> <span class="nav-text">需要了解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试环境准备"><span class="nav-number">1.4.</span> <span class="nav-text">测试环境准备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xss分类"><span class="nav-number">2.</span> <span class="nav-text">xss分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反射型xss"><span class="nav-number">2.1.</span> <span class="nav-text">反射型xss</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">2.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试"><span class="nav-number">2.1.2.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久型xss"><span class="nav-number">2.2.</span> <span class="nav-text">持久型xss</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM型xss"><span class="nav-number">2.3.</span> <span class="nav-text">DOM型xss</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#xss简介"><span class="nav-number">1.</span> <span class="nav-text">xss简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是xss"><span class="nav-number">1.1.</span> <span class="nav-text">什么是xss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xss危害"><span class="nav-number">1.2.</span> <span class="nav-text">xss危害</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要了解"><span class="nav-number">1.3.</span> <span class="nav-text">需要了解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试环境准备"><span class="nav-number">1.4.</span> <span class="nav-text">测试环境准备</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#xss分类"><span class="nav-number">2.</span> <span class="nav-text">xss分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#反射型xss"><span class="nav-number">2.1.</span> <span class="nav-text">反射型xss</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反射型xss简介"><span class="nav-number">2.1.1.</span> <span class="nav-text">反射型xss简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反射型xss测试"><span class="nav-number">2.1.2.</span> <span class="nav-text">反射型xss测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持久型xss"><span class="nav-number">2.2.</span> <span class="nav-text">持久型xss</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#持久型xss简介"><span class="nav-number">2.2.1.</span> <span class="nav-text">持久型xss简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久型xss测试"><span class="nav-number">2.2.2.</span> <span class="nav-text">持久型xss测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM型xss"><span class="nav-number">2.2.3.</span> <span class="nav-text">DOM型xss</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
