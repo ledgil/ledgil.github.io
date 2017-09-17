@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/tupian.png">
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/sidebar.png">
 <meta property="og:image" content="http://ouvr31quw.bkt.clouddn.com/donate.png">
-<meta property="og:updated_time" content="2017-09-16T13:45:51.263Z">
+<meta property="og:updated_time" content="2017-09-16T14:11:43.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo 个人博客使用技巧">
 <meta name="twitter:description" content="在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。">
@@ -434,6 +434,10 @@
 <p>这是侧边栏，可以选择侧边栏的位置，有right、left、bottom可选。<br>下面是“联系我”的一些链接，根据需要填写链接，或者使用 <code>#</code> 注释掉一些栏目则不会显示这些链接。</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/donate.png" alt=""></p>
 <p>捐赠可以配置微信和支付宝的支付图片，就像本文最下面“打赏”。</p>
+<h1 id="错误发现"><a href="#错误发现" class="headerlink" title="错误发现"></a>错误发现</h1><p>在使用过程中，我遇到过很多错误，经过查询或者不断摸索后，能够解决大部分问题，此模块不断更新。</p>
+<h2 id="更改文件名并上传github后，页面显示404"><a href="#更改文件名并上传github后，页面显示404" class="headerlink" title="更改文件名并上传github后，页面显示404"></a>更改文件名并上传github后，页面显示404</h2><p><strong>错误：</strong> 自己写的md文件，一般是英文名称，当我们修改某些字母的大小写后，并上传至GitHub，博客页面可能显示404找不到文件。比如在本地将“test.md”修改为“Test.md”。查看public文件夹和GitHub上的文件夹，发现本地public文件夹生成的html文件夹名称确实改为了“Test”，但是GitHub上的文件夹并没有改变，依然是“test”。而打开这篇文章后的网址链接是xxxx/Test，即网站请求的是“Test”，而GitHub内是“test”，所以就会找不到文件，报404。</p>
+<p><strong>原因：</strong> 可能是在执行<code>hexo d</code>后会进行本地文件与GitHub文件的匹配，然后选择文件名不同的文件进行上传(之前说的部分上传)，但是它对文件名大小写并不敏感，即认为“Test.md”和“test.md”是一个文件，于是它不上传“Test.md”文件。</p>
+<p><strong>解决：</strong> 不单独使用字母大小写的方式修改文件名，可以添加或删除部分内容或全部更改来更改文件名。例如，“test.md”修改为“mytest.md”、”my.md”、“Testing.md”、“test-01.md”等。</p>
 <h1 id="OK"><a href="#OK" class="headerlink" title="OK"></a>OK</h1><p>OK，基本上已经可以了，使用这三篇文章，大概就可以开始自己的blog之旅。<br>关于为什么要写博客，可以阅读以下文章：<br><a href="https://zhuanlan.zhihu.com/p/19743861" target="_blank" rel="external">为什么你要写博客</a></p>
 
       
@@ -599,7 +603,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -610,7 +614,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -659,7 +663,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主题选择"><span class="nav-number">1.</span> <span class="nav-text">主题选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载主题"><span class="nav-number">1.1.</span> <span class="nav-text">下载主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置主题"><span class="nav-number">1.2.</span> <span class="nav-text">配置主题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题内容新建"><span class="nav-number">2.</span> <span class="nav-text">主题内容新建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建页面"><span class="nav-number">2.1.</span> <span class="nav-text">新建页面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建关于页面"><span class="nav-number">2.1.1.</span> <span class="nav-text">新建关于页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建分类页面"><span class="nav-number">2.1.2.</span> <span class="nav-text">新建分类页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建标签页面"><span class="nav-number">2.1.3.</span> <span class="nav-text">新建标签页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建自定义页面"><span class="nav-number">2.1.4.</span> <span class="nav-text">新建自定义页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建404页面"><span class="nav-number">2.1.5.</span> <span class="nav-text">新建404页面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建博客文章"><span class="nav-number">2.2.</span> <span class="nav-text">新建博客文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用语法"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建文章"><span class="nav-number">2.2.2.</span> <span class="nav-text">新建文章</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他配置"><span class="nav-number">3.</span> <span class="nav-text">其他配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网站信息"><span class="nav-number">3.1.</span> <span class="nav-text">网站信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OK"><span class="nav-number">4.</span> <span class="nav-text">OK</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主题选择"><span class="nav-number">1.</span> <span class="nav-text">主题选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载主题"><span class="nav-number">1.1.</span> <span class="nav-text">下载主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置主题"><span class="nav-number">1.2.</span> <span class="nav-text">配置主题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题内容新建"><span class="nav-number">2.</span> <span class="nav-text">主题内容新建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建页面"><span class="nav-number">2.1.</span> <span class="nav-text">新建页面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建关于页面"><span class="nav-number">2.1.1.</span> <span class="nav-text">新建关于页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建分类页面"><span class="nav-number">2.1.2.</span> <span class="nav-text">新建分类页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建标签页面"><span class="nav-number">2.1.3.</span> <span class="nav-text">新建标签页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建自定义页面"><span class="nav-number">2.1.4.</span> <span class="nav-text">新建自定义页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建404页面"><span class="nav-number">2.1.5.</span> <span class="nav-text">新建404页面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建博客文章"><span class="nav-number">2.2.</span> <span class="nav-text">新建博客文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用语法"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建文章"><span class="nav-number">2.2.2.</span> <span class="nav-text">新建文章</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他配置"><span class="nav-number">3.</span> <span class="nav-text">其他配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网站信息"><span class="nav-number">3.1.</span> <span class="nav-text">网站信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#错误发现"><span class="nav-number">4.</span> <span class="nav-text">错误发现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#更改文件名并上传github后，页面显示404"><span class="nav-number">4.1.</span> <span class="nav-text">更改文件名并上传github后，页面显示404</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OK"><span class="nav-number">5.</span> <span class="nav-text">OK</span></a></li></ol></div>
             
 
           </div>
