@@ -15,7 +15,7 @@
 <meta name="keywords" content="xss">
 <meta property="og:type" content="article">
 <meta property="og:title" content="入门xss（上）">
-<meta property="og:url" content="http://ledgil.top/2017/09/11/xss-01/index.html">
+<meta property="og:url" content="http://www.ledgil.top/2017/09/11/xss-01/index.html">
 <meta property="og:site_name" content="ledgil">
 <meta property="og:description" content="跨站脚本攻击(Cross Site Scripting)，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。xss的力量不可小觑！ 本系列文章是本人阅读《xss跨站脚本攻击剖析与防御》并参考">
 <meta property="og:locale" content="zh-CN">
@@ -228,7 +228,7 @@
 <li><p>php<br><a href="http://www.runoob.com/php/php-tutorial.html" target="_blank" rel="external">PHP</a>（外文名:PHP: Hypertext Preprocessor，中文名：“超文本预处理器”）是一种通用开源脚本语言。广泛用于web开发。<br>基本了解php的<strong>语法、变量、echo、数据类型、表单、$_GET和$_POST变量。</strong></p>
 </li>
 </ul>
-<h2 id="测试环境准备"><a href="#测试环境准备" class="headerlink" title="测试环境准备"></a>测试环境准备</h2><p>我们依旧使用dvwa这个测试系统，配置过程在sql注入的文章中有，详情课参考<a href="http://www.ledgil.top/2017/09/09/sqlinjection0001/" target="_blank" rel="external">入门SQL注入（上）</a></p>
+<h2 id="测试环境准备"><a href="#测试环境准备" class="headerlink" title="测试环境准备"></a>测试环境准备</h2><p>我们依旧使用dvwa这个测试系统，配置过程在sql注入的文章中有，详情课参考<a href="http://www.ledgil.top/2017/09/09/sqlinjection0001/">入门SQL注入（上）</a></p>
 <p>我们将安全等级调为low，方便我们入门测试。</p>
 <h1 id="xss分类"><a href="#xss分类" class="headerlink" title="xss分类"></a>xss分类</h1><h2 id="反射型xss"><a href="#反射型xss" class="headerlink" title="反射型xss"></a>反射型xss</h2><h3 id="反射型xss简介"><a href="#反射型xss简介" class="headerlink" title="反射型xss简介"></a>反射型xss简介</h3><p>反射型xss也叫非持久性xss，主要用于将恶意脚本附加到url地址的参数中，例如：<code>http://www.test.com/search.php?key=&quot;&gt;&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</code></p>
 <p>反射型xss一般是攻击者使用特定的手法（比如电子邮件），诱导用户点击一个恶意的链接，用户点击之后，恶意的JavaScript代码就会在浏览者的主机上运行。这类xss通常出现在网站的搜索栏、用户登入口等地方。</p>
