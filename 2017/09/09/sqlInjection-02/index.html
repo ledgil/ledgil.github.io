@@ -99,7 +99,7 @@
 <meta name="keywords" content="SQL注入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="入门SQL注入（中）">
-<meta property="og:url" content="http://ledgil.top/2017/09/09/sqlInjection-02/index.html">
+<meta property="og:url" content="http://www.ledgil.top/2017/09/09/sqlInjection-02/index.html">
 <meta property="og:site_name" content="ledgil">
 <meta property="og:description" content="上一篇文章中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。">
 <meta property="og:locale" content="zh-CN">
@@ -146,7 +146,7 @@
 
 
 
-  <link rel="canonical" href="http://ledgil.top/2017/09/09/sqlInjection-02/"/>
+  <link rel="canonical" href="http://www.ledgil.top/2017/09/09/sqlInjection-02/"/>
 
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ledgil.top/2017/09/09/sqlInjection-02/">
+    <link itemprop="mainEntityOfPage" href="http://www.ledgil.top/2017/09/09/sqlInjection-02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ledgil">
@@ -388,7 +388,7 @@
       
 
       
-        <p><a href="http://www.ledgil.top/2017/09/09/sqlinjection0001/" target="_blank" rel="external">上一篇文章</a>中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。</p>
+        <p><a href="http://www.ledgil.top/2017/09/09/sqlinjection0001/">上一篇文章</a>中，我们快速进行了SQL注入入门的探索，了解了注入的基本原理和过程。这篇文章继续进行更多探索。本人也是参照其他博客整理内容和一些书本上的东西以及参加的视频课程来简单描述，拙笔见谅。</p>
 <a id="more"></a>
 <h1 id="SQL注入深入探测"><a href="#SQL注入深入探测" class="headerlink" title="SQL注入深入探测"></a>SQL注入深入探测</h1><h2 id="SQL盲注（通过布尔判断）"><a href="#SQL盲注（通过布尔判断）" class="headerlink" title="SQL盲注（通过布尔判断）"></a>SQL盲注（通过布尔判断）</h2><p>在上篇文章中，我们对靶子进行了轰炸，顺利的获取了数据。还记得判断是否存在SQL注入的第二步是什么？加上单引号后看是否报错，从报错信息中能得到很多有用的信息，比如使用了什么样的数据库、网站根目录等。这是因为web服务器打开了错误回显，能够使错误信息显示到页面上，那么当关闭了错误回显，即使我们加上单引号也看不出什么信息了怎么办？</p>
 <h3 id="打开测试环境"><a href="#打开测试环境" class="headerlink" title="打开测试环境"></a>打开测试环境</h3><p>打开phpstudy并启动，打开浏览器进入dvwa测试环境，将安全等级设为low，点击SQL Injection (Blind)。输入 <code>1</code> ，提交显示信息与之前不同，之前是显示了id=1的信息（有first_name和last_name），而这里显示的是存在id=1这个用户，再输入 <code>1&#39;</code> 提交后，发现没有我们上一篇文章报错信息了，而是显示了一个没啥意思的信息，大概为数据库里找不到 <code>1&#39;</code> 这个用户。<br><img src="http://ovjsmeumq.bkt.clouddn.com/exist.png" alt="存在id=1的用户"><br><img src="http://ovjsmeumq.bkt.clouddn.com/missing.png" alt="不存在id=1&#39;的用户"></p>
@@ -428,7 +428,7 @@
 <h3 id="运行sqlmap"><a href="#运行sqlmap" class="headerlink" title="运行sqlmap"></a>运行sqlmap</h3><p>输入<code>python</code> 后将sqlmap.py 拖入命令行窗口中（<code>python sqlmap.py的路径</code>），或者切换到sqlmap目录下，用<code>python</code> 打开sqlmap.py。看到如图信息说明sqlmap安装成功。</p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/sqlmap.png" alt="sqlmap"></p>
 <h3 id="sqlmap更新"><a href="#sqlmap更新" class="headerlink" title="sqlmap更新"></a>sqlmap更新</h3><p>在命令行输入 <code>git clone https://github.com/sqlmapproject/sqlmap.git e:\download</code> 从github获取最新文件（e:\download可随便填写路径，但必须是不存在的文件夹，否则会报错文件夹已存在），然后将下载的文件复制并覆盖之前的文件即可。或者直接从官网下载最新压缩包解压。或者打开sqlmap使用命令 <code>-update</code></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本篇文章中介绍了一些更深入的探测方法和防御sql注入的一些措施以及安装并配置好sqlmap。<a href="http://www.ledgil.top/2017/09/09/sqlinjection0011/" target="_blank" rel="external">下一篇文章</a>我们将使用sqlmap进行自动化注入。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本篇文章中介绍了一些更深入的探测方法和防御sql注入的一些措施以及安装并配置好sqlmap。<a href="http://www.ledgil.top/2017/09/09/sqlinjection0011/">下一篇文章</a>我们将使用sqlmap进行自动化注入。</p>
 
       
     </div>
