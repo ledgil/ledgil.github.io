@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="好玩的算法," />
+  <meta name="keywords" content="搭建VPN," />
 
 
 
@@ -95,18 +95,25 @@
 
 
 
-<meta name="description" content="。">
-<meta name="keywords" content="好玩的算法">
+<meta name="description" content="Why can’t we be more free？">
+<meta name="keywords" content="搭建VPN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="好玩的算法">
-<meta property="og:url" content="http://www.ledgil.top/2017/09/16/arithmetic-01/index.html">
+<meta property="og:title" content="VPS + ss 搭建VPN">
+<meta property="og:url" content="http://www.ledgil.top/2017/09/22/vps+ssConstructVPN/index.html">
 <meta property="og:site_name" content="ledgil">
-<meta property="og:description" content="。">
+<meta property="og:description" content="Why can’t we be more free？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-17T13:36:23.388Z">
+<meta property="og:image" content="http://owshroakf.bkt.clouddn.com/npmss.png">
+<meta property="og:image" content="http://owshroakf.bkt.clouddn.com/%E9%85%8D%E7%BD%AE.png">
+<meta property="og:image" content="http://owshroakf.bkt.clouddn.com/ssserver.png">
+<meta property="og:image" content="https://www.shadowroket.com/assets/img/help/windows-01.jpg">
+<meta property="og:image" content="http://owshroakf.bkt.clouddn.com/%E5%B0%8F%E9%A3%9E%E6%9C%BA.png">
+<meta property="og:image" content="http://owshroakf.bkt.clouddn.com/IMG_20170924_234444.png">
+<meta property="og:updated_time" content="2017-09-24T15:46:38.518Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="好玩的算法">
-<meta name="twitter:description" content="。">
+<meta name="twitter:title" content="VPS + ss 搭建VPN">
+<meta name="twitter:description" content="Why can’t we be more free？">
+<meta name="twitter:image" content="http://owshroakf.bkt.clouddn.com/npmss.png">
 
 
 
@@ -136,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ledgil.top/2017/09/16/arithmetic-01/"/>
+  <link rel="canonical" href="http://www.ledgil.top/2017/09/22/vps+ssConstructVPN/"/>
 
 
 
 
 
-  <title>好玩的算法 | ledgil</title>
+  <title>VPS + ss 搭建VPN | ledgil</title>
   
 
 
@@ -289,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ledgil.top/2017/09/16/arithmetic-01/">
+    <link itemprop="mainEntityOfPage" href="http://www.ledgil.top/2017/09/22/vps+ssConstructVPN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ledgil">
@@ -306,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">好玩的算法</h1>
+          <h1 class="post-title" itemprop="name headline">VPS + ss 搭建VPN</h1>
         
 
         <div class="post-meta">
@@ -318,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-16T21:28:57+08:00">
-                2017-09-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-22T13:19:01+08:00">
+                2017-09-22
               </time>
             
 
@@ -341,8 +348,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
                   </a>
                 </span>
 
@@ -378,9 +385,28 @@
       
 
       
-        <p>。</p>
+        <p>Why can’t we be more free？</p>
 <a id="more"></a>
-<p>想多了，怎么会有好玩的算法呢。</p>
+<p>搭建<a href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91%E7%BB%9C/8747869?fr=aladdin&amp;fromid=382304&amp;fromtitle=VPN" target="_blank" rel="external">VPN</a>，说白了就是用来翻墙。记得小学时候似乎，谷歌还能流畅的访问，现在“没落到主页都404的小公司”<br>ヽ(￣▽￣)ﾉ。现在中国的墙是越来越高越来越结实了，不少的翻墙软件已经GG，我之前续了一年的green vpn说停就停，还好把钱返还了。所以新的风暴已经出现，怎么能够停滞不前(°Д°)。来搭一个自己的vpn吧。</p>
+<h1 id="VPS"><a href="#VPS" class="headerlink" title="VPS"></a>VPS</h1><h2 id="什么是VPS"><a href="#什么是VPS" class="headerlink" title="什么是VPS"></a>什么是VPS</h2><p><a href="https://baike.baidu.com/item/VPS/11053576?fr=aladdin" target="_blank" rel="external">VPS</a>,简单来说就是虚拟服务器。相比于虚拟主机来说，更贵，但自由度更高，你想干啥干啥。</p>
+<h2 id="购买VPS"><a href="#购买VPS" class="headerlink" title="购买VPS"></a>购买VPS</h2><p>常见的VPS提供商有Linode/AWS/Bandwagon/DigitalOcean/Vultr，我翻过很多博客见他们都是用的Vultr，毕竟是大牌子，有保障。其实还有很多vps供应商，甚至可以去某宝上淘一个。</p>
+<p>学长推荐的这个站点<a href="http://www.zrblog.net/" target="_blank" rel="external">赵容部落</a>,有很多小众厂商，最后我对比了几家后，选了一个40多一个月的VPS，由VPS分享组织提供,配置是双核，内存4G，30GB硬盘，对外网速是3MBPS，不限流量。（我就看好不限流量了，实测3兆网速看油管的720p视频无压力）</p>
+<h1 id="配置运行shadowsocks"><a href="#配置运行shadowsocks" class="headerlink" title="配置运行shadowsocks"></a>配置运行shadowsocks</h1><h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><p>打开你的vps操作界面，（在配置安装vps时选windows的操作系统吧，毕竟熟悉，好操作（大佬请忽略本条））（一般有VNC操作平台，可以远程控制vps）。选择一个浏览器，访问<a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a>，下载并安装node.js（一般默认安装即可，安装路径可以找一个方便的路径，之后要用到）.</p>
+<h2 id="安装shadowsocks"><a href="#安装shadowsocks" class="headerlink" title="安装shadowsocks"></a>安装shadowsocks</h2><p>cmd打开命令执行窗口，输入<code>npm install -g shadowsocks</code>安装ss，（这是全局安装）。</p>
+<p><img src="http://owshroakf.bkt.clouddn.com/npmss.png" alt=""></p>
+<h2 id="配置ss"><a href="#配置ss" class="headerlink" title="配置ss"></a>配置ss</h2><p>找到C:\用户\Administrator\AppData\Roaming\npm\node_module\shadowsocks(找不到就搜索一下=。=)，用编辑器（记事本）打开config.json，将其中的server后的值改为你的vps的ip地址，（你买完vps后查看配置信息里会有的）,password后的值自己设置一个即可，其他的默认就行。</p>
+<p><img src="http://owshroakf.bkt.clouddn.com/%E9%85%8D%E7%BD%AE.png" alt=""></p>
+<h2 id="运行ss"><a href="#运行ss" class="headerlink" title="运行ss"></a>运行ss</h2><p>cmd打开命令行执行窗口，输入<code>ssserver</code>开启shadowsocks，当你看到类似红框中的3条信息就成了，下里的是安卓端请求信息，访问了谷歌的请求是安卓端ss验证vpn是否可用。</p>
+<p><img src="http://owshroakf.bkt.clouddn.com/ssserver.png" alt=""></p>
+<p>当你访问其他墙外网站时，访问请求都会在这显示。</p>
+<h1 id="配置运行windows端ss"><a href="#配置运行windows端ss" class="headerlink" title="配置运行windows端ss"></a>配置运行windows端ss</h1><h2 id="配置windows的ss"><a href="#配置windows的ss" class="headerlink" title="配置windows的ss"></a>配置windows的ss</h2><p><a href="https://sourceforge.net/projects/shadowsocksgui/?source=typ_redirect" target="_blank" rel="external">https://sourceforge.net/projects/shadowsocksgui/?source=typ_redirect</a>下载windows版的ss（下不来就网上找），直接解压，打开里面的<code>.exe</code>文件。</p>
+<p>服务器ip就是vps的ip，端口是你在配置config.json里的端口，默认是8388，密码是你设置的密码（注意不是vps的密码也不是你开机密码而是在config里设置的密码），备注起个名。<br><img src="https://www.shadowroket.com/assets/img/help/windows-01.jpg" alt=""></p>
+<h2 id="开启ss"><a href="#开启ss" class="headerlink" title="开启ss"></a>开启ss</h2><p>然后在右下角就会生成一个小飞机图标，右键打开列表,服务器里选择备注名的，顺便把启用系统代理选上。</p>
+<p><img src="http://owshroakf.bkt.clouddn.com/%E5%B0%8F%E9%A3%9E%E6%9C%BA.png" alt=""></p>
+<p>你就可上谷歌了。</p>
+<h1 id="配置运行安卓端的ss"><a href="#配置运行安卓端的ss" class="headerlink" title="配置运行安卓端的ss"></a>配置运行安卓端的ss</h1><p>下载一个shadowsocks，配置的内容和windows端的内容一样。</p>
+<p><img src="http://owshroakf.bkt.clouddn.com/IMG_20170924_234444.png" alt=""></p>
+<p>你可以上谷歌了。</p>
 
       
     </div>
@@ -427,7 +453,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/好玩的算法/" rel="tag"># 好玩的算法</a>
+            <a href="/tags/搭建VPN/" rel="tag"># 搭建VPN</a>
           
         </div>
       
@@ -440,8 +466,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/11/xss-01/" rel="next" title="入门xss（上）">
-                <i class="fa fa-chevron-left"></i> 入门xss（上）
+              <a href="/2017/09/16/arithmetic-01/" rel="next" title="好玩的算法">
+                <i class="fa fa-chevron-left"></i> 好玩的算法
               </a>
             
           </div>
@@ -449,10 +475,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/22/vps+ssConstructVPN/" rel="prev" title="VPS + ss 搭建VPN">
-                VPS + ss 搭建VPN <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -506,8 +528,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -586,6 +617,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VPS"><span class="nav-number">1.</span> <span class="nav-text">VPS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是VPS"><span class="nav-number">1.1.</span> <span class="nav-text">什么是VPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#购买VPS"><span class="nav-number">1.2.</span> <span class="nav-text">购买VPS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置运行shadowsocks"><span class="nav-number">2.</span> <span class="nav-text">配置运行shadowsocks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装node-js"><span class="nav-number">2.1.</span> <span class="nav-text">安装node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装shadowsocks"><span class="nav-number">2.2.</span> <span class="nav-text">安装shadowsocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置ss"><span class="nav-number">2.3.</span> <span class="nav-text">配置ss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行ss"><span class="nav-number">2.4.</span> <span class="nav-text">运行ss</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置运行windows端ss"><span class="nav-number">3.</span> <span class="nav-text">配置运行windows端ss</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置windows的ss"><span class="nav-number">3.1.</span> <span class="nav-text">配置windows的ss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启ss"><span class="nav-number">3.2.</span> <span class="nav-text">开启ss</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置运行安卓端的ss"><span class="nav-number">4.</span> <span class="nav-text">配置运行安卓端的ss</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
