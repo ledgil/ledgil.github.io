@@ -1,101 +1,11 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html lang=zh>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
+    <meta charset="utf-8">
     
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="hexo个人博客," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="http://ouur4c5x0.bkt.clouddn.com/me.反?v=5.1.2" />
-
-
-
-
-
-
-<meta name="description" content="在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。">
+    <title>hexo 个人博客使用技巧 | ledgil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。">
 <meta name="keywords" content="hexo个人博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo 个人博客使用技巧">
@@ -119,278 +29,244 @@
 <meta name="twitter:title" content="hexo 个人博客使用技巧">
 <meta name="twitter:description" content="在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。">
 <meta name="twitter:image" content="http://ouvr31quw.bkt.clouddn.com/hiker.png">
+    
 
+    
+        <link rel="alternate" href="/" title="ledgil" type="application/atom+xml" />
+    
 
+    
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
+    <link rel="stylesheet" href="/css/style.css">
 
-
-  <link rel="canonical" href="http://www.ledgil.top/2017/08/19/helloHexo-02/"/>
-
-
-
-
-
-  <title>hexo 个人博客使用技巧 | ledgil</title>
-  
-
-
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?9fd17929fa8eedd1d5614f70260c9b61";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
 
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">ledgil</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ledgil.top/2017/08/19/helloHexo-02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ledgil">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ouur4c5x0.bkt.clouddn.com/me.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ledgil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">hexo 个人博客使用技巧</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-19T09:42:13+08:00">
-                2017-08-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
-                  </a>
-                </span>
-
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">ledgil</span>
+            </a>
+            <nav id="main-nav">
                 
+                    <a class="main-nav-link" href="/.">Home</a>
                 
-              
-            </span>
-          
-
-          
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
             
-          
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="http://ouur4c5x0.bkt.clouddn.com/me.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
 
-          
-          
-
-          
-
-          
-
-          
-
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
-      </header>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="http://ouur4c5x0.bkt.clouddn.com/me.jpg" />
+            <h2 id="name">ledgil</h2>
+            <h3 id="title">hello</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Hefei, China</span>
+            <a id="follow" target="_blank" href="https://github.com/ledgil">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                9
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                5
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/ledgil" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-helloHexo-02" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            hexo 个人博客使用技巧
+        </h1>
     
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/08/19/helloHexo-02/">
+            <time datetime="2017-08-19T01:42:13.725Z" itemprop="datePublished">2017-08-19</time>
+        </a>
+    </div>
 
-      
-      
 
-      
-        <p>在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。</p>
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/教程/">教程</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/hexo个人博客/">hexo个人博客</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>在前一篇文章中咱们利用GitHub和hexo快速建立了自己的个人博客，使用的是默认主题、发布了第一个hello world文章、连接上了我们的独立域名。这篇文章主要扩展一些hexo博客使用技巧。包括更换主题、主题设置、写作、配置修改等等。内容不可能面面俱到，但希望对读者有所帮助。</p>
 <a id="more"></a>
 <h1 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h1><h2 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h2><p>我们可以使用<a href="https://hexo.io/themes/" target="_blank" rel="external">官方主题</a>,点击浏览后，找到GitHub图标进入开发者的GitHub，这里以主题<a href="https://github.com/iTimeTraveler/hexo-theme-hiker.git" target="_blank" rel="external">hiker</a>为例，获取下载链接</p>
 <p><img src="http://ouvr31quw.bkt.clouddn.com/hiker.png" alt=""></p>
@@ -440,455 +316,346 @@
 <p><strong>解决：</strong> 不单独使用字母大小写的方式修改文件名，可以添加或删除部分内容或全部更改来更改文件名。例如，“test.md”修改为“mytest.md”、”my.md”、“Testing.md”、“test-01.md”等。</p>
 <h1 id="OK"><a href="#OK" class="headerlink" title="OK"></a>OK</h1><p>OK，基本上已经可以了，使用这三篇文章，大概就可以开始自己的blog之旅。<br>关于为什么要写博客，可以阅读以下文章：<br><a href="https://zhuanlan.zhihu.com/p/19743861" target="_blank" rel="external">为什么你要写博客</a></p>
 
-      
-    </div>
-    
-    
-    
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
-    
 
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>如果喜欢我的文章，欢迎进行打赏，您的支持将使我继续创作</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>打赏</span>
-  </button>
-  <div id="QR" style="display: none;">
 
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="http://ouur4c5x0.bkt.clouddn.com/wechatpay.png" alt="ledgil 微信支付"/>
-        <p>微信支付</p>
-      </div>
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="http://ouur4c5x0.bkt.clouddn.com/alipay.jpg" alt="ledgil 支付宝"/>
-        <p>支付宝</p>
-      </div>
-    
-
-    
-
-  </div>
 </div>
 
-      </div>
-    
+    <a data-url="http://www.ledgil.top/2017/08/19/helloHexo-02/" data-id="cj9wgqwph0008hgnhzpz8hzla" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
 
-    
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/hexo个人博客/" rel="tag"># hexo个人博客</a>
-          
-        </div>
-      
+            if ($('#' + id).length) {
+                box = $('#' + id);
 
-      
-      
-      
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/08/18/helloHexo-01/" rel="next" title="hexo + github 建立个人博客">
-                <i class="fa fa-chevron-left"></i> hexo + github 建立个人博客
-              </a>
-            
-          </div>
+              box = $(html);
 
-          <span class="post-nav-divider"></span>
+              $('body').append(box);
+            }
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/09/sqlInjection-01/" rel="prev" title="入门SQL注入（上）">
-                入门SQL注入（上） <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
+            $('.article-share-box.on').hide();
 
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
 
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
 
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
-    
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDc4Ni83MzM4"></div>
-    
-  </div>
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          
-            <img class="site-author-image" itemprop="image"
-              src="http://ouur4c5x0.bkt.clouddn.com/me.jpg"
-              alt="ledgil" />
-          
-            <p class="site-author-name" itemprop="name">ledgil</p>
-            <p class="site-description motion-element" itemprop="description">拿一狐</p>
-        </div>
-
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-            
-              <a href="/archives/">
-            
-                <span class="site-state-item-count">9</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/ledgil" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>GitHub</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="mailto:ledgil.lql@gmail.com" target="_blank" title="E-Mail">
-                  
-                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/ledgil" target="_blank" title="微博">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>微博</a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-block">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              友情链接
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://www.baidu.com/" title="百度" target="_blank">百度</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://www.google.com.hk/?gws_rd=ssl" title="谷歌" target="_blank">谷歌</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主题选择"><span class="nav-number">1.</span> <span class="nav-text">主题选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载主题"><span class="nav-number">1.1.</span> <span class="nav-text">下载主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置主题"><span class="nav-number">1.2.</span> <span class="nav-text">配置主题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题内容新建"><span class="nav-number">2.</span> <span class="nav-text">主题内容新建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建页面"><span class="nav-number">2.1.</span> <span class="nav-text">新建页面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建关于页面"><span class="nav-number">2.1.1.</span> <span class="nav-text">新建关于页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建分类页面"><span class="nav-number">2.1.2.</span> <span class="nav-text">新建分类页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建标签页面"><span class="nav-number">2.1.3.</span> <span class="nav-text">新建标签页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建自定义页面"><span class="nav-number">2.1.4.</span> <span class="nav-text">新建自定义页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建404页面"><span class="nav-number">2.1.5.</span> <span class="nav-text">新建404页面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建博客文章"><span class="nav-number">2.2.</span> <span class="nav-text">新建博客文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用语法"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建文章"><span class="nav-number">2.2.2.</span> <span class="nav-text">新建文章</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他配置"><span class="nav-number">3.</span> <span class="nav-text">其他配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网站信息"><span class="nav-number">3.1.</span> <span class="nav-text">网站信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#错误发现"><span class="nav-number">4.</span> <span class="nav-text">错误发现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#更改文件名并上传github后，页面显示404"><span class="nav-number">4.1.</span> <span class="nav-text">更改文件名并上传github后，页面显示404</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OK"><span class="nav-number">5.</span> <span class="nav-text">OK</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2017.9.10 &mdash; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">ledgil</span>
-
-  
-</div>
-
-
-  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-  <span class="post-meta-divider">|</span>
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
 </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
+            
+    
+        <a href="http://www.ledgil.top/2017/08/19/helloHexo-02/#comments" class="article-comment-link">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/09/09/sqlInjection-01/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    入门SQL注入（上）
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/08/18/helloHexo-01/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">hexo + github 建立个人博客</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="lv-container" data-id="city" data-uid=MTAyMC8zMDc4Ni83MzM4></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/03/ManageEnergyNotTime-01/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/生活/">生活</a></p>
+                            <p class="item-title"><a href="/2017/10/03/ManageEnergyNotTime-01/" class="title">时间够了，来聊聊精力吧</a></p>
+                            <p class="item-date"><time datetime="2017-10-03T12:38:35.914Z" itemprop="datePublished">2017-10-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/22/vps+ssConstructVPN/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/教程/">教程</a></p>
+                            <p class="item-title"><a href="/2017/09/22/vps+ssConstructVPN/" class="title">VPS + ss 搭建VPN</a></p>
+                            <p class="item-date"><time datetime="2017-09-22T05:19:01.628Z" itemprop="datePublished">2017-09-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/16/arithmetic-01/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a></p>
+                            <p class="item-title"><a href="/2017/09/16/arithmetic-01/" class="title">好玩的算法</a></p>
+                            <p class="item-date"><time datetime="2017-09-16T13:28:57.998Z" itemprop="datePublished">2017-09-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/09/sqlInjection-03/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/web安全/">web安全</a></p>
+                            <p class="item-title"><a href="/2017/09/09/sqlInjection-03/" class="title">入门SQL注入（下）</a></p>
+                            <p class="item-date"><time datetime="2017-09-09T14:59:36.256Z" itemprop="datePublished">2017-09-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/09/sqlInjection-02/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/web安全/">web安全</a></p>
+                            <p class="item-title"><a href="/2017/09/09/sqlInjection-02/" class="title">入门SQL注入（中）</a></p>
+                            <p class="item-date"><time datetime="2017-09-09T14:58:57.303Z" itemprop="datePublished">2017-09-09</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/web安全/">web安全</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL注入/">SQL注入</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo个人博客/">hexo个人博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/好玩的算法/">好玩的算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建VPN/">搭建VPN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/精力管理/">精力管理</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/SQL注入/" style="font-size: 20px;">SQL注入</a> <a href="/tags/hexo个人博客/" style="font-size: 20px;">hexo个人博客</a> <a href="/tags/好玩的算法/" style="font-size: 10px;">好玩的算法</a> <a href="/tags/搭建VPN/" style="font-size: 10px;">搭建VPN</a> <a href="/tags/精力管理/" style="font-size: 10px;">精力管理</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://www.baidu.com">百度</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 ledgil<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    
+    <!-- 来必力City版安装代码 -->
     <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+
+         if (typeof LivereTower === 'function') { return; }
+
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
     </script>
-  
+  <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+  <!-- City版安装代码已完成 -->
 
 
 
 
 
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
 
 
 
-  
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
 
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
+    </div>
 </body>
 </html>
