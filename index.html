@@ -249,13 +249,10 @@
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>虽然这个小箭头是想证明该软件只是一个快捷方式，但是一旦桌面软件图标，多了，非快捷方式无小箭头和快捷方式小箭头放在一起难免会让人觉得不美观。</p>
-<h1 id="去掉快件方式小箭头"><a href="#去掉快件方式小箭头" class="headerlink" title="去掉快件方式小箭头"></a>去掉快件方式小箭头</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">reg add <span class="string">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons"</span> /v <span class="number">29</span> /d <span class="string">"%systemroot%\system32\imageres.dll,197"</span> /t reg_sz /f</div><div class="line">taskkill /f /im explorer.exe</div><div class="line">attrib -s -r -h <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span></div><div class="line">del <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span> /f /q</div><div class="line">start explorer</div><div class="line">pause</div></pre></td></tr></table></figure>
-<p>复制上面的代码。新建一个文本文件。粘贴后另存为.bat文件，然后以管理员身份打开。</p>
-<h1 id="恢复快捷方式小箭头"><a href="#恢复快捷方式小箭头" class="headerlink" title="恢复快捷方式小箭头"></a>恢复快捷方式小箭头</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">reg <span class="keyword">delete</span> <span class="string">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons"</span> /v <span class="number">29</span> /f</div><div class="line">taskkill /f /im explorer.exe</div><div class="line">attrib -s -r -h <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span></div><div class="line">del <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span> /f /q</div><div class="line">start explorer</div><div class="line">pause</div></pre></td></tr></table></figure>
-<p>复制上面的代码。新建一个文本文件。粘贴后另存为.bat文件，然后以管理员身份打开。</p>
-
+            <p><p>虽然这个小箭头是想证明该软件只是一个快捷方式，但是一旦桌面软件图标，多了，非快捷方式无小箭头和快捷方式小箭头放在一起难免会让人觉得不美观。</p></p>
+            <p class="article-more-link">
+                <a href="/2017/11/12/somethingUseful-01/#more">查看更多</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -265,7 +262,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/11/12/somethingUseful-01/" data-id="cj9ww5y1a0006zsnh36vb6mv8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/11/12/somethingUseful-01/" data-id="cj9ww8j6w000ff4nh19p1vf3q" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -398,7 +395,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/10/03/ManageEnergyNotTime-01/" data-id="cj9ww5y0v0002zsnhtvcilxaz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/10/03/ManageEnergyNotTime-01/" data-id="cj9ww8j610000f4nhbeui7hyy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -531,7 +528,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/09/22/vps+ssConstructVPN/" data-id="cj9ww5y2m000kzsnhg2q691d4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/09/22/vps+ssConstructVPN/" data-id="cj9ww8j6w000of4nh3osb742k" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -664,7 +661,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/09/16/arithmetic-01/" data-id="cj9ww5xy90000zsnhnpy2quwh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/09/16/arithmetic-01/" data-id="cj9ww8j6h0006f4nhpixbdp9b" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -797,7 +794,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/09/09/sqlInjection-03/" data-id="cj9ww5y2m000ozsnhuut1hgzv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/09/09/sqlInjection-03/" data-id="cj9ww8j6w000kf4nhjgrl5vdt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -930,7 +927,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/09/09/sqlInjection-02/" data-id="cj9ww5y1q000dzsnh091kdv67" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/09/09/sqlInjection-02/" data-id="cj9ww8j6w000df4nhfdenb6cj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1065,7 +1062,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/09/09/sqlInjection-01/" data-id="cj9ww5y2m000izsnh9248s7pf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/09/09/sqlInjection-01/" data-id="cj9ww8j6w000if4nhn4spc8an" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1198,7 +1195,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/08/19/helloHexo-02/" data-id="cj9ww5y1q0009zsnhgc9hk7xc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/08/19/helloHexo-02/" data-id="cj9ww8j6h0008f4nhj9qz91i1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1332,7 +1329,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/08/18/helloHexo-01/" data-id="cj9ww5y1a0008zsnh6ofou58i" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/08/18/helloHexo-01/" data-id="cj9ww8j6h0002f4nh1byeslpb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1467,7 +1464,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/08/18/helloMarkdown-01/" data-id="cj9ww5y1q000fzsnhhydavmag" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/08/18/helloMarkdown-01/" data-id="cj9ww8j6w0009f4nhs973a1r9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
