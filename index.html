@@ -154,11 +154,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                9
+                10
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                5
+                6
                 <span>标签</span>
             </div>
         </div>
@@ -207,6 +207,142 @@
 
             
             <section id="main">
+    <article id="post-somethingUseful-01" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/11/12/somethingUseful-01/">快捷方式小箭头</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/11/12/somethingUseful-01/">
+            <time datetime="2017-11-12T14:54:47.624Z" itemprop="datePublished">2017-11-12</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/计算机/">计算机</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/快捷方式小箭头/">快捷方式小箭头</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>虽然这个小箭头是想证明该软件只是一个快捷方式，但是一旦桌面软件图标，多了，非快捷方式无小箭头和快捷方式小箭头放在一起难免会让人觉得不美观。</p>
+<h1 id="去掉快件方式小箭头"><a href="#去掉快件方式小箭头" class="headerlink" title="去掉快件方式小箭头"></a>去掉快件方式小箭头</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">reg add <span class="string">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons"</span> /v <span class="number">29</span> /d <span class="string">"%systemroot%\system32\imageres.dll,197"</span> /t reg_sz /f</div><div class="line">taskkill /f /im explorer.exe</div><div class="line">attrib -s -r -h <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span></div><div class="line">del <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span> /f /q</div><div class="line">start explorer</div><div class="line">pause</div></pre></td></tr></table></figure>
+<p>复制上面的代码。新建一个文本文件。粘贴后另存为.bat文件，然后以管理员身份打开。</p>
+<h1 id="恢复快捷方式小箭头"><a href="#恢复快捷方式小箭头" class="headerlink" title="恢复快捷方式小箭头"></a>恢复快捷方式小箭头</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">reg <span class="keyword">delete</span> <span class="string">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons"</span> /v <span class="number">29</span> /f</div><div class="line">taskkill /f /im explorer.exe</div><div class="line">attrib -s -r -h <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span></div><div class="line">del <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span> /f /q</div><div class="line">start explorer</div><div class="line">pause</div></pre></td></tr></table></figure>
+<p>复制上面的代码。新建一个文本文件。粘贴后另存为.bat文件，然后以管理员身份打开。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://www.ledgil.top/2017/11/12/somethingUseful-01/" data-id="cj9ww5y1a0006zsnh36vb6mv8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://www.ledgil.top/2017/11/12/somethingUseful-01/#comments" class="article-comment-link">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-ManageEnergyNotTime-01" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -262,7 +398,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/10/03/ManageEnergyNotTime-01/" data-id="cj9wvfm2f000080nha4yt3e2r" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/10/03/ManageEnergyNotTime-01/" data-id="cj9ww5y0v0002zsnhtvcilxaz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -395,7 +531,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/09/22/vps+ssConstructVPN/" data-id="cj9wvfm5b000i80nha507p7vh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/09/22/vps+ssConstructVPN/" data-id="cj9ww5y2m000kzsnhg2q691d4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -528,7 +664,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/09/16/arithmetic-01/" data-id="cj9wvfm5e000k80nh40vsbro4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/09/16/arithmetic-01/" data-id="cj9ww5xy90000zsnhnpy2quwh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -661,7 +797,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/09/09/sqlInjection-03/" data-id="cj9wvfm54000f80nhb8gnf3vn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/09/09/sqlInjection-03/" data-id="cj9ww5y2m000ozsnhuut1hgzv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -794,7 +930,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/09/09/sqlInjection-02/" data-id="cj9wvfm4w000880nh9c2kdb44" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/09/09/sqlInjection-02/" data-id="cj9ww5y1q000dzsnh091kdv67" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -929,7 +1065,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/09/09/sqlInjection-01/" data-id="cj9wvfm51000d80nhn71klnfb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/09/09/sqlInjection-01/" data-id="cj9ww5y2m000izsnh9248s7pf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1062,7 +1198,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/08/19/helloHexo-02/" data-id="cj9wvfm4t000680nhgjh4wcjz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/08/19/helloHexo-02/" data-id="cj9ww5y1q0009zsnhgc9hk7xc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1196,7 +1332,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/08/18/helloHexo-01/" data-id="cj9wvfm3u000280nhm1ek963x" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/08/18/helloHexo-01/" data-id="cj9ww5y1a0008zsnh6ofou58i" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1331,7 +1467,7 @@
 
 </div>
 
-    <a data-url="http://www.ledgil.top/2017/08/18/helloMarkdown-01/" data-id="cj9wvfm4y000980nhlocslqja" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://www.ledgil.top/2017/08/18/helloMarkdown-01/" data-id="cj9ww5y1q000fzsnhhydavmag" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1422,6 +1558,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2017/11/12/somethingUseful-01/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/计算机/">计算机</a></p>
+                            <p class="item-title"><a href="/2017/11/12/somethingUseful-01/" class="title">快捷方式小箭头</a></p>
+                            <p class="item-date"><time datetime="2017-11-12T14:54:47.624Z" itemprop="datePublished">2017-11-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2017/10/03/ManageEnergyNotTime-01/" class="thumbnail">
     
     
@@ -1495,25 +1650,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/09/09/sqlInjection-02/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/web安全/">web安全</a></p>
-                            <p class="item-title"><a href="/2017/09/09/sqlInjection-02/" class="title">入门SQL注入（中）</a></p>
-                            <p class="item-date"><time datetime="2017-09-09T14:58:57.303Z" itemprop="datePublished">2017-09-09</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1523,7 +1659,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/web安全/">web安全</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/web安全/">web安全</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程/">教程</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机/">计算机</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1532,7 +1668,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1541,7 +1677,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL注入/">SQL注入</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo个人博客/">hexo个人博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/好玩的算法/">好玩的算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建VPN/">搭建VPN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/精力管理/">精力管理</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL注入/">SQL注入</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo个人博客/">hexo个人博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/好玩的算法/">好玩的算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷方式小箭头/">快捷方式小箭头</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建VPN/">搭建VPN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/精力管理/">精力管理</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1550,7 +1686,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/SQL注入/" style="font-size: 20px;">SQL注入</a> <a href="/tags/hexo个人博客/" style="font-size: 20px;">hexo个人博客</a> <a href="/tags/好玩的算法/" style="font-size: 10px;">好玩的算法</a> <a href="/tags/搭建VPN/" style="font-size: 10px;">搭建VPN</a> <a href="/tags/精力管理/" style="font-size: 10px;">精力管理</a>
+            <a href="/tags/SQL注入/" style="font-size: 20px;">SQL注入</a> <a href="/tags/hexo个人博客/" style="font-size: 20px;">hexo个人博客</a> <a href="/tags/好玩的算法/" style="font-size: 10px;">好玩的算法</a> <a href="/tags/快捷方式小箭头/" style="font-size: 10px;">快捷方式小箭头</a> <a href="/tags/搭建VPN/" style="font-size: 10px;">搭建VPN</a> <a href="/tags/精力管理/" style="font-size: 10px;">精力管理</a>
         </div>
     </div>
 
