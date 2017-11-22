@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ctf," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://ouur4c5x0.bkt.clouddn.com/me.反?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="CTF（Capture The Flag）中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术人员之间进行技术竞技的一种比赛形式。CTF起源于1996年DEFCON全球黑客大会，以代替之前黑客们通过互相发起真实攻击进行技术比拼的方式。发展至今，已经成为全球范围网络安全圈流行的竞赛形式，2013年全球举办了超过五十场国际性CTF赛事。而DEFCON作为CTF赛制的发源地，DEFCON CTF也成为">
+<meta name="keywords" content="ctf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ctf新手指南">
+<meta property="og:url" content="http://www.zerox.top/2017/11/20/ctf-01/index.html">
+<meta property="og:site_name" content="zeroX">
+<meta property="og:description" content="CTF（Capture The Flag）中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术人员之间进行技术竞技的一种比赛形式。CTF起源于1996年DEFCON全球黑客大会，以代替之前黑客们通过互相发起真实攻击进行技术比拼的方式。发展至今，已经成为全球范围网络安全圈流行的竞赛形式，2013年全球举办了超过五十场国际性CTF赛事。而DEFCON作为CTF赛制的发源地，DEFCON CTF也成为">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511200871311&di=d698ba38a81dc1bc385fb1727161eab3&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2583026220%2C3942451621%26fm%3D214%26gp%3D0.jpg">
+<meta property="og:updated_time" content="2017-11-22T09:10:43.979Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ctf新手指南">
+<meta name="twitter:description" content="CTF（Capture The Flag）中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术人员之间进行技术竞技的一种比赛形式。CTF起源于1996年DEFCON全球黑客大会，以代替之前黑客们通过互相发起真实攻击进行技术比拼的方式。发展至今，已经成为全球范围网络安全圈流行的竞赛形式，2013年全球举办了超过五十场国际性CTF赛事。而DEFCON作为CTF赛制的发源地，DEFCON CTF也成为">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511200871311&di=d698ba38a81dc1bc385fb1727161eab3&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2583026220%2C3942451621%26fm%3D214%26gp%3D0.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.zerox.top/2017/11/20/ctf-01/"/>
+
+
+
+
+
+  <title>ctf新手指南 | zeroX</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9fd17929fa8eedd1d5614f70260c9b61";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zeroX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zerox.top/2017/11/20/ctf-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zeroX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ouur4c5x0.bkt.clouddn.com/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zeroX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ctf新手指南</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T20:47:50+08:00">
+                2017-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ctf/" itemprop="url" rel="index">
+                    <span itemprop="name">ctf</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>CTF（Capture The Flag）中文一般译作夺旗赛，在网络安全领域中指的是网络安全技术人员之间进行技术竞技的一种比赛形式。CTF起源于1996年DEFCON全球黑客大会，以代替之前黑客们通过互相发起真实攻击进行技术比拼的方式。发展至今，已经成为全球范围网络安全圈流行的竞赛形式，2013年全球举办了超过五十场国际性CTF赛事。而DEFCON作为CTF赛制的发源地，DEFCON CTF也成为了目前全球最高技术水平和影响力的CTF竞赛，类似于CTF赛场中的“世界杯” 。<br><a id="more"></a></p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1511200871311&amp;di=d698ba38a81dc1bc385fb1727161eab3&amp;imgtype=jpg&amp;src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2583026220%2C3942451621%26fm%3D214%26gp%3D0.jpg" alt="ctf"></p>
+<h1 id="简述ctf"><a href="#简述ctf" class="headerlink" title="简述ctf"></a>简述ctf</h1><p>CTF是一种流行的信息安全竞赛形式，其英文名可直译为“夺得Flag”，也可意译为“夺旗赛”。其大致流程是，参赛团队之间通过进行攻防对抗、程序分析等形式，率先从主办方给出的比赛环境中得到一串具有一定格式的字符串或其他内容，并将其提交给主办方，从而夺得分数。为了方便称呼，我们把这样的内容称之为“Flag”。</p>
+<p>链接：<a href="https://baike.baidu.com/item/ctf/9548546?fr=aladdin" target="_blank" rel="external">ctf-百度百科</a></p>
+<h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><h2 id="入门需要具备哪些"><a href="#入门需要具备哪些" class="headerlink" title="入门需要具备哪些"></a>入门需要具备哪些</h2><p>1.编程语言基础（c、汇编、脚本语言等）</p>
+<p>2.数学基础（算法、密码学等）</p>
+<p>3.脑洞大开（天马行空的想象、推理解密等）</p>
+<p>4.体力耐力（通宵熬夜）</p>
+<p>5.忽悠（软磨硬泡攻击）</p>
+<h2 id="分方向"><a href="#分方向" class="headerlink" title="分方向"></a>分方向</h2><p>一方向：PWN+Reverse+Crypto</p>
+<p>二方向：Web+Misc组合</p>
+<p>Misc都可以做</p>
+<p>或俩方向双修大佬</p>
+<h2 id="入门知识："><a href="#入门知识：" class="headerlink" title="入门知识："></a>入门知识：</h2><p>需要了解linux基础、计算机组成原理、操作系统原理、网络协议分析</p>
+<p>一方向：IDA工具使用（fs插件）、逆向工程、密码学、缓冲区溢出等</p>
+<p>二方向：Web安全、网络安全、内网渗透、数据库安全等 前10的安全漏洞</p>
+<h1 id="作战类型"><a href="#作战类型" class="headerlink" title="作战类型"></a>作战类型</h1><p>在平常ctf比赛中，主要干翻的是这几类技术</p>
+<h2 id="Web-网络"><a href="#Web-网络" class="headerlink" title="Web 网络"></a>Web 网络</h2><p>Web偏重对技巧沉淀、快速搜索能力的挑战 发散思维，对底层只需要了解，代码原理，关于漏洞点的积累。</p>
+<p>信息收集：<a href="http://www.freebuf.com/articles/web/142767.html" target="_blank" rel="external">浅谈Web渗透测试中的信息收集</a></p>
+<h2 id="pwn-控制"><a href="#pwn-控制" class="headerlink" title="pwn 控制"></a>pwn 控制</h2><p>程序的逻辑分析，漏洞利用windows、linux、小型机等。</p>
+<p>pwn入门：<a href="http://blog.csdn.net/gyhgx/article/details/53439417" target="_blank" rel="external">Pwn学习历程（1）–基本工具、交互、调试</a>，<a href="http://blog.csdn.net/u012763794/article/details/51992512" target="_blank" rel="external">通过pwnable.kr从零学pwn</a>，<a href="http://0x48.pw/2016/11/03/0x26/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">PWN学习总结之基础栈溢出</a></p>
+<h2 id="ppc-编程"><a href="#ppc-编程" class="headerlink" title="ppc 编程"></a>ppc 编程</h2><p>推荐使用Python语言，主要考察选手快速编程能力。</p>
+<p>python基础：<a href="http://www.runoob.com/python/python-tutorial.html" target="_blank" rel="external">Python 基础教程</a></p>
+<h2 id="misc-杂项"><a href="#misc-杂项" class="headerlink" title="misc 杂项"></a>misc 杂项</h2><p>隐写、数据还原，脑洞、流量分析、社会工程、与信息安全相关的大数据、逆向等。</p>
+<p>图片隐写术：<a href="http://bobao.360.cn/learning/detail/243.html" target="_blank" rel="external">隐写术总结</a></p>
+<h2 id="Crypto-密码"><a href="#Crypto-密码" class="headerlink" title="Crypto 密码"></a>Crypto 密码</h2><p>Crypto偏重对数学、算法的深入学习 密码课要深入学</p>
+<p>加密祖先：<a href="https://baike.baidu.com/item/%E6%81%BA%E6%92%92%E5%AF%86%E7%A0%81/4905284?fr=aladdin&amp;fromid=1336345&amp;fromtitle=%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81" target="_blank" rel="external">凯撒密码</a></p>
+<p>公钥加密算法：<a href="https://baike.baidu.com/item/RSA%E7%AE%97%E6%B3%95/263310?fr=aladdin&amp;fromid=210678&amp;fromtitle=RSA" target="_blank" rel="external">RSA算法</a></p>
+<h2 id="mobile-移动"><a href="#mobile-移动" class="headerlink" title="mobile 移动"></a>mobile 移动</h2><p>Android、ios端</p>
+<h2 id="reverse-逆向"><a href="#reverse-逆向" class="headerlink" title="reverse 逆向"></a>reverse 逆向</h2><p>Reverse偏重对汇编、逆向的理解，对底层理解，需要了解汇编。</p>
+<p>汇编：<a href="http://www.bianceng.com/Programming/hb/" target="_blank" rel="external">学习汇编</a></p>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><h2 id="推荐书"><a href="#推荐书" class="headerlink" title="推荐书"></a>推荐书</h2><ul>
+<li><strong>一方向PWN+Reverse+Crypto</strong></li>
+</ul>
+<p>RE for Beginners</p>
+<p>IDA Pro权威指南</p>
+<p>揭秘家庭路由器0day漏洞挖掘技术</p>
+<p>自己定操作系统</p>
+<p>黑客攻防技术宝典 系统实战篇（有各种系统的逆向讲解）</p>
+<ul>
+<li><strong>二方向Web+Misc组合</strong></li>
+</ul>
+<p>Web应用安全权威指南</p>
+<p>白帽子讲web安全</p>
+<p>Web前端黑客技术揭秘</p>
+<p>黑客秘籍——渗透测试实用指南</p>
+<p>黑客攻防技术宝典 web实战篇（全面、基础，推荐）</p>
+<p>代码审计：企业级web代码安全架构</p>
+<ul>
+<li><strong>书籍书单</strong></li>
+</ul>
+<p><a href="http://zhuanlan.zhihu.com/Evi1m0/19706178" target="_blank" rel="external">Evi1m0书籍推荐</a><br><a href="http://www.douban.com/doulist/3339701/" target="_blank" rel="external">信息安全必读书单</a><br><a href="http://www.douban.com/doulist/1363865/" target="_blank" rel="external">信息安全经典书籍</a><br><a href="http://www.zhihu.com/question/21390646" target="_blank" rel="external">有哪些信息安全方面的经典书籍？</a><br><a href="http://my.oschina.net/bluefly/blog/335409?" target="_blank" rel="external">Web安全核心书单</a></p>
+<h2 id="吃掏粪工具"><a href="#吃掏粪工具" class="headerlink" title="吃掏粪工具"></a>吃掏粪工具</h2><p><a href="https://github.com/truongkma/ctf-tools" target="_blank" rel="external">https://github.com/truongkma/ctf-tools</a></p>
+<p><a href="https://github.com/zardus/ctf-tools" target="_blank" rel="external">https://github.com/zardus/ctf-tools</a></p>
+<h2 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h2><p>综合学习平台：<br><a href="http://edu.gooann.com" target="_blank" rel="external">谷安网校</a><br><a href="http://www.jikexueyuan.com/" target="_blank" rel="external">极客学院</a><br><a href="http://www.hetianlab.com/" target="_blank" rel="external">合天</a><br><a href="http://www.moonsos.com/" target="_blank" rel="external">米安网</a><br><a href="http://www.ichunqiu.com/" target="_blank" rel="external">i春秋</a><br><a href="http://www.honyaedu.com/" target="_blank" rel="external">-红亚</a><br><a href="http://www.shiyanbar.com/" target="_blank" rel="external">实验吧综合平台</a><br><a href="http://www.baimaoxueyuan.com/" target="_blank" rel="external">白帽学院</a><br><a href="http://www.simplexue.com/ctf/index" target="_blank" rel="external">西普学院</a><br><a href="http://www.imooc.com/course/list" target="_blank" rel="external">慕课</a><br><a href="http://www.secbox.cn/" target="_blank" rel="external">安全盒子</a><br><a href="http://www.freebuf.com/" target="_blank" rel="external">freebuf</a><br><a href="http://bobao.360.cn/" target="_blank" rel="external">360安全播报</a><br><a href="http://www.wooyun.org/" target="_blank" rel="external">乌云</a><br><a href="http://drops.wooyun.org/" target="_blank" rel="external">乌云知识库</a><br><a href="http://wiki.wooyun.org/" target="_blank" rel="external">WooYun WiKi</a><br><a href="https://www.91ri.org/" target="_blank" rel="external">91ri</a><br><a href="https://www.t00ls.NET/tools" target="_blank" rel="external">t00l</a><br><a href="http://www.ijiandao.com/" target="_blank" rel="external">爱尖刀</a><br><a href="http://www.secwk.com/article/index.html" target="_blank" rel="external">威客众测</a><br><a href="http://bluereader.org/" target="_blank" rel="external">深蓝阅读</a><br><a href="http://www.shentou.org/" target="_blank" rel="external">黑客安全军火库</a><br><a href="http://netsecurity.51cto.com/" target="_blank" rel="external">51cto</a><br><a href="http://security.csdn.net/" target="_blank" rel="external">csdn</a><br><a href="http://www.80sec.com/" target="_blank" rel="external">80sec team</a><br><a href="https://security.alibaba.com/blog.htm?spm=0.0.0.0.knOqaI" target="_blank" rel="external">阿里巴巴安全响应中心</a><br><a href="http://security.tencent.com/index.php/blog" target="_blank" rel="external">腾讯安全应急响应中心</a><br><a href="http://security.360.cn/blog" target="_blank" rel="external">360安全应急响应中心</a><br><a href="http://sec.baidu.com/index.php?research/list" target="_blank" rel="external">百度安全应急响应中心</a></p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>打包ISO，在本地部署。</p>
+<p>Web安全：<a href="https://pentesterlab.com/" target="_blank" rel="external">PentesterLab</a></p>
+<p>二进制安全：<a href="https://exploit-exercises.com/" target="_blank" rel="external">exploit-exercises</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果喜欢我的文章，欢迎进行打赏，您的支持将使我继续创作</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://ouur4c5x0.bkt.clouddn.com/wechatpay.png" alt="zeroX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://ouur4c5x0.bkt.clouddn.com/alipay.jpg" alt="zeroX 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ctf/" rel="tag"># ctf</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/12/sundriesCabinet-01/" rel="next" title="杂货柜">
+                <i class="fa fa-chevron-left"></i> 杂货柜
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDc4Ni83MzM4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="http://ouur4c5x0.bkt.clouddn.com/me.jpg"
+              alt="zeroX" />
+          
+            <p class="site-author-name" itemprop="name">zeroX</p>
+            <p class="site-description motion-element" itemprop="description">拿一狐</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ledgil" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:ledgil.lql@gmail.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ledgil" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>微博</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.baidu.com/" title="百度" target="_blank">百度</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.google.com.hk/?gws_rd=ssl" title="谷歌" target="_blank">谷歌</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简述ctf"><span class="nav-number">1.</span> <span class="nav-text">简述ctf</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#入门"><span class="nav-number">2.</span> <span class="nav-text">入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#入门需要具备哪些"><span class="nav-number">2.1.</span> <span class="nav-text">入门需要具备哪些</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分方向"><span class="nav-number">2.2.</span> <span class="nav-text">分方向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#入门知识："><span class="nav-number">2.3.</span> <span class="nav-text">入门知识：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作战类型"><span class="nav-number">3.</span> <span class="nav-text">作战类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-网络"><span class="nav-number">3.1.</span> <span class="nav-text">Web 网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pwn-控制"><span class="nav-number">3.2.</span> <span class="nav-text">pwn 控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ppc-编程"><span class="nav-number">3.3.</span> <span class="nav-text">ppc 编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#misc-杂项"><span class="nav-number">3.4.</span> <span class="nav-text">misc 杂项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Crypto-密码"><span class="nav-number">3.5.</span> <span class="nav-text">Crypto 密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mobile-移动"><span class="nav-number">3.6.</span> <span class="nav-text">mobile 移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reverse-逆向"><span class="nav-number">3.7.</span> <span class="nav-text">reverse 逆向</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工具"><span class="nav-number">4.</span> <span class="nav-text">工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐书"><span class="nav-number">4.1.</span> <span class="nav-text">推荐书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#吃掏粪工具"><span class="nav-number">4.2.</span> <span class="nav-text">吃掏粪工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平台"><span class="nav-number">4.3.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">4.4.</span> <span class="nav-text">环境</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017.9.10 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zeroX</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
