@@ -95,13 +95,13 @@
 
 
 
-<meta name="description" content="这是我自学web安全后掌握地比较熟练的技术（因为其他的都不会……）。它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危害，反正SQL注入针对着数据库，所以这些数据库你想怎么玩都可以，前提是真的可以利用它们。 自学参考的是《web安全深度剖析》和网易课堂的微课程，">
+<meta name="description" content="它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危害，反正SQL注入针对着数据库，所以这些数据库你想怎么玩都可以，前提是真的可以利用它们。自学参考的是《web安全深度剖析》和网易课堂的微课程，由于本人理解能力较差，有些地方需要一些时间才弄懂，在写文章时可能很繁琐">
 <meta name="keywords" content="SQL注入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="入门SQL注入（上）">
 <meta property="og:url" content="http://www.zerox.top/2017/09/09/sqlInjection-01/index.html">
 <meta property="og:site_name" content="zeroX">
-<meta property="og:description" content="这是我自学web安全后掌握地比较熟练的技术（因为其他的都不会……）。它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危害，反正SQL注入针对着数据库，所以这些数据库你想怎么玩都可以，前提是真的可以利用它们。 自学参考的是《web安全深度剖析》和网易课堂的微课程，">
+<meta property="og:description" content="它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危害，反正SQL注入针对着数据库，所以这些数据库你想怎么玩都可以，前提是真的可以利用它们。自学参考的是《web安全深度剖析》和网易课堂的微课程，由于本人理解能力较差，有些地方需要一些时间才弄懂，在写文章时可能很繁琐">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/phpstudy.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/config.png">
@@ -131,10 +131,10 @@
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/hash.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/%E6%94%B9%E7%BC%96%E7%A0%81.png">
 <meta property="og:image" content="http://ovjsmeumq.bkt.clouddn.com/webshell.png">
-<meta property="og:updated_time" content="2017-09-20T14:47:02.145Z">
+<meta property="og:updated_time" content="2017-11-23T05:26:05.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="入门SQL注入（上）">
-<meta name="twitter:description" content="这是我自学web安全后掌握地比较熟练的技术（因为其他的都不会……）。它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危害，反正SQL注入针对着数据库，所以这些数据库你想怎么玩都可以，前提是真的可以利用它们。 自学参考的是《web安全深度剖析》和网易课堂的微课程，">
+<meta name="twitter:description" content="它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危害，反正SQL注入针对着数据库，所以这些数据库你想怎么玩都可以，前提是真的可以利用它们。自学参考的是《web安全深度剖析》和网易课堂的微课程，由于本人理解能力较差，有些地方需要一些时间才弄懂，在写文章时可能很繁琐">
 <meta name="twitter:image" content="http://ovjsmeumq.bkt.clouddn.com/phpstudy.png">
 
 
@@ -407,9 +407,7 @@
       
 
       
-        <p>这是我自学web安全后掌握地比较熟练的技术（因为其他的都不会……）。它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危害，反正SQL注入针对着数据库，所以这些数据库你想怎么玩都可以，前提是真的可以利用它们。</p>
-<p>自学参考的是《web安全深度剖析》和网易课堂的微课程，由于本人理解能力较差，有些地方需要一些时间才弄懂，在写文章时可能很繁琐的来讲解，不像那些牛人一样言简意赅，请见谅。</p>
-<p>文章会持续优化更新并进行内容修改补充。</p>
+        <p>它的威力很强，可以获取网站管理员的用户名和密码、获取数据库内用户的姓名手机号邮箱QQ家庭地址身份证等等敏感信息、严重者整个数据库都会被全部盗取（脱库）、获取服务器的权限、制造万能密码等等危害，反正SQL注入针对着数据库，所以这些数据库你想怎么玩都可以，前提是真的可以利用它们。<br>自学参考的是《web安全深度剖析》和网易课堂的微课程，由于本人理解能力较差，有些地方需要一些时间才弄懂，在写文章时可能很繁琐的来讲解，不像那些牛人一样言简意赅，请见谅。<br>文章会持续优化更新并进行内容修改补充。</p>
 <a id="more"></a>
 <h1 id="SQL和数据库"><a href="#SQL和数据库" class="headerlink" title="SQL和数据库"></a>SQL和数据库</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://baike.baidu.com/item/%E7%BB%93%E6%9E%84%E5%8C%96%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80/10450182?fr=aladdin&amp;fromid=86007&amp;fromtitle=sql" target="_blank" rel="external">SQL</a>（结构化查询语言）,是一种<a href="https://baike.baidu.com/item/ANSI%E6%A0%87%E5%87%86" target="_blank" rel="external">ANSI标准</a>的计算机语言，用于访问和处理数据库。<br>数据库好比一个仓库，里面存放着用户的各种信息，比如注册时填写的用户、密码、手机号、邮箱等等信息，还可以存放网站的各种信息，比如用户订单、网站的网页代码、管理员的用户名密码等等，而sql语言就是用来访问（查看）和处理（修改、更新）这些信息的。<br>常见的数据库系统有 MS Access、DB2、Informix、MS SQL Server、Oracle、Sybase 以及其他数据库系统。</p>
 <h2 id="什么是SQL注入"><a href="#什么是SQL注入" class="headerlink" title="什么是SQL注入"></a>什么是SQL注入</h2><p>简单来说，就是用户能够控制修改暴露的SQL语句进行后台数据库的操作，获取或修改我们想要的信息。<br>SQL注入的本质是数据和代码没有分离，即用户输入的数据请求被当做代码来处理执行.<br>SQL注入的必备条件是，要有可以控制输入的数据和服务器要执行的代码拼接了这些输入的数据。</p>
@@ -486,7 +484,7 @@
 <p>例如<code>select &quot;&lt;?php echo &#39;hello world&#39;; ?&gt;&quot; into outfile &quot;E:\phpStudy\WWW\DVWA-master&quot;;</code></p>
 <p><img src="http://ovjsmeumq.bkt.clouddn.com/webshell.png" alt="webshell"></p>
 <p>打开路径就可以看到已经写入了文件。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本篇文章进行了sql注入的入门基础探测，<a href="http://www.ledgil.top/2017/09/09/sqlinjection0010/" target="_blank" rel="external">下一篇文章</a>继续进行更深入的用法和SQL注入防御措施以及sqlmap的配置安装。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本篇文章进行了sql注入的入门基础探测，下一篇文章继续进行更深入的用法和SQL注入防御措施以及sqlmap的配置安装。</p>
 
       
     </div>
