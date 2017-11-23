@@ -103,10 +103,17 @@
 <meta property="og:site_name" content="zeroX">
 <meta property="og:description" content="堆积一些可能有用的东西。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-20T09:52:18.667Z">
+<meta property="og:image" content="http://owshroakf.bkt.clouddn.com/npmss.png">
+<meta property="og:image" content="http://owshroakf.bkt.clouddn.com/%E9%85%8D%E7%BD%AE.png">
+<meta property="og:image" content="http://owshroakf.bkt.clouddn.com/ssserver.png">
+<meta property="og:image" content="https://www.shadowroket.com/assets/img/help/windows-01.jpg">
+<meta property="og:image" content="http://owshroakf.bkt.clouddn.com/%E5%B0%8F%E9%A3%9E%E6%9C%BA.png">
+<meta property="og:image" content="http://owshroakf.bkt.clouddn.com/IMG_20170924_234444.png">
+<meta property="og:updated_time" content="2017-11-23T05:23:54.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂货柜">
 <meta name="twitter:description" content="堆积一些可能有用的东西。">
+<meta name="twitter:image" content="http://owshroakf.bkt.clouddn.com/npmss.png">
 
 
 
@@ -385,6 +392,23 @@
 <p>复制上面的代码。新建一个文本文件。粘贴后另存为.bat文件，然后以管理员身份打开。</p>
 <h2 id="恢复快捷方式小箭头"><a href="#恢复快捷方式小箭头" class="headerlink" title="恢复快捷方式小箭头"></a>恢复快捷方式小箭头</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">reg <span class="keyword">delete</span> <span class="string">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons"</span> /v <span class="number">29</span> /f</div><div class="line">taskkill /f /im explorer.exe</div><div class="line">attrib -s -r -h <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span></div><div class="line">del <span class="string">"%userprofile%\AppData\Local\iconcache.db"</span> /f /q</div><div class="line">start explorer</div><div class="line">pause</div></pre></td></tr></table></figure>
 <p>复制上面的代码。新建一个文本文件。粘贴后另存为.bat文件，然后以管理员身份打开。</p>
+<h1 id="ss-VPS翻墙"><a href="#ss-VPS翻墙" class="headerlink" title="ss+VPS翻墙"></a>ss+VPS翻墙</h1><h2 id="购买VPS"><a href="#购买VPS" class="headerlink" title="购买VPS"></a>购买VPS</h2><p>常见的VPS提供商有Linode/AWS/Bandwagon/DigitalOcean/Vultr，我翻过很多博客见他们都是用的Vultr，毕竟是大牌子，有保障。其实还有很多vps供应商，甚至可以去某宝上淘一个。<br>学长推荐的这个站点<a href="http://www.zrblog.net/" target="_blank" rel="external">赵容部落</a>,有很多小众厂商，最后我对比了几家后，选了一个40多一个月的VPS，由VPS分享组织提供,配置是双核，内存4G，30GB硬盘，对外网速是3MBPS，不限流量。</p>
+<h2 id="配置运行shadowsocks"><a href="#配置运行shadowsocks" class="headerlink" title="配置运行shadowsocks"></a>配置运行shadowsocks</h2><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>打开你的vps操作界面，（在配置安装vps时选windows的操作系统吧，毕竟熟悉，好操作（大佬请忽略本条））（一般有VNC操作平台，可以远程控制vps）。选择一个浏览器，访问<a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a>，下载并安装node.js（一般默认安装即可，安装路径可以找一个方便的路径，之后要用到）.</p>
+<h3 id="安装shadowsocks"><a href="#安装shadowsocks" class="headerlink" title="安装shadowsocks"></a>安装shadowsocks</h3><p>cmd打开命令执行窗口，输入<code>npm install -g shadowsocks</code>安装ss，（这是全局安装）。</p>
+<p><img src="http://owshroakf.bkt.clouddn.com/npmss.png" alt=""></p>
+<h3 id="配置ss"><a href="#配置ss" class="headerlink" title="配置ss"></a>配置ss</h3><p>找到C:\用户\Administrator\AppData\Roaming\npm\node_module\shadowsocks(找不到就搜索一下=。=)，用编辑器（记事本）打开config.json，将其中的server后的值改为你的vps的ip地址，（你买完vps后查看配置信息里会有的）,password后的值自己设置一个即可，其他的默认就行。</p>
+<p><img src="http://owshroakf.bkt.clouddn.com/%E9%85%8D%E7%BD%AE.png" alt=""></p>
+<h3 id="运行ss"><a href="#运行ss" class="headerlink" title="运行ss"></a>运行ss</h3><p>cmd打开命令行执行窗口，输入<code>ssserver</code>开启shadowsocks，当你看到类似红框中的3条信息就成了，下里的是安卓端请求信息，访问了谷歌的请求是安卓端ss验证vpn是否可用。</p>
+<p><img src="http://owshroakf.bkt.clouddn.com/ssserver.png" alt=""></p>
+<p>当你访问其他墙外网站时，访问请求都会在这显示。</p>
+<h2 id="配置运行windows端ss"><a href="#配置运行windows端ss" class="headerlink" title="配置运行windows端ss"></a>配置运行windows端ss</h2><h3 id="配置windows的ss"><a href="#配置windows的ss" class="headerlink" title="配置windows的ss"></a>配置windows的ss</h3><p><a href="https://sourceforge.net/projects/shadowsocksgui/?source=typ_redirect" target="_blank" rel="external">https://sourceforge.net/projects/shadowsocksgui/?source=typ_redirect</a>下载windows版的ss（下不来就网上找），直接解压，打开里面的<code>.exe</code>文件。</p>
+<p>服务器ip就是vps的ip，端口是你在配置config.json里的端口，默认是8388，密码是你设置的密码（注意不是vps的密码也不是你开机密码而是在config里设置的密码），备注起个名。<br><img src="https://www.shadowroket.com/assets/img/help/windows-01.jpg" alt=""></p>
+<h3 id="开启ss"><a href="#开启ss" class="headerlink" title="开启ss"></a>开启ss</h3><p>然后在右下角就会生成一个小飞机图标，右键打开列表,服务器里选择备注名的，顺便把启用系统代理选上。</p>
+<p><img src="http://owshroakf.bkt.clouddn.com/%E5%B0%8F%E9%A3%9E%E6%9C%BA.png" alt=""></p>
+<p>你就可上谷歌了。</p>
+<h2 id="配置运行安卓端的ss"><a href="#配置运行安卓端的ss" class="headerlink" title="配置运行安卓端的ss"></a>配置运行安卓端的ss</h2><p>下载一个shadowsocks，配置的内容和windows端的内容一样。</p>
+<p><img src="http://owshroakf.bkt.clouddn.com/IMG_20170924_234444.png" alt=""></p>
+<p>你可以上谷歌了。</p>
 
       
     </div>
@@ -538,7 +562,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -560,7 +584,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -633,7 +657,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快捷方式小箭头"><span class="nav-number">1.</span> <span class="nav-text">快捷方式小箭头</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#去掉快件方式小箭头"><span class="nav-number">1.1.</span> <span class="nav-text">去掉快件方式小箭头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恢复快捷方式小箭头"><span class="nav-number">1.2.</span> <span class="nav-text">恢复快捷方式小箭头</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快捷方式小箭头"><span class="nav-number">1.</span> <span class="nav-text">快捷方式小箭头</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#去掉快件方式小箭头"><span class="nav-number">1.1.</span> <span class="nav-text">去掉快件方式小箭头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恢复快捷方式小箭头"><span class="nav-number">1.2.</span> <span class="nav-text">恢复快捷方式小箭头</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ss-VPS翻墙"><span class="nav-number">2.</span> <span class="nav-text">ss+VPS翻墙</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#购买VPS"><span class="nav-number">2.1.</span> <span class="nav-text">购买VPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置运行shadowsocks"><span class="nav-number">2.2.</span> <span class="nav-text">配置运行shadowsocks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装node-js"><span class="nav-number">2.2.1.</span> <span class="nav-text">安装node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装shadowsocks"><span class="nav-number">2.2.2.</span> <span class="nav-text">安装shadowsocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置ss"><span class="nav-number">2.2.3.</span> <span class="nav-text">配置ss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行ss"><span class="nav-number">2.2.4.</span> <span class="nav-text">运行ss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置运行windows端ss"><span class="nav-number">2.3.</span> <span class="nav-text">配置运行windows端ss</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置windows的ss"><span class="nav-number">2.3.1.</span> <span class="nav-text">配置windows的ss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启ss"><span class="nav-number">2.3.2.</span> <span class="nav-text">开启ss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置运行安卓端的ss"><span class="nav-number">2.4.</span> <span class="nav-text">配置运行安卓端的ss</span></a></li></ol></li></ol></div>
             
 
           </div>
