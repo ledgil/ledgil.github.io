@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="汇编," />
+  <meta name="keywords" content="二进制数范围," />
 
 
 
@@ -95,20 +95,18 @@
 
 
 
-<meta name="description" content="王爽著《汇编语言》。">
-<meta name="keywords" content="汇编">
+<meta name="description" content="老师也好，书也罢，每当谈到int、char取值范围，似乎有意绕过这些问题。今天学习汇编时候，又遇到了这个问题。">
+<meta name="keywords" content="二进制数范围">
 <meta property="og:type" content="article">
-<meta property="og:title" content="汇编学习笔记">
-<meta property="og:url" content="http://www.zerox.top/2017/12/03/assembly-01/index.html">
+<meta property="og:title" content="为什么8位有符号二进制数范围是-128~127">
+<meta property="og:url" content="http://www.zerox.top/2017/12/07/10000000/index.html">
 <meta property="og:site_name" content="zeroX">
-<meta property="og:description" content="王爽著《汇编语言》。">
+<meta property="og:description" content="老师也好，书也罢，每当谈到int、char取值范围，似乎有意绕过这些问题。今天学习汇编时候，又遇到了这个问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ox910lsab.bkt.clouddn.com/%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E5%9C%B0%E5%9D%80.png">
-<meta property="og:updated_time" content="2017-12-04T05:12:35.642Z">
+<meta property="og:updated_time" content="2017-12-07T15:33:12.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="汇编学习笔记">
-<meta name="twitter:description" content="王爽著《汇编语言》。">
-<meta name="twitter:image" content="http://ox910lsab.bkt.clouddn.com/%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E5%9C%B0%E5%9D%80.png">
+<meta name="twitter:title" content="为什么8位有符号二进制数范围是-128~127">
+<meta name="twitter:description" content="老师也好，书也罢，每当谈到int、char取值范围，似乎有意绕过这些问题。今天学习汇编时候，又遇到了这个问题。">
 
 
 
@@ -138,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://www.zerox.top/2017/12/03/assembly-01/"/>
+  <link rel="canonical" href="http://www.zerox.top/2017/12/07/10000000/"/>
 
 
 
 
 
-  <title>汇编学习笔记 | zeroX</title>
+  <title>为什么8位有符号二进制数范围是-128~127 | zeroX</title>
   
 
 
@@ -291,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.zerox.top/2017/12/03/assembly-01/">
+    <link itemprop="mainEntityOfPage" href="http://www.zerox.top/2017/12/07/10000000/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zeroX">
@@ -308,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">汇编学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">为什么8位有符号二进制数范围是-128~127</h1>
         
 
         <div class="post-meta">
@@ -320,8 +318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T21:11:00+08:00">
-                2017-12-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-07T21:35:24+08:00">
+                2017-12-07
               </time>
             
 
@@ -380,29 +378,19 @@
       
 
       
-        <p>王爽著《汇编语言》。</p>
+        <p>老师也好，书也罢，每当谈到int、char取值范围，似乎有意绕过这些问题。今天学习汇编时候，又遇到了这个问题。</p>
 <a id="more"></a>
-<h1 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h1><h2 id="机器语言"><a href="#机器语言" class="headerlink" title="机器语言"></a>机器语言</h2><p>机器语言是机器指令的集合，机器指令就是一台机器可以正确执行的命令。电子计算机的机器指令是一列二进制数字。计算机将他们转换成高低电平，是计算机的电子器件受到驱动。</p>
-<p>链接：<a href="https://baike.baidu.com/item/%E6%9C%BA%E5%99%A8%E8%AF%AD%E8%A8%80/2019225?fr=aladdin" target="_blank" rel="external">机器语言</a></p>
-<h2 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h2><p>汇编语言的主体是汇编指令，汇编指令是机器指令便于记忆书写的格式。汇编指令与机器指令一一对应。<br>链接：<a href="https://baike.baidu.com/item/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/61826" target="_blank" rel="external">汇编语言</a></p>
-<p>能将汇编指令转换为机器指令的翻译程序称之为编译器。</p>
-<p>汇编语言由以下3类指令组成：<br>（1）汇编指令：机器码的助记符，有对应的机器码。<br>（2）伪指令：没有对应的机器码，由编译器执行，计算机并不执行。<br>（3）其他符号：如+、-、*、/等，由编译器识别，没有对应的机器码。</p>
-<h2 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h2><p>让CPU工作，就要给它提供指令和数据，指令和数据在存储器中存放，也就是我们平时说的内存。<br>磁盘不同于内存，磁盘上的数据或者程序如果不读到内存中，就无法被CPU使用。</p>
-<h2 id="指令和数据"><a href="#指令和数据" class="headerlink" title="指令和数据"></a>指令和数据</h2><p>指令和数据是应用上的概念。在内或者磁盘上，指令和数据没有任何区别，都是二进制数。CPU通过不同的寻址方式将这些二进制数视为数据或命令来处理。比如“1000100111011000”可以是89D8（十六进制数据0、），也可以是“mov ax,bx”（一条数据移动命令）</p>
-<h2 id="存储单元"><a href="#存储单元" class="headerlink" title="存储单元"></a>存储单元</h2><p>存储器被划分为若干个存储单元，每个存储单元从0开始编号。一个存储单元为1个字节（1Byte）（1Byte=8bit）。</p>
-<p>Byte简写为B。1B=8b。1KB=1024B。1MB=1024KB。1GB=1024MB。</p>
-<p>链接：<a href="https://baike.baidu.com/item/%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/8727749?fr=aladdin" target="_blank" rel="external">存储单元</a></p>
-<h2 id="cpu对存储器的读写"><a href="#cpu对存储器的读写" class="headerlink" title="cpu对存储器的读写"></a>cpu对存储器的读写</h2><p>存储器被划分为多个存储单元，存储器从0开始编号。CPU要从内存中读写数据，首先需指定存储单元的地址。就是说先找到地址，再对地址里的数据进行处理。要进行读写，必须进行下列3类信息的交互：（1）存储单元的地址（地址信息）（2）器件的选择，读或写的命令（控制信息）（3）读或写的数据（数据信息）。</p>
-<p>电子计算器处理、传输的都是电信号，电信号通过导线传送，计算机中专门链接CPU和其他芯片的导线，称为总线。（总线从物理上讲就是一根根导线的集合）。CPU通过总线将地址信息、控制信息、数据信息以电信号的方式传到其他器件里。总线从逻辑上分为3类：地址总线、控制总线、数据总线。</p>
-<h2 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h2><p>CPU通过地址总线来指定存储器单元的，可见地址总线上能传输多少个不同的信息，就可以对多少个存储单元进行寻址。（一个总线里有N根导线，可以说地址总线的宽度为N，则可以传输2^N种信息，它的寻址能力就是2^N Byte）<br>例如：有20位地址总线（20根导线或者说地址总线宽度为20），可以一次传输20bit的地址，20bit有2^20种可能（从000……0000到111……1111），也就对应着2^20个内存单元（编号从0到2^20），每个内存单元容量为1Byte（B），则寻址能力就是2^20B=1MB。</p>
-<p>同理，数据总线和控制总线的宽度决定cpu的数据传输能力（进行数据传输时一次传输的数据量）和控制能力。</p>
-<h2 id="接口卡"><a href="#接口卡" class="headerlink" title="接口卡"></a>接口卡</h2><p>在每一台PC机中都有主板，主板上有CPU、存储器、外围芯片组、扩展槽等通过总线相连。扩展槽上一般有RAM内存条和各种接口卡。<br>计算机所有可用程序控制其工作的设备，必须受到CPU的控制。CPU对外部设备不能直接控制。直接控制的是设备各种的插在扩展插槽上的接口卡。CPU通过总线向接口卡发送命令，接口卡根据CPU的命令控制外部设备工作。</p>
-<h2 id="各种存储器芯片"><a href="#各种存储器芯片" class="headerlink" title="各种存储器芯片"></a>各种存储器芯片</h2><p>从读写属性上分为：随机读写器（RAM）和只读存储器（ROM）。随机存储器可读可写，但必须带电存储，断电后存储的内容丢失。只读存储器只能读取不能写入，关机后内容不丢失。</p>
-<p>随机存储器存放CPU使用的绝大部分程序和数据。主随机存储器一般由装在主板上的RAM和插在扩展插槽上的ram组成。</p>
-<p>装有BIOS（Basic Input/Output System）的ROM，BIOS是由主板和各类接口卡（如显卡、网卡等）厂商提供的软件系统，可以通过BIOS利用该硬件设备进行最基本的输入和输出。<br>某些接口卡上需要对大批量输入、输出数据进行暂时存储，在其上装有RAM。比如显卡上的RAM，一般称为显存。</p>
-<h2 id="内存地址空间"><a href="#内存地址空间" class="headerlink" title="内存地址空间"></a>内存地址空间</h2><p>以上一些存储器，在物理上是独立的器件，但是它们都与CPU总线相连，CPU对它们进行读写都通过控制总线发出内存读写命令。CPU在操作它们的时候都把它们当成内存来对待，把他们总的看成一个由若干存储单元组成的逻辑存储器，这个逻辑存储器就是内存地址空间。</p>
-<p><img src="http://ox910lsab.bkt.clouddn.com/%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E5%9C%B0%E5%9D%80.png" alt="存储空间地址"><br>比如地址0~7FFFH为32KB的主随机存储器的地址空间，8000H~9FFFH为8KB显存地址空间，A000H~FFFFH为24KB各个ROM的地址空间，这样CPU向1000H写入数据，这个数据就被写入主随机存储器中，向8000H写入数据，数据就被写入显存中，然后显卡将其输出到显示器上，向C000H写入数据是没有结果的，因为那是ROM。</p>
-<p>链接：<a href="https://baike.baidu.com/item/%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4/1423980?fr=aladdin" target="_blank" rel="external">地址空间</a></p>
+<p>8位二进制数，无符号表示的话范围是0~255（0000 0000~1111 1111）。有符号后，最高一位用于表示符号，最高位0表示正数，1表示负数。按照正常的理解，范围似乎是-127~127（1111 1111~0111 1111），其实这就是原码的表示方式。但是这样子表示有两个缺陷，即0会有两种表示方式-0和+0（1000 0000和0000 0000），还有当进行异号加减计算时，计算机要先分辨这两个数的绝对值大小，然后进行加减操作，最后的符号取决于绝对值大的那个数。</p>
+<p>于是就出现了反码来表示负数，将源码除了符号位按位取反，比如-1和1的原码分别为1000 0001和0000 0001，-1的反码是0111 1110，当-1与1相加运算时，反码进行运算，结果是1111111111（若最高位产生进位则要加到最低位上，详情请见<a href="https://baike.baidu.com/item/%E5%8F%8D%E7%A0%81%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97/11017984?fr=aladdin&amp;fromid=15951418&amp;fromtitle=%E5%8F%8D%E7%A0%81%E8%BF%90%E7%AE%97" target="_blank" rel="external">反码运算</a>）再将结果取反得到结果的原码1000 0000，即0。<br>后来又出现了补码来增强反码（我也不知道，好像是这样= =！），原码除符号位外取反再加1。如-1的原码是1000 0001，反码是1111 1110，补码是1111 1111，-1与1运算结果是0000 0000（更多请见<a href="https://baike.baidu.com/item/%E8%A1%A5%E7%A0%81/6854613" target="_blank" rel="external">补码</a>）</p>
+<p>回归正题，以下是正数的原码<br>+127, 0111 1111<br>+126, 0111 1110<br>+125, 0111 1101<br>……<br>……<br>+3, 0000 0011<br>+2, 0000 0010<br>+1, 0000 0001<br>0, 0000 0000<br>以下是负数的原码、反码、补码<br>-1, 1000 0001, 1111 1110, 1111 1111<br>-2, 1000 0010, 1111 1101, 1111 1110<br>-3, 1000 0011, 1111 1100, 1111 1101<br>……<br>……<br>-125, 1111 1101, 1000 0010, 1000 0011<br>-126, 1111 1110, 1000 0001, 1000 0010<br>-127, 1111 1111, 1000 0000, 1000 0001</p>
+<p>在遍历127~-127的表示后，少了一个补码1000 0000（按照原码递减的规律可以得出原码1000 0000对应的就是-128）。<br>那么补码1000 0000的原码是什么？<br>将补码转换为原码，将补码再求补一次，符号位不变其他为求反后加1,1000 0000的反码为1111 1111，加1后1 0000 0000，已经超过了8位，那个1会被略去，但是原来是补码（1000 0000）是一个表示负数的数，它的原码表示也应是个负数，所以最高位的0变为1，最后求得的原码为1000 0000。</p>
+<p>所以8位二进制数的取值范围是-128~0（1000 0000，1111 1111,1111 1110……0000 0000）再从0到127（0000 0000~0111 1111），可以看出原来在反码里表示负0的1000 0000用于表示-128，似乎是解决了反码有两个0的问题。</p>
+<p>一个n位有符号int型数值，其范围为-2^(n-1) ——2^(n-1) -1。<br>计算机为有符号int型数值分配固定的位数n存储数据，当数据位数大于n时，大于n的位数被自动舍弃。这就是导致数值范围为“-2^(n-1) ——2^(n-1) -1”的原因，也产生了数据范围中“模”概念。</p>
+<blockquote>
+<blockquote>
+<p>“模”实质上是计量器产生“溢出”的量，它的值在计量器上表示不出来，计量器上只能表示出模的余数。例如，虽然时钟的模=12，但是在时钟的指针并不能真正指向“12点”，“12点”的位置和“0点”是重合的，即12点以0点表示。<br>换句话说，时钟的范围“0——11”，则模为12。<br>对应而言，n位无符号数值的计量范围0～2^(n)-1，模=2^(n)；n位有符号数值，数值范围-2^(n-1) ——2^(n-1) -1，则模为2^(n-1)。举例说明，8位无符号数值，二进制模为2^8；8位有符号数值，表示的数值范围为0——2^8-1。</p>
+</blockquote>
+</blockquote>
 
       
     </div>
@@ -449,7 +437,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/汇编/" rel="tag"># 汇编</a>
+            <a href="/tags/二进制数范围/" rel="tag"># 二进制数范围</a>
           
         </div>
       
@@ -462,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/30/computerNetworking-01/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2017/12/03/sssp/" rel="next" title="段寄存器和地址空间段的一些问题">
+                <i class="fa fa-chevron-left"></i> 段寄存器和地址空间段的一些问题
               </a>
             
           </div>
@@ -524,17 +512,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -552,7 +531,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -574,7 +553,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -637,22 +616,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本知识"><span class="nav-number">1.</span> <span class="nav-text">基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器语言"><span class="nav-number">1.1.</span> <span class="nav-text">机器语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汇编语言"><span class="nav-number">1.2.</span> <span class="nav-text">汇编语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储器"><span class="nav-number">1.3.</span> <span class="nav-text">存储器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令和数据"><span class="nav-number">1.4.</span> <span class="nav-text">指令和数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储单元"><span class="nav-number">1.5.</span> <span class="nav-text">存储单元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu对存储器的读写"><span class="nav-number">1.6.</span> <span class="nav-text">cpu对存储器的读写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总线"><span class="nav-number">1.7.</span> <span class="nav-text">总线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口卡"><span class="nav-number">1.8.</span> <span class="nav-text">接口卡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种存储器芯片"><span class="nav-number">1.9.</span> <span class="nav-text">各种存储器芯片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存地址空间"><span class="nav-number">1.10.</span> <span class="nav-text">内存地址空间</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
