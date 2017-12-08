@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="汇编指令集," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://ouur4c5x0.bkt.clouddn.com/mylogo.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="王爽著《汇编语言》。">
+<meta name="keywords" content="汇编指令集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编指令全集">
+<meta property="og:url" content="http://www.zerox.top/2017/12/03/assemblyInstruction/index.html">
+<meta property="og:site_name" content="zeroX">
+<meta property="og:description" content="王爽著《汇编语言》。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-08T14:50:24.557Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="汇编指令全集">
+<meta name="twitter:description" content="王爽著《汇编语言》。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.zerox.top/2017/12/03/assemblyInstruction/"/>
+
+
+
+
+
+  <title>汇编指令全集 | zeroX</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9fd17929fa8eedd1d5614f70260c9b61";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zeroX</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zerox.top/2017/12/03/assemblyInstruction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zeroX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ouur4c5x0.bkt.clouddn.com/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zeroX">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">汇编指令全集</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T21:11:00+08:00">
+                2017-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/汇编/" itemprop="url" rel="index">
+                    <span itemprop="name">汇编</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>王爽著《汇编语言》。</p>
+<a id="more"></a>
+<p>汇编指令大全</p>
+<p>DST:destination目的操作数/地址/寄存器；<br>SRC:source源操作数/地址/寄存器；<br>port:端口；<br>ac: Accumulator累加器；<br>reg:register寄存器；<br>cnt:counter计数器；<br>opr:除了立即数之外的所有寻址方式（寄存器）；<br>立即数:直接包含在代码中，作为代码的一部分，不需要保存在寄存器中的操作数，相当于高级语言中的常量，比如mov ax,8；<br>r8/r16：8位通用寄存器/16位通用寄存器；<br>SR：segment register段寄存器，包括DS、SS、ES、CS；mem：memory，表示存储器操作数；<br>addr：address，表示内存单元地址；</p>
+<h1 id="数据传送指令"><a href="#数据传送指令" class="headerlink" title="数据传送指令"></a>数据传送指令</h1><h2 id="通用数据传送指令"><a href="#通用数据传送指令" class="headerlink" title="通用数据传送指令"></a>通用数据传送指令</h2><p>1、传送指令 MOV (move)</p>
+<p>指令的汇编格式：MOV DST,SRC<br>指令的基本功能：(DST)←(SRC) 将原操作数(字节或字)传送到目的地址。<br>指令支持的寻址方式：目的操作数和源操作数不能同时用存储器寻址方式，这个限制适用于所有指令。<br>指令的执行对标志位的影响：不影响标志位。<br>指令的特殊要求：目的操作数DST和源操作数SRC不允许同时为段寄存器；<br>目的操作数DST不能是CS，也不能用立即数方式。</p>
+<p>2、进栈指令 PUSH (push onto the stack)<br>出栈指令 POP  (pop from the stack)</p>
+<p>指令的汇编格式：PUSH SRC ；POP DST<br>指令的基本功能：PUSH指令在程序中常用来暂存某些数据，而POP指令又可将这些数据恢复。<br>PUSH SRC (SP)←(SP)-2 ；(SP)←(SRC)<br>POP DST (DST)←((SP))；(SP)←(SP)<br>指令支持的寻址方式：push 和 pop指令不能不能使用立即数寻址方式。<br>指令对标志位的影响：PUSH 和 POP指令都不影响标志位。<br>指令的特殊要求：PUSH 和 POP指令只能是字操作，因此，存取字数据后，SP的修改必须是+2 或者 -2；<br>POP指令的DST不允许是CS寄存器；</p>
+<p>3、交换指令 XCHG (exchange)</p>
+<p>指令的汇编格式：XCHG OPR1,OPR2<br>指令的基本功能：(OPR1)←&gt;(OPR2)<br>指令支持的寻址方式：一个操作数必须在寄存器中，另一个操作数可以在寄存器或存储器中。<br>指令对标志位的影戏：不影响标志位。<br>指令的特殊要求：不允许使用段寄存器。</p>
+<h2 id="累加器专用传送指令"><a href="#累加器专用传送指令" class="headerlink" title="累加器专用传送指令"></a>累加器专用传送指令</h2><p>4、输入指令 IN (input)<br>输出指令 OUT(output)</p>
+<p>指令的汇编格式：IN ac,port port&lt;=0FFH<br>IN ac,DX port&gt;0FFH<br>OUT port,ac port&lt;=0FFH<br>OUT DX,ac port&gt;0FFH<br>指令的基本功能：对8086及其后继机型的微处理机，所有I/O端口与CPU之间的通信都由输入输出指令IN和OUT来完成。IN指令将信息从I/O输入到CPU，OUT指令将信息从CPU输出到I/O端口，因此，IN和OUT指令都要指出I/O端口地址。<br>IN ac,port port&lt;=0FFH (AL)←(port)传送字节 或 (AX)←(port+1,port)传送字<br>IN ac,DX port&gt;0FFH (AL)←((DX))传送字节 或 (AX)←((DX)+1,(DX))传送字<br>OUT port,ac port&lt;=0FFH (port)←(AL)传送字节 或 (port+1,port)←(AX)传送字<br>OUT DX,ac port&gt;0FFH (DX)←(AL)传送字节 或 ((DX)+1,(DX))←(AX)传送字<br>指令对标志位的影响：不影响标志位。<br>指令的特殊要求：只限于在AL或AX与I/O端口之间传送信息。<br>传送16位信息用AX，传送8位信息用AL，这取决于外设端口的宽度。</p>
+<p>5、换码指令 XLAT (translate)</p>
+<p>指令的汇编格式：XLAT opr 或 XLAT<br>指令的基本功能：这条指令根据AL寄存器提供的位移量，将BX指使的字节表格中的代码换存在AL中。<br>(AL)←((DS)*16+(BX)+(AL))<br>指令对标志位的影响:不影响标志位。<br>指令的特殊要求：所建字节表格的长度不能超过256字节，因为存放位移量的是8位寄存器AL。<br>opr为表格的首地址，因为opr所表示的偏移地址已存入BX寄存器，所以opr在换码指令中可有可无，有则提高程序的可读性。</p>
+<h2 id="地址传送指令"><a href="#地址传送指令" class="headerlink" title="地址传送指令"></a>地址传送指令</h2><p>6、有效地址传送器 LEA (load effective address)</p>
+<p>指令的汇编格式：LEA reg，src<br>指令的基本功能：LEA指令把源操作数的有效地址送到指定的寄存器，这个有效地址是由src选定的一种存储器寻址方式确定的。<br>指令支持的寻址方式：各种存储器寻址方式。<br>指令对标志位的影响：不影响标志位。<br>指令的特出要求：指令中reg不能是段寄存器；</p>
+<p>7、指针送寄存器和DS LDS (load DS with point)<br>指针送寄存器和ES LES (load ES with point)<br>指令的汇编格式：LDS reg,src<br>LES reg,src<br>指令的基本功能：LDS和LES指令把确定内存单元位置的偏移地址送寄存器，段地址DS或ES。这个偏移地址和段地址（也称地址指针）是由src指定的两个相继字单元提供的。<br>LDS reg,src (reg)←(src) (DS)←(src+2)<br>LES reg,src (reg)←(src) (ES)←(src+2)<br>指令支持的寻址方式：src必须为存储器寻址方式<br>指令对标志位的影响：不影响标志位。<br>指令的特殊要求：指令中REG不能是段寄存器；</p>
+<h2 id="标志寄存器传送指令"><a href="#标志寄存器传送指令" class="headerlink" title="标志寄存器传送指令"></a>标志寄存器传送指令</h2><p>8、标志寄存器的低字节送AH LAHF (load AH with FLAGS)</p>
+<p>指令的汇编格式：LAHF<br>指令的基本功能：(AH)←(FLAGS)0-7<br>指令对标志位的影响：不影响标志位</p>
+<p>9、AH送标志寄存器低字节 SAHF(store AH into FLAGS)</p>
+<p>指令的汇编格式：SAHF<br>指令的基本功能：(FLAGS)0-7←(AH)<br>指令对标志位的影响：由装入值来确定标志位的值。</p>
+<p>10、标志进栈 PUSHF (push the flags)</p>
+<p>指令的汇编格式：PUSHF<br>指令的基本功能：(SP)←(SP)-2 ((SP)+1,(SP))←(FLAGS)0-15<br>指令对标志位的影响：不影响标志位。</p>
+<p>11、标志出栈 POPF (pop the FLAGES)</p>
+<p>指令的汇编格式：POPF<br>指令的基本功能：(FLAGS)0-15←((SP)+1,(SP)) (SP)←(SP)+2<br>指令对标志位的影响：由装入值来确定标志位的值。</p>
+<h1 id="算术指令"><a href="#算术指令" class="headerlink" title="算术指令"></a>算术指令</h1><h2 id="加法指令"><a href="#加法指令" class="headerlink" title="加法指令"></a>加法指令</h2><p>12、加法指令 ADD (addition)</p>
+<p>指令的汇编格式：add dst,src<br>指令的基本功能：(dst)←(src)+(dst)<br>指令支持的寻址方式：他们两个操作数不能同时为存储器寻址。即为除源操作数为立即数的情况外，源操作数和目地操作数必须有一个寄存器寻址方式。<br>指令对标志位的影响：SF=1 加法结果为负数（符号位为1）<br>SF=0 加法结果为正数（符号位为0）<br>ZF=1 加法结果为零<br>ZF=0 加法结果不为零<br>CF=1 最高有效位向高位有进位<br>CF=0 最高有效位向高位无进位<br>OF=1 两个同符号数相加（正数+正数 或 负数+负数），结果符号与其相反。<br>OF=0 两个不同符号数相加，或同符号数相加，结果符号与其相同。</p>
+<p>13、带进为加法指令 ADC (add with carry)</p>
+<p>指令的汇编格式：ADD dst,src<br>指令的基本功能：(dst)←(src)+(dst)+CF<br>指令支持的寻址方式：他们两个操作数不能同时为存储器寻址。即为除源操作数为立即数的情况外，源操作数和目地操作数必须有一个寄存器寻址方式。<br>指令对标志位的影响：SF=1 加法结果为负数<br>SF=0 加法结果为正数<br>ZF=1 加法结果为零<br>ZF=0 加法结果不为零<br>CF=1 最高有效位向高位有进位<br>CF=0 最低有效位相高位无进位<br>OF=1 两个同符号数相加，结果符号与其相反，<br>OF=0 两个同符号数相加，或同符号相加，结果符号与其相同</p>
+<p>14、加1指令 INC (increament)<br>指令的汇编格式：INC opr<br>指令的基本功能：(opr)←(opr)<br>指令支持的寻址方式 可以使用除立即数方式外的任何寻址方式<br>指令对标志位的影响：SF=1 加法结果为负数<br>SF=0 加法结果为正数<br>ZF=1 加法结果为零<br>ZF=0 加法结果不为零<br>OF=1 两个同符号数相加，结果符号与其相反，<br>OF=0 两个同符号数相加，或同符号相加，结果符号与其相同。</p>
+<h2 id="减法指令"><a href="#减法指令" class="headerlink" title="减法指令"></a>减法指令</h2><p>15、减法指令 SUB (subtract)</p>
+<p>指令的汇编格式：SUB dst,src<br>指令的基本功能：(dst)←(dst)-(src)<br>指令支持的寻址方式：他们两个操作数不能同时为存储器寻址。即为除源操作数为立即数的情况外，源操作数和目地操作数必须有一个寄存器寻址方式。<br>指令对标志位的影响：SF=1 减法结果为负数（符号位为1）<br>SF=0 减法结果为正数（符号位为0）<br>ZF=1 减法结果为零<br>ZF=0 减法结果不为零<br>CF=1 二进制减法运算中最高有效位向高位有借位（被减数小于减数，不够减的情况）<br>CF=0 二进制减法运算中最高有效为向高位无借位（被减数&gt;=减数，够减的情况）<br>OF=1 两数符号相反（正数-负数，或负数-正数），而结果符号与减数相同。<br>OF=0 同符号数相减时，或不同符号数相减，其结果符号与减数不同。</p>
+<p>16、带借位减法指令 SBB (subtract with borrow)</p>
+<p>指令的汇编格式：SBB dst,src<br>指令的基本功能：(dst)←(dst)-(src)-CF<br>指令支持的寻址方式：他们两个操作数不能同时为存储器寻址。即为除源操作数为立即数的情况外，源操作数和目地操作数必须有一个寄存器寻址方式。<br>指令对标志位的影响：SF=1 减法结果为负数（符号位为1）<br>SF=0 减法结果为正数（符号位为0）<br>ZF=1 减法结果为零<br>ZF=0 减法结果不为零<br>CF=1 二进制减法运算中最高有效位向高位有借位（被减数小于减数，不够减的情况）<br>CF=0 二进制减法运算中最高有效为向高位无借位（被减数&gt;=减数，够减的情况）<br>OF=1 两数符号相反（正数-负数，或负数-正数），而结果符号与减数相同。<br>OF=0 同符号数相减时，或不同符号数相减，其结果符号与减数不同。</p>
+<p>17、减1指令 DEC (decrement)</p>
+<p>指令的汇编格式：DEC opr<br>指令的基本功能：(opr)←(opr)-1<br>指令支持的寻址方式：可以使用除立即数方式外的任何寻址方式。<br>指令对标志位的影响：SF=1 减法结果为负数（符号位为1）<br>SF=0 减法结果为正数（符号位为0）<br>ZF=1 减法结果为零<br>ZF=0 减法结果不为零<br>OF=1 两数符号相反（正数-负数，或负数-正数），而结果符号与减数相同。<br>OF=0 同符号数相减时，或不同符号数相减，其结果符号与减数不同。</p>
+<p>18、比较指令 CMP (compare)</p>
+<p>指令的汇编格式：CMP opr1,opr2<br>指令的基本功能：(opr1)-(opr2),根据相减结果设置条件码，但不回送结果。<br>指令支持的寻址方式：他们两个操作数不能同时为存储器寻址。即为除源操作数为立即数的情况外，源操作数和目地操作数必须有一个寄存器寻址方式。<br>指令对标志位的影响：SF=1 减法结果为负数（符号位为1）<br>SF=0 减法结果为正数（符号位为0）<br>ZF=1 减法结果为零<br>ZF=0 减法结果不为零<br>CF=1 二进制减法运算中最高有效位向高位有借位（被减数小于减数，不够减的情况）<br>CF=0 二进制减法运算中最高有效为向高位无借位（被减数&gt;=减数，够减的情况）<br>OF=1 两数符号相反（正数-负数，或负数-正数），而结果符号与减数相同。<br>OF=0 同符号数相减时，或不同符号数相减，其结果符号与减数不同。</p>
+<p>19、求补指令 NEG (negate)</p>
+<p>指令的汇编格式：NEG opr<br>指令的基本功能：(opr)← -(opr)<br>指令支持的寻址方式：可以使用除立即数方式外的任何寻址方式。<br>指令对标志位的影响：CF=1 　不为0的操作数求补时<br>　　　 CF=0 　为0的操作数求补时<br>OF=1 操作数为-128（字节运算）或操作数为-32768（字运算）<br>OF=0 当求补运算的操作数不为（－128）（字节）或－32768（字）时</p>
+<h2 id="乘法指令"><a href="#乘法指令" class="headerlink" title="乘法指令"></a>乘法指令</h2><p>20、无符号乘法指令 NUL (unsigned multiple)<br>有符号乘法指令 IMUL(signed muliple)</p>
+<p>指令的汇编格式：NUL src<br>IMUL src<br>指令的基本功能：(AX)←(AL)<em>(src)<br>(DX,AX)←(AX)</em>(src)<br>指令支持的寻址方式：src可以使用除立即数方式以外的任一种寻址方式。<br>指令对标志位的影响：乘法指令只影响标志位CF和OF，其他条件码位无定义。<br>MUL指令的条件码设置为：<br>CF OF=0 0 乘积的高一半为0（字节操作的（AH）或字操作的（DX））<br>CF OF=1 1 乘积的高一半不为0<br>IMUL指令的条件码设置为：<br>CF OF=0 0 乘积的高一半为低一半的符号扩展.<br>CF OF=1 1 其他情况<br>指令的特殊要求：MUL和IMUL指令的区别仅在于操作数是无符号还是带符号数，它们的共同点是，指令中只给出源操作数src，目的操作数是隐含的，它只能是累加器（字运算为AX，字节运算为AL）。隐含的乘积寄存器是AX或DX（高位）和AX（低位）。</p>
+<h2 id="符号扩展指令"><a href="#符号扩展指令" class="headerlink" title="符号扩展指令"></a>符号扩展指令</h2><p>21、节扩展为字 CBW (convert byte to word)</p>
+<p>指令的汇编格式：CBW<br>指令的基本功能：(AH)=00H 当(AL)的最高有效位为0时<br>(AH)=FFH 当(AL)的最高有效位为1时<br>指令对标志位的影响：不影响标志位<br>指令的特殊要求：这是条无操作数的指令，进行符号扩展的操作数必须存放在AL寄存器或AX寄存器中。</p>
+<p>22、字扩展为双字 CWD (convert word to double word)</p>
+<p>指令的汇编格式：CWD<br>指令的基本功能：(DX)=0000H 当(AX)的最高有效位为0时<br>(DX)=FFFFH 当(AX)的最高有效位为1时<br>指令对标志位的影响：不影响标志位<br>指令的特殊要求：这是条无操作数的指令，进行符号扩展的操作数必须存放在AL寄存器或AX寄存器中。</p>
+<h2 id="除法指令"><a href="#除法指令" class="headerlink" title="除法指令"></a>除法指令</h2><p>23、无符号数除法 DIV (unsigned divide)<br>带符号数除法 IDIV (singed divide)</p>
+<p>指令的汇编格式：DIV src<br>IDIV src<br>指令的基本功能：字操作<br>(AL)←(AX)/src的商<br>(AH)←(AX)/src的余数<br>字节操作<br>(AX)←(DX,AX)/src的商<br>(DX)←(DX,AX)/src的余数<br>指令支持的寻址方式：src作为除数，可用除立即数以外的任一种寻址方式来取得。<br>指令对标志位的影响：不影响条件码。<br>指令的特殊要求：除法指令要求字操作时，被除数必须为32位，除数是16位，商和余数是16位的；<br>　字节操作时，被除数必须为16位，除数是8位，得到的商和余数是8位的。</p>
+<p>六、十进制调整指令</p>
+<h1 id="逻辑指令"><a href="#逻辑指令" class="headerlink" title="逻辑指令"></a>逻辑指令</h1><h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><p>24、逻辑与 AND (logic and)</p>
+<p>指令的汇编格式：AND dst,src<br>指令的基本功能：(dst)←(dst)与(src)<br>指令支持的寻址方式：两个操作数不能同时为存储器寻址。即为除源操作数为立即数的情况外，源操作数和目地操作数必须有一个寄存器寻址方式。<br>指令对标志位的影响：指令执行后 CF 和 OF 置零，AF无定义。<br>SF=1 指令执行后的结果为负数（符号位为1）<br>SF=0 指令执行后的结果为正数（符号位为0）<br>ZF=1 指令执行后的结果为零<br>ZF=0 指令执行后的结果不为零<br>PF=1 结果操作数中1的个数为偶数时置1<br>PF=0 结果操作数中1的个数为奇数时置0</p>
+<p>25、逻辑或 OR (logic or)</p>
+<p>指令的汇编格式：OR dst，src<br>指令的基本功能：(dst)←(dst)或(src)<br>指令支持的寻址方式：两个操作数不能同时为存储器寻址。即为除源操作数为立即数的情况外，原操作数和目的操作数必须有一个寄存器寻址方式。<br>指令对标志位的影响：令执行后 CF 和 OF 置零，AF无定义。<br>SF=1 指令执行后的结果为负数（符号位为1）<br>SF=0 指令执行后的结果为正数（符号位为0）<br>ZF=1 指令执行后的结果为零<br>ZF=0 指令执行后的结果不为零<br>PF=1 结果操作数中1的个数为偶数时置1<br>PF=0 结果操作数中1的个数为奇数时置0</p>
+<p>26、逻辑非 NOT (logic not)</p>
+<p>指令的汇编格式：NOT orc<br>指令的基本功能：(dst)←(opr)<br>指令支持的寻址方式：除立即数寻址方式以外的其余寻址方式<br>指令对标志位的影响：对标志位无影响</p>
+<p>27、异或 XOR (exclusice or)</p>
+<p>指令的汇编格式：XOR dst,src<br>指令的基本功能：(dst)←(dst)异或(src)<br>指令支持的寻址方式：两个操作数不能同时为存储器寻址。即为除源操作数为立即数的情况外，原操作数和目的操作数必须有一个寄存器寻址方式。<br>指令对标志位的影响：令执行后 CF 和 OF 置零，AF无定义。<br>SF=1 指令执行后的结果为负数（符号位为1）<br>SF=0 指令执行后的结果为正数（符号位为0）<br>ZF=1 指令执行后的结果为零<br>ZF=0 指令执行后的结果不为零<br>PF=1 结果操作数中1的个数为偶数时置1<br>PF=0 结果操作数中1的个数为奇数时置0</p>
+<p>28、测试指令 TEST</p>
+<p>指令的汇编格式：TEST opr1,opr2<br>指令的基本功能：(opr1)与(opr2)<br>指令支持的寻址方式：两个操作数不能同时为存储器寻址，即为除源操作数为立即数的情况外，源操作数和目的操作数必须有一个寄存器寻址方式。<br>指令对标志位的影响：令执行后 CF 和 OF 置零，AF无定义。<br>SF=1 指令执行后的结果为负数（符号位为1）<br>SF=0 指令执行后的结果为正数（符号位为0）<br>ZF=1 指令执行后的结果为零<br>ZF=0 指令执行后的结果不为零<br>PF=1 结果操作数中1的个数为偶数时置1<br>PF=0 结果操作数中1的个数为奇数时置0</p>
+<h2 id="移位指令"><a href="#移位指令" class="headerlink" title="移位指令"></a>移位指令</h2><p>29、逻辑左移 SHL (shift logical left)</p>
+<p>指令的汇编格式：SHL dst,cnt<br>指令的基本功能：SHL指令向左逐位移动cnt次，每次逐位移动后，最低位用0来补充，最高位移入CF。<br>指令支持的寻址方式：目的操作数dst可以是除立即数外的任何寻址方式。移位次数（或位数）cnt=1时，1可以直接写在指令中，cnt&gt;1时，cnt必须放入CL寄存器中。<br>指令对标志位的影响：CF=移入的数值<br>OF=1 当cnt=1时，移动后最高位的值发生变化。<br>OF=0 当cnt=1时，移动时最高位的值未发生变化。<br>SF、ZF、PF根据移动后的结果设置。</p>
+<p>30、逻辑右移 SHR (shift logical right)</p>
+<p>指令的汇编格式：SHR dst,cnt<br>指令的基本功能：SHR指令向右逐位移动cnt次，每次逐位移动后，最高位用0来补充，最低位移入CF。<br>指令支持的寻址方式：目的操作数dst可以是除立即数外的任何寻址方式。移位次数（或位数）cnt=1时，1可以直接写在指令中，cnt&gt;1时，cnt必须放入CL寄存器中。<br>指令对标志位的影响：CF=移入的数值<br>OF=1 当cnt=1时，移动后最高位的值发生变化。<br>OF=0 当cnt=1时，移动时最高位的值未发生变化。<br>SF、ZF、PF根据移动后的结果设置。</p>
+<p>31、算术左移 SAL (shift arithmetic left)</p>
+<p>指令的汇编格式：SAL dst cnt<br>指令的基本功能：SAL指令向左逐位移动cnt次，每次逐位移动后，最低位用0来补充，最高位移入CF。<br>指令支持的寻址方式：目的操作数dst可以是除立即数外的任何寻址方式。移位次数（或位数）cnt=1时，1可以直接写在指令中，cnt&gt;1时，cnt必须放入CL寄存器中。<br>指令对标志位的影响：CF=移入的数值<br>OF=1 当cnt=1时，移动后最高位的值发生变化。<br>OF=0 当cnt=1时，移动时最高位的值未发生变化。<br>SF、ZF、PF根据移动后的结果设置。</p>
+<p>32、算术右移 SAR (shift arithmetic right)</p>
+<p>指令的汇编格式：SAR dst,cnt<br>指令的基本功能：SAR指令向右逐位移动cnt次，每次逐位移动后，最高位用符号位来补充，最低位移入CF。<br>指令支持的寻址方式：目的操作数dst可以是除立即数外的任何寻址方式。移位次数（或位数）cnt=1时，1可以直接写在指令中，cnt&gt;1时，cnt必须放入CL寄存器中。<br>指令对标志位的影响：CF=移入的数值<br>OF=1 当cnt=1时，移动后最高位的值发生变化。<br>OF=0 当cnt=1时，移动时最高位的值未发生变化。<br>SF、ZF、PF根据移动后的结果设置。</p>
+<p>33、循环左移 ROL (rotate left)</p>
+<p>指令的汇编格式：ROL dst,cnt<br>指令的基本功能：ROL 对由dst指定的寄存器或存储器操作数左移循环移动cnt所指定的次数，每左移一次，把最高位同时移入CF和操作数最低位。<br>指令支持的寻址方式：目的操作数dst可以是除立即数外的任何寻址方式。移动次数（或位数）cnt=1时，1可以直接写在指令中，cnt&gt;1时，cnt必须放入CL寄存器中。<br>指令对标志位的影响：CF=移入的数值<br>OF=1 当cnt=1时，移动后最高位的值发生变化。<br>OF=0 当cnt=1时，移动时最高位的值未发生变化。<br>SF、ZF、PF根据移动后的结果设置。</p>
+<p>34、循环右移 ROR (rotate right)</p>
+<p>指令的汇编格式：ROR dst,cnt<br>指令的基本功能：ROR 对由dst指定的寄存器或存储器操作数右移循环移动cnt所指定的次数，每右移一次，把最低位同时移入CF和操作数最高位。<br>指令支持的寻址方式：目的操作数dst可以是除立即数外的任何寻址方式。移动次数（或位数）cnt=1时，1可以直接写在指令中，cnt&gt;1时，cnt必须放入CL寄存器中。<br>指令对标志位的影响：CF=移入的数值<br>OF=1 当cnt=1时，移动后最高位的值发生变化。<br>OF=0 当cnt=1时，移动时最高位的值未发生变化。<br>SF、ZF、PF根据移动后的结果设置。</p>
+<p>35、带进位的循环左移 RCL (rotate left through carry)</p>
+<p>指令的汇编格式：RCL dst,cnt<br>指令的基本功能：RCL 对由dst指定的寄存器或存储器操作数，连同进位标志CF左循环移动，m所指定的次数，每左移一次，把操作数的最高位移入CF，而CF中原有内容移入操作数的最低位。<br>指定支持的寻址方式：目的操作数dst可以是除立即数外的任何寻址方式。移动次数（或位数）cnt=1时，1可以直接写在指令中，cnt&gt;1时，cnt必须放入CL寄存器中。<br>指令对标志位的影响：CF=移入的数值。<br>OF=1 当cnt=1时，移动后最高位的值未发生变化。<br>OF=0 当cnt=1时，移动后最高位的值发生变化。<br>SF、ZF、PF标志位不受影响。</p>
+<p>36、带进位的循环右移 RCR (rotate right through carry)</p>
+<p>指令的汇编格式：RCR dst，cnt<br>指令的基本功能：RCR 对由dst指定的寄存器或存储器操作数，连同进位标志CF右循环移动，m所指定的次数，每右移一次，把操作数的最高低位移入CF，而CF中原有内容移入操作数的最高位。<br>指令支持的寻址方式：目的操作数dst可以是除立即数外的任何寻址方式。移动次数（或位数）cnt=1时，1可以直接写入指令中，cnt&gt;1时，cnt必须放入CL寄存器中。<br>指令对标志位的影响：CF=移入的数值。<br>OF=1 当cnt=1时，操作数最高位的值未发生变化。<br>OF=0 当cnt=1时，操作数最高位的值发生变化。<br>SF、ZF、PF标志位不受影响。</p>
+<h1 id="串处理指令"><a href="#串处理指令" class="headerlink" title="串处理指令"></a>串处理指令</h1><h2 id="设置方向标志指令"><a href="#设置方向标志指令" class="headerlink" title="设置方向标志指令"></a>设置方向标志指令</h2><p>37、DF置零 CLD (clear direction flag)<br>DF置一 STD (set direction flag)</p>
+<p>指令的汇编格式：CLD<br>STD<br>指令的基本功能：CLD DF=0<br>STD DF=1</p>
+<h2 id="串处理指令-1"><a href="#串处理指令-1" class="headerlink" title="串处理指令"></a>串处理指令</h2><p>38、串传送 MOVSB / MOVSW (move string byte/word)</p>
+<p>指令的汇编格式：MOVSB<br>MOVSW<br>指令的基本功能：(ES:DI)←(DS:SI)<br>(SI)←(SI) +/- 1(字节)或 +/- 2(字)<br>(DI)←(DI) +/- 1(字节)或 +/- 2(字)<br>指令对条件码的影响：不影响条件码。<br>指令的特殊要求：源串必须在数据段中，目的串必须在附加段中，串处理指令隐含的寻址方式是SI和DI寄存器的间接寻址方式。源串允许使用段跨越前缀来指定段。</p>
+<p>39、存串 STOSB / STOSW (stroe from string byte/word)</p>
+<p>指令的汇编格式：STOSB<br>STOSW<br>指令的基本功能：(ES:DI)←(AL)或(AX)<br>(DI)←(DI) +/- 1(字节)或 +/- 2(字)<br>指令对条件码的影响：不影响条件码。<br>指令的特殊要求：源串必须在数据段中，目的串必须在附加段中，串处理指令隐含的寻址方式是SI和DI寄存器的间接寻址方式。源串允许使用段跨越前缀来指定段。</p>
+<p>40、取串LODSB / LODSW (load from string byte/word)</p>
+<p>指令的汇编格式：LODSB<br>LODSW<br>指令的基本功能：(AL)或(AX)←(DS:SI)<br>(SI)←(SI) +/- 1(字节)或 +/- 2(字)<br>指令对条件码的影响：不影响条件码。<br>指令的特殊要求：源串必须在数据段中，目的串必须在附加段中，串处理指令隐含的寻址方式是SI和DI寄存器的间接寻址方式。源串允许使用段跨越前缀来指定段。</p>
+<p>41、串比较 CMPSB / CMPSW (compare string byte/word)</p>
+<p>指令的汇编格式：CMPSB<br>CMPSW<br>指令的基本功能：(DS:SI)-(ES:DI) 根据比较结果设置条件码<br>(SI)←(SI) +/-1 (字节)或+/-2(字)<br>(DI)←(DI) +/-1 (字节)或+/-2(字)<br>指令对条件码的影响：SF=1 减法结果为负数（符号位为1）<br>SF=0 减法结果为正数（符号位为0）<br>ZF=1 减法结果为零<br>ZF=0 减法结果不为零<br>CF=1 二进制减法运算中最高有效位向高位有借位（被减数小于减数，不够减的情况）<br>CF=0 二进制减法运算中最高有效为向高位无借位（被减数&gt;=减数，够减的情况）<br>OF=1 两数符号相反（正数-负数，或负数-正数），而结果符号与减数相同。<br>OF=0 同符号数相减时，或不同符号数相减，其结果符号与减数不同。</p>
+<p>42、串扫描 SCASB / SCASW (scan string byte / word)</p>
+<p>指令的汇编格式：SCASB<br>SCASW<br>指令的基本功能：(AL)←(ES:DI)或(AX)←(ES:DI) 根据扫描比较的结果设置条件码。<br>(DI)←(DI) +/-1 (字节)或+/-2(字)<br>指令对条件码的影响：SF=1 结果为负数（符号位为1）<br>SF=0 结果为正数（符号位为0）<br>ZF=1 结果为零<br>ZF=0 结果不为零<br>CF=1 二进制减法运算中最高有效位向高位有借位（被减数小于减数，不够减的情况）<br>CF=0 二进制减法运算中最高有效为向高位无借位（被减数&gt;=减数，够减的情况）<br>OF=1 两数符号相反（正数-负数，或负数-正数），而结果符号与减数相同。<br>OF=0 同符号数相减时，或不同符号数相减，其结果符号与减数不同。</p>
+<h2 id="串重复前缀"><a href="#串重复前缀" class="headerlink" title="串重复前缀"></a>串重复前缀</h2><p>43、重复执行串 REP</p>
+<p>指令的汇编格式：REP (CX)=重复次数<br>指令的基本功能：① (CX)=0时，串指令执行完毕，否则执行②  -  ④<br>　 　② (CX)←(CX)－1<br>　 　③ 执行串指令（MOVS或STOS）<br>　　④ 重复执行①</p>
+<p>44、相等/为零时重复执行串指令 REPE/REPZ</p>
+<p>指令的汇编格式：REPE / REPZ (CX)=比较/扫描的次数<br>指令的基本功能：① (CX)=0或ZF=0时，结束执行串指令，否则继续②  -  ④<br>　 　② (CX)←(CX)－1<br>　 　③ 执行串指令（CMPS或SCAS）<br>　 　④ 重复执行①</p>
+<p>45、不等/不为零时重复执行串指令 REPNE / PEPNZ</p>
+<p>指令的汇编格式：REPNE / PEPNZ (CX)=比较/扫描的次数<br>指令的基本功能：① (CX)=0或ZF=1，结束执行串指令，否则继续②  -  ④<br>　 　② (CX)←(CX)－1<br>　 　③ 执行串指令（CMPS或SCAS）<br>　 　④ 重复执行①</p>
+<h1 id="控制转移指令"><a href="#控制转移指令" class="headerlink" title="控制转移指令"></a>控制转移指令</h1><h2 id="无条件转移指令"><a href="#无条件转移指令" class="headerlink" title="无条件转移指令"></a>无条件转移指令</h2><p>46、短转移 JMP SHORT label (short jump)</p>
+<p>指令的汇编格式：JMP SHORT label<br>指令的基本功能：(IP)←当前(IP)+8位位移量  8位位移量是汇编程序在汇编源程序时，根据目标地址和当前IP之间的距离自动生成的。<br>指令对条件码的影响：对标志位无影响。</p>
+<p>47、近转移 JMP NEAR PTR label (near jump)</p>
+<p>指令的汇编格式：直接转移 JMP label (direct jump)<br>寄存器间接转移 JMP reg (register indirect jump)<br>存储器间接转移 JMP WORD PTR OPR (memory indirect jump)<br>指令的基本功能：JMP label (IP) ← OFFSET label = (IP)当前＋16位位移量<br>JMP reg (IP) ← (reg)<br>JMP WORD PTR OPR (IP) ← (PA+1,PA)<br>指令支持的寻址方式：指令中的转向地址可以是直接寻址方式、寄存器寻址方式、寄存器间接寻址方式和存储器寻址方式。<br>指令对条件码的影响：对标志位无影响。</p>
+<p>48、远转移 JMP FAR PTR label (for jump)</p>
+<p>指令的汇编格式：JMP FAR PTR label<br>指令的基本功能：(IP)←label的段内偏移地址<br>(CS)←label所在段的段地址<br>指令支持的寻址方式：远转移的目的地址可以使用除立即寻址方式外的任何寻址方式来表示。<br>指令对条件码的影响：对标志位无影响。</p>
+<h2 id="条件转移指令"><a href="#条件转移指令" class="headerlink" title="条件转移指令"></a>条件转移指令</h2><p>指令的汇编格式及功能<br>根据条件码的值转移：()<br>49、JZ(JE) OPR ZF=1<br>50、JNZ(JNE) OPR ZF=0<br>51、JS OPR SF=1<br>52、JNS OPR SF=0<br>53、JO OPR OF=1<br>54、JNO OPR OF=0<br>55、JP OPR PF=1<br>56、JNP OPR PF=0<br>57、JC OPR CF=1<br>58、JNC OPR CF=0</p>
+<p>比较两个无符号数，根据比较的结果转移<br>59、JB(JNAE,JC) OPR CF=1 被减数小于减数则转移<br>60、JNB(JAE,JNC) OPR CF=0 被减数大于或等于减数则转移<br>61、JBE(JNA) OPR CF或ZF=1 被减数小于或等于减数则转移<br>62、JNBE(JA) OPR CF或ZF=0 被减数大于减数则转移</p>
+<p>比较两个带符号数，根据比较结果转移<br>63、JL/JNGE (OPR SF异或OF=1) 被减数小于减数则转移<br>64、JNL/JGE (SF异或OF=0) 被减数不小于减数则转移<br>65、JLE/JNE [(SF异或OF)与ZF=1] 被减数不大于减数则转移<br>66、JNLE/JG [(SF异或OF)与ZF=0] 被减数大于减数则转移</p>
+<p>根据CX寄存器的值转移<br>67、JCXZ (CX)=0 CX内容为零 则转移（Jump if CX equals Zero）</p>
+<p>指令的特殊要求：所有条件转移指令都是短转移指令，转移的目标地址必须在当前IP地址的-128至+127字节范围之内，因此条件转移指令是2字节指令。</p>
+<h2 id="循环指令"><a href="#循环指令" class="headerlink" title="循环指令"></a>循环指令</h2><p>68、循环 LOOP (loop)<br>指令的汇编格式：LOOP label<br>指令的基本功能：① (CX)←(CX)－1<br>　　　　　　　  ② 若(CX)≠0，则(IP)←(IP)当前＋位移量，否则循环结束。<br>指令的特殊要求：循环指令都是短转移格式的指令，也就是说，位移量是用8位带符号数来表示的，转向地址在相对于当前IP值的（－128） - （＋127）字节范围之内。</p>
+<p>69、为零/相等时循环 LOOPZ/LOOPE (loop while Zero or Equal)<br>指令的汇编格式：LOOPNZ/LOOPNE label<br>指令的基本功能：① (CX)←(CX)－1<br>　　　　　　 　② 若ZF=1且(CX)≠0，则(IP)←(IP)当前＋位移量，否则循环结束。<br>指令的特殊要求：循环指令都是短转移格式的指令，也就是说，位移量是用8位带符号数来表示的，转向地址在相对于当前IP值的（－128） - （＋127）字节范围之内。</p>
+<p>70、不为零/不相等时循环 LOOPNZ/LOOPNE (loop while nonZero or Not Equal)<br>指令的汇编格式：LOOPNZ/LOOPNE label<br>指令的基本功能：① (CX)←(CX)－1<br>　　　　　　 　 ② 若ZF=0且(CX)≠0，则(IP)←(IP)当前＋位移量，否则循环结束。<br>指令的特殊要求：循环指令都是短转移格式的指令，也就是说，位移量是用8位带符号数来表示的，转向地址在相对于当前IP值的（－128） - （＋127）字节范围之内。</p>
+<h2 id="子程序调用"><a href="#子程序调用" class="headerlink" title="子程序调用"></a>子程序调用</h2><p>71、段内直接近调用 CALL SUBROUT<br>指令的基本功能：<br>(SP)←(SP)-2<br>((SP)+1,(sp))←(IP)<br>(IP)←(IP)+16位位移量<br>段内间接近调用 CALL DESTIN<br>指令的基本功能：<br>(SP)←(SP)-2<br>((SP)+1,(SP))←(IP)<br>(IP)←(EA)</p>
+<p>72、段间直接调用 CALL FAR PTR SUBROUT<br>指令的基本功能：(SP)←(SP)-2,((SP))←(CS)当前<br>(SP)←(SP)-2,((SP))←(IP)当前<br>(IP)←偏移地址(在指令的第2、3个字节)<br>(CS)←段地址(在指令的第4、5个字节)</p>
+<h2 id="返回指令"><a href="#返回指令" class="headerlink" title="返回指令"></a>返回指令</h2><p>73、段内返回(近返回) RET<br>指令的基本功能：(IP)←((SP)+1,(SP))<br>(SP)←(SP)+2</p>
+<p>段间返回(远返回) RET<br>指令的基本功能：(IP)←((SP)),(SP)←(SP)+2<br>(CS)←((SP)),(SP)←(SP)+2</p>
+<p>带立即数返回 RET N<br>执行操作：① 返回地址出栈（操作同段内或段间返回）<br>　　　　　② 修改堆栈指针：(SP) ← (SP)＋N</p>
+<p>六、中断及中断返回指令</p>
+<p>74、INT n 中断指令（interrupt），n为中断类型号<br>　　执行操作：① 入栈保存FLAGS：(SP) ← (SP)－2，((SP)) ← (FLAGS)<br>　　　　　　　② 入栈保存返回地址：(SP) ← (SP)－2，((SP)) ← (CS)<br>　　　　　　　　　　　　　　　　　 (SP) ← (SP)－2，((SP)) ← (IP)<br>　　　　　　　③ 转中断处理程序：(IP) ← (n×4)<br>　　　　　　　　　　　　　　　　 (CS) ← (n×4＋2)</p>
+<p>75、IRET 中断返回指令（return from interrupt）<br>　　执行操作：① 返回地址出栈：(IP) ← ((SP))，(SP) ← (SP)＋2<br>　　　　　　　　　　　　　　　 (CS) ← ((SP))，(SP) ← (SP)＋2<br>　　　　　　　② FLAGS出栈：(FLAGS) ← ((SP))，(SP) ← (SP)＋2</p>
+<p>76、INTO 溢出则中断（中断类型为4）<br>　　执行操作：若OF=1（有溢出），则：<br>　　　　　　　① 入栈保存FLAGS：(SP) ← (SP)－2，((SP)) ← (FLAGS)<br>　　　　　　　② 入栈保存返回地址：(SP) ← (SP)－2，((SP)) ← (CS)<br>　　　　　　　　　　　　　　　　　 (SP) ← (SP)－2，((SP)) ← (IP)<br>　　　　　　　③ 转中断处理程序：(IP) ← (4×4)= (10H)<br>　　　　　　　　　　　　　　　　 (CS) ← (4×4＋2)= (12H)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果喜欢我的文章，欢迎进行打赏，您的支持将使我继续创作</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://ouur4c5x0.bkt.clouddn.com/wechatpay.png" alt="zeroX 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://ouur4c5x0.bkt.clouddn.com/alipay.jpg" alt="zeroX 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/汇编指令集/" rel="tag"># 汇编指令集</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/30/computerNetworking-01/" rel="next" title="计算机网络笔记">
+                <i class="fa fa-chevron-left"></i> 计算机网络笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/07/10000000/" rel="prev" title="为什么8位有符号二进制数范围是-128~127">
+                为什么8位有符号二进制数范围是-128~127 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDc4Ni83MzM4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="http://ouur4c5x0.bkt.clouddn.com/mylogo.jpg"
+              alt="zeroX" />
+          
+            <p class="site-author-name" itemprop="name">zeroX</p>
+            <p class="site-description motion-element" itemprop="description">拿一狐</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ledgil" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:ledgil.lql@gmail.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/zeroX03" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>微博</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.baidu.com/" title="百度" target="_blank">百度</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.google.com.hk/?gws_rd=ssl" title="谷歌" target="_blank">谷歌</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据传送指令"><span class="nav-number">1.</span> <span class="nav-text">数据传送指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通用数据传送指令"><span class="nav-number">1.1.</span> <span class="nav-text">通用数据传送指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#累加器专用传送指令"><span class="nav-number">1.2.</span> <span class="nav-text">累加器专用传送指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地址传送指令"><span class="nav-number">1.3.</span> <span class="nav-text">地址传送指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标志寄存器传送指令"><span class="nav-number">1.4.</span> <span class="nav-text">标志寄存器传送指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算术指令"><span class="nav-number">2.</span> <span class="nav-text">算术指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#加法指令"><span class="nav-number">2.1.</span> <span class="nav-text">加法指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减法指令"><span class="nav-number">2.2.</span> <span class="nav-text">减法指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乘法指令"><span class="nav-number">2.3.</span> <span class="nav-text">乘法指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#符号扩展指令"><span class="nav-number">2.4.</span> <span class="nav-text">符号扩展指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#除法指令"><span class="nav-number">2.5.</span> <span class="nav-text">除法指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逻辑指令"><span class="nav-number">3.</span> <span class="nav-text">逻辑指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑运算"><span class="nav-number">3.1.</span> <span class="nav-text">逻辑运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移位指令"><span class="nav-number">3.2.</span> <span class="nav-text">移位指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#串处理指令"><span class="nav-number">4.</span> <span class="nav-text">串处理指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置方向标志指令"><span class="nav-number">4.1.</span> <span class="nav-text">设置方向标志指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#串处理指令-1"><span class="nav-number">4.2.</span> <span class="nav-text">串处理指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#串重复前缀"><span class="nav-number">4.3.</span> <span class="nav-text">串重复前缀</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控制转移指令"><span class="nav-number">5.</span> <span class="nav-text">控制转移指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无条件转移指令"><span class="nav-number">5.1.</span> <span class="nav-text">无条件转移指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件转移指令"><span class="nav-number">5.2.</span> <span class="nav-text">条件转移指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环指令"><span class="nav-number">5.3.</span> <span class="nav-text">循环指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子程序调用"><span class="nav-number">5.4.</span> <span class="nav-text">子程序调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回指令"><span class="nav-number">5.5.</span> <span class="nav-text">返回指令</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017.9.10 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zeroX</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
